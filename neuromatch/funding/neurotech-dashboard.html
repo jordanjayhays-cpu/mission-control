@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurotech Intelligence Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --card: #141420;
+            --border: #1e1e2e;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --accent: #6366f1;
+            --green: #22c55e;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+            --cyan: #06b6d4;
+            --purple: #a855f7;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+        h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #6366f1, #a855f7, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .meta { display: flex; align-items: center; gap: 16px; }
+        .date { color: var(--muted); font-size: 0.85rem; }
+        .badge { background: rgba(99,102,241,0.15); color: #818cf8; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+        .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); border-radius: 14px; padding: 20px; border: 1px solid var(--border); }
+        .stat-card h3 { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .stat-card .value { font-size: 2rem; font-weight: 800; margin-bottom: 4px; }
+        .stat-card .sub { color: var(--muted); font-size: 0.75rem; }
+        .green { color: var(--green); }
+        .cyan { color: var(--cyan); }
+        .yellow { color: var(--yellow); }
+        .purple { color: #a855f7; }
+
+        .section { background: var(--card); border-radius: 14px; padding: 20px; border: 1px solid var(--border); margin-bottom: 16px; }
+        .section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+        .company-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .company-row:last-child { border-bottom: none; }
+        .company-row .name { font-weight: 600; font-size: 0.95rem; }
+        .company-row .desc { color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+        .company-row .amount { font-weight: 700; font-size: 0.95rem; }
+        .company-row .round { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; background: rgba(99,102,241,0.15); color: #818cf8; }
+
+        .tag { padding: 2px 8px; border-radius: 8px; font-size: 0.65rem; font-weight: 700; margin-right: 4px; display: inline-block; }
+        .tag-bci { background: rgba(6,182,212,0.15); color: var(--cyan); }
+        .tag-neuro { background: rgba(168,85,247,0.15); color: #c084fc; }
+        .tag-ai { background: rgba(99,102,241,0.15); color: #818cf8; }
+        .tag-clinical { background: rgba(239,68,68,0.15); color: var(--red); }
+        .tag-new { background: rgba(245,158,11,0.15); color: var(--yellow); }
+        .tag-partnership { background: rgba(34,197,94,0.15); color: var(--green); }
+        .tag-regulatory { background: rgba(14,165,233,0.15); color: #38bdf8; }
+
+        .deal-card { background: rgba(30,41,59,0.5); border-radius: 10px; padding: 14px; border: 1px solid var(--border); margin-bottom: 10px; }
+        .deal-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+        .deal-card .name { font-weight: 700; font-size: 0.95rem; }
+        .deal-card .amount { color: var(--green); font-weight: 700; }
+        .deal-card .bottom { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); flex-wrap: wrap; gap: 4px; }
+
+        .new-company-card { background: rgba(30,41,59,0.5); border-radius: 10px; padding: 14px; border: 1px solid var(--border); margin-bottom: 10px; }
+        .new-company-card .name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+        .new-company-card .what { font-size: 0.8rem; color: var(--text); margin-bottom: 6px; }
+        .new-company-card .meta { font-size: 0.7rem; color: var(--muted); }
+
+        .milestone { padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .milestone:last-child { border-bottom: none; }
+        .milestone .type { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
+        .milestone .detail { font-size: 0.875rem; }
+        .milestone .source { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+
+        .refresh-btn { background: var(--border); border: 1px solid #2a2a3e; color: var(--muted); padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; cursor: pointer; }
+        .refresh-btn:hover { background: #2a2a3e; color: var(--text); }
+
+        /* Company Directory Table */
+        .company-table-wrap { overflow-x: auto; }
+        .company-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+        .company-table th { text-align: left; padding: 8px 10px; color: var(--muted); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+        .company-table td { padding: 8px 10px; border-bottom: 1px solid rgba(30,41,59,0.5); vertical-align: top; }
+        .company-table tr:last-child td { border-bottom: none; }
+        .company-table tbody tr:hover td { background: rgba(99,102,241,0.07); }
+        .company-table .name-cell { font-weight: 600; white-space: nowrap; }
+        .company-table .name-cell a { color: #818cf8; text-decoration: none; }
+        .company-table .name-cell a:hover { text-decoration: underline; }
+        .company-table .funding-cell { color: #22c55e; font-weight: 700; white-space: nowrap; }
+        .company-table .focus-cell { color: #94a3b8; font-size: 0.72rem; max-width: 280px; }
+        .company-table .location-cell { color: #64748b; font-size: 0.72rem; white-space: nowrap; }
+        .company-table .hiring-cell { text-align: center; }
+        .company-table .hiring-yes { color: #22c55e; font-weight: 700; }
+        .company-table .hiring-no { color: #334155; }
+
+        .footer { text-align: center; color: var(--muted); font-size: 0.7rem; margin-top: 32px; }
+        .back-link { display: inline-block; margin-bottom: 16px; color: var(--cyan); font-size: 0.8rem; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .header { flex-direction: column; align-items: flex-start; }
+            .company-table { font-size: 0.72rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="back-link" href="file:///Users/jordan/workspace/007-Axton/master-dashboard.html">← Back to Mission Control</a>
+
+<div class="header">
+    <div>
+        <h1>Neurotech Intelligence</h1>
+        <div style="display:flex;gap:6px;margin-top:6px;">
+            <span class="badge">BCI · Neuromodulation · NeuroAI</span>
+            <span class="badge badge-green">84 Companies</span>
+        </div>
+    </div>
+    <div class="meta">
+        <span class="date" id="updated">Loading...</span>
+        <button class="refresh-btn" onclick="window.location.reload()">↻ Refresh</button>
+    </div>
+</div>
+
+<!-- Key Metrics -->
+<div class="grid">
+    <div class="stat-card">
+        <h3>Total Funding Tracked</h3>
+        <div class="value green">$4.1B</div>
+        <div class="sub">84 companies · SeedTable data</div>
+    </div>
+    <div class="stat-card">
+        <h3>BCI Companies</h3>
+        <div class="value cyan">12+</div>
+        <div class="sub">with human implants / trials</div>
+    </div>
+    <div class="stat-card">
+        <h3>Human Implants</h3>
+        <div class="value green">4</div>
+        <div class="sub">Neuralink, Paradromics +2</div>
+    </div>
+    <div class="stat-card">
+        <h3>Avg Funding</h3>
+        <div class="value purple">$59.4M</div>
+        <div class="sub">per company in directory</div>
+    </div>
+</div>
+
+<!-- Top Valued Companies -->
+<div class="section">
+    <h2>🏆 Top Valued Neurotech Companies</h2>
+    <div class="company-row">
+        <div>
+            <span class="tag tag-bci">BCI</span>
+            <span class="name">Neuralink</span>
+            <div class="desc">Brain-computer interface · Elon Musk</div>
+        </div>
+        <div style="text-align:right">
+            <div class="amount green">$9B</div>
+            <div class="round">Series E · $650M</div>
+        </div>
+    </div>
+    <div class="company-row">
+        <div>
+            <span class="tag tag-bci">BCI</span>
+            <span class="name">Precision Neuroscience</span>
+            <div class="desc">Minimally invasive BCI · Layer 7 cortical implant</div>
+        </div>
+        <div style="text-align:right">
+            <div class="amount cyan">$543M</div>
+            <div class="round">Total Raised</div>
+        </div>
+    </div>
+    <div class="company-row">
+        <div>
+            <span class="tag tag-bci">BCI</span>
+            <span class="name">Paradromics</span>
+            <div class="desc">High-bandwidth BCI · First human implant done</div>
+        </div>
+        <div style="text-align:right">
+            <div class="amount cyan">$500M</div>
+            <div class="round">Total Raised</div>
+        </div>
+    </div>
+    <div class="company-row">
+        <div>
+            <span class="tag tag-bci">BCI</span>
+            <span class="name">Blackrock Neurotech</span>
+            <div class="desc">Utah Array · longest human BCI dataset</div>
+        </div>
+        <div style="text-align:right">
+            <div class="amount yellow">$350M</div>
+            <div class="round">Total Raised</div>
+        </div>
+    </div>
+    <div class="company-row">
+        <div>
+            <span class="tag tag-clinical">Clinical</span>
+            <span class="name">Cognito Therapeutics</span>
+            <div class="desc">Spectris platform · Alzheimer's / optical neurostimulation</div>
+        </div>
+        <div style="text-align:right">
+            <div class="amount green">$105M</div>
+            <div class="round">Series raise</div>
+        </div>
+    </div>
+</div>
+
+<!-- New Entrants — Companies to Watch -->
+<div class="section">
+    <h2>🌱 New Entrants (2025–2026)</h2>
+    <div class="new-company-card">
+        <div class="name">The Biological Computing Company</div>
+        <div class="what">Biological computing platform for neural applications</div>
+        <div class="meta"><span class="tag tag-new">New Entrant</span> <span class="tag tag-bci">BCI</span> Raised $25M Seed · Feb 2026</div>
+    </div>
+    <div class="new-company-card">
+        <div class="name">Phantom Neuro</div>
+        <div class="what">Neuromuscular BCI for prosthetic control</div>
+        <div class="meta"><span class="tag tag-bci">BCI</span> Actively recruiting · Texas-based</div>
+    </div>
+    <div class="new-company-card">
+        <div class="name">NeuroBionics</div>
+        <div class="what">Peripheral nerve interface for restoration</div>
+        <div class="meta"><span class="tag tag-bci">BCI</span> Emerging player</div>
+    </div>
+    <div class="new-company-card">
+        <div class="name">Bliss</div>
+        <div class="what">Culturally adaptive AI therapy chatbot</div>
+        <div class="meta"><span class="tag tag-ai">AI Therapy</span> Raised €233K angel · Apr 2026</div>
+    </div>
+    <div class="new-company-card">
+        <div class="name">Constellix</div>
+        <div class="what">Neuromodulation platform (undisclosed details)</div>
+        <div class="meta"><span class="tag tag-neuro">Neuromodulation</span> Jan–Feb 2026 activity</div>
+    </div>
+</div>
+
+<!-- Recent Deals -->
+<div class="section">
+    <h2>💰 Recent Deals (2026)</h2>
+    <div class="deal-card">
+        <div class="top">
+            <div class="name">Neuralink</div>
+            <div class="amount">$650M · Series E</div>
+        </div>
+        <div class="bottom">
+            <span class="tag tag-bci">BCI</span>
+            <span>Pre-money $9B valuation · 2026</span>
+        </div>
+    </div>
+    <div class="deal-card">
+        <div class="top">
+            <div class="name">The Biological Computing Company</div>
+            <div class="amount">$25M Seed</div>
+        </div>
+        <div class="bottom">
+            <span class="tag tag-new">New</span>
+            <span>Primary VC · Feb 2026</span>
+        </div>
+    </div>
+    <div class="deal-card">
+        <div class="top">
+            <div class="name">Cognito Therapeutics</div>
+            <div class="amount">$105M</div>
+        </div>
+        <div class="bottom">
+            <span class="tag tag-clinical">Clinical</span>
+            <span>Alzheimer's platform · Spectris</span>
+        </div>
+    </div>
+    <div class="deal-card">
+        <div class="top">
+            <div class="name">WHOOP</div>
+            <div class="amount">Jumbo Round</div>
+        </div>
+        <div class="bottom">
+            <span class="tag tag-ai">Wearable</span>
+            <span>~$100M+ · Mar 2026</span>
+        </div>
+    </div>
+    <div class="deal-card">
+        <div class="top">
+            <div class="name">Bliss (AI Therapy)</div>
+            <div class="amount">€233K Angel</div>
+        </div>
+        <div class="bottom">
+            <span class="tag tag-ai">AI Therapy</span>
+            <span>Culturally adaptive · Apr 2026</span>
+        </div>
+    </div>
+</div>
+
+<!-- Milestones & News -->
+<div class="section">
+    <h2>📍 Milestones & Signals</h2>
+    <div class="milestone">
+        <div class="type" style="color:var(--cyan);">🏥 First Human Implant</div>
+        <div class="detail">Paradromics completes first human BCI implant — actively collecting patient data</div>
+        <div class="source">CNBC · June 2025</div>
+    </div>
+    <div class="milestone">
+        <div class="type" style="color:var(--yellow);">🤝 Partnership</div>
+        <div class="detail">Precision Neuroscience adds Vanessa Tolosa (Neuralink co-founder) to leadership team</div>
+        <div class="source">NeurotechReports · 2025</div>
+    </div>
+    <div class="milestone">
+        <div class="type" style="color:var(--red);">🔬 Clinical Trial</div>
+        <div class="detail">Cognito Therapeutics Spectris platform advancing in Alzheimer's trials</div>
+        <div class="source">Neurotech Futures · 2025</div>
+    </div>
+    <div class="milestone">
+        <div class="type" style="color:#38bdf8;">📋 Regulatory</div>
+        <div class="detail">ARIA issues call for "Massively Scalable Neurotechnologies" — Jacques Carolan</div>
+        <div class="source">Advanced Research and Invention Agency · Early 2026</div>
+    </div>
+    <div class="milestone">
+        <div class="type" style="color:var(--green);">🌍 Ecosystem</div>
+        <div class="detail">Human+Tech Week — major industry gathering, late April 2026 · JPM Party at JP Morgan Healthcare Conference</div>
+        <div class="source">Neurotech Futures Events Board</div>
+    </div>
+</div>
+
+<!-- Landscape: Categories -->
+<div class="section">
+    <h2>🗺️ Landscape by Category</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+        <div>
+            <div style="font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-bottom: 8px;">🧠 BCI</div>
+            <div style="font-size: 0.8rem; color: var(--muted); line-height: 1.6;">Neuralink · Paradromics · Precision Neuroscience · Blackrock · Phantom Neuro · NeuroBionics · Synchron</div>
+        </div>
+        <div>
+            <div style="font-size: 0.75rem; color: #c084fc; font-weight: 700; margin-bottom: 8px;">⚡ Neuromodulation</div>
+            <div style="font-size: 0.8rem; color: var(--muted); line-height: 1.6;">Insightec · BrainSway · Constellix · NeuraStim</div>
+        </div>
+        <div>
+            <div style="font-size: 0.75rem; color: #818cf8; font-weight: 700; margin-bottom: 8px;">🤖 NeuroAI</div>
+            <div style="font-size: 0.8rem; color: var(--muted); line-height: 1.6;">Neural data + AI platforms · Neuralink N1 chip · Meta brain research</div>
+        </div>
+        <div>
+            <div style="font-size: 0.75rem; color: var(--green); font-weight: 700; margin-bottom: 8px;">⌚ Wearables</div>
+            <div style="font-size: 0.8rem; color: var(--muted); line-height: 1.6;">WHOOP · Oura (neuro features) · Empatica · NextMind</div>
+        </div>
+        <div>
+            <div style="font-size: 0.75rem; color: var(--red); font-weight: 700; margin-bottom: 8px;">💊 NeuroTech-Therapy</div>
+            <div style="font-size: 0.8rem; color: var(--muted); line-height: 1.6;">Cognito Therapeutics · Bliss · Altoida · Neurotrack</div>
+        </div>
+    </div>
+</div>
+
+<!-- FULL COMPANY DIRECTORY -->
+<div class="section">
+    <h2>📊 Company Directory — All 28 Tracked Companies</h2>
+    <div class="company-table-wrap">
+    <table class="company-table">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Funding</th>
+                <th>Focus</th>
+                <th>Location</th>
+                <th>👔 Jobs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="name-cell"><a href="https://neuralink.com" target="_blank">Neuralink</a></td>
+                <td class="funding-cell">$964.2M</td>
+                <td class="focus-cell">BCI · Paralysis/blindness tech · Elon Musk</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://synchron.com" target="_blank">Synchron</a></td>
+                <td class="funding-cell">$325.0M</td>
+                <td class="focus-cell">Endovascular BCI · No open-brain surgery</td>
+                <td class="location-cell">SF & Brooklyn, NY</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.setpointmedical.com" target="_blank">SetPoint Medical</a></td>
+                <td class="funding-cell">$200.6M</td>
+                <td class="focus-cell">Implantable · Chronic inflammatory diseases</td>
+                <td class="location-cell">Valencia, CA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://astronautx.com" target="_blank">AstronauTx</a></td>
+                <td class="funding-cell">$195.8M</td>
+                <td class="focus-cell">Biotech · Neurodegenerative disease treatments</td>
+                <td class="location-cell">London, UK 🇬🇧</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.bioserenity.com" target="_blank">BioSerenity</a></td>
+                <td class="funding-cell">$189.7M</td>
+                <td class="focus-cell">Epilepsy diagnosis · Health monitoring · Pierre Frouin</td>
+                <td class="location-cell">Paris, France 🇫🇷</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://mindstrong.com" target="_blank">Mindstrong Health</a></td>
+                <td class="funding-cell">$160.0M</td>
+                <td class="focus-cell">Neuroscience precision therapy · Paul Dagum</td>
+                <td class="location-cell">Menlo Park, CA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.calahealth.com" target="_blank">Cala Health</a></td>
+                <td class="funding-cell">$145.0M</td>
+                <td class="focus-cell">Bioelectronic medicines · Wearable neurotherapeutics · Kate Rosenbluth</td>
+                <td class="location-cell">Burlingame, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.mindmaze.com" target="_blank">MindMaze SA</a></td>
+                <td class="funding-cell">$100.0M</td>
+                <td class="focus-cell">VR medical · Neural recovery stimulation</td>
+                <td class="location-cell">Lausanne, Switzerland 🇨🇭</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.saludamedical.com" target="_blank">Saluda Medical</a></td>
+                <td class="funding-cell">$140.0M</td>
+                <td class="focus-cell">Devices · Chronic neurological conditions</td>
+                <td class="location-cell">Sydney, Australia 🇦🇺</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.vergegenomics.com" target="_blank">Verge Genomics</a></td>
+                <td class="funding-cell">$134.1M</td>
+                <td class="focus-cell">ML for drug discovery · Neurodegenerative diseases</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://inbrain-neuroelectronics.com" target="_blank">Inbrain Neuroelectronics</a></td>
+                <td class="funding-cell">$89.6M</td>
+                <td class="focus-cell">Graphene-based high-res neural systems</td>
+                <td class="location-cell">Barcelona, Spain 🇪🇸</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.ceribell.com" target="_blank">Ceribell</a></td>
+                <td class="funding-cell">$88.0M</td>
+                <td class="focus-cell">Accessible EEG · Emergency and ICU patients</td>
+                <td class="location-cell">Sunnyvale, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://theranica.com" target="_blank">Theranica</a></td>
+                <td class="funding-cell">$86.0M</td>
+                <td class="focus-cell">Wireless devices · Migraine & pain management</td>
+                <td class="location-cell">Netanya, Israel 🇮🇱</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://eksobionics.com" target="_blank">Ekso Bionics</a></td>
+                <td class="funding-cell">$70.9M</td>
+                <td class="focus-cell">Powered exoskeletons · Physical rehabilitation</td>
+                <td class="location-cell">Richmond, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.comind.io" target="_blank">CoMind</a></td>
+                <td class="funding-cell">$60.0M</td>
+                <td class="focus-cell">Non-invasive neural hardware and software</td>
+                <td class="location-cell">Cambridge, MA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.brainq.tech" target="_blank">BrainQ</a></td>
+                <td class="funding-cell">$48.8M</td>
+                <td class="focus-cell">AI-powered · Neuro-disorder treatment</td>
+                <td class="location-cell">Jerusalem, Israel 🇮🇱</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.braincheck.com" target="_blank">BrainCheck</a></td>
+                <td class="funding-cell">$43.9M</td>
+                <td class="focus-cell">Neurocognitive assessments · Cognitive care solutions</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.paradromics.com" target="_blank">Paradromics</a></td>
+                <td class="funding-cell">$34.0M</td>
+                <td class="focus-cell">High-volume bidirectional BCI data streaming</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.neurofenix.com" target="_blank">Neurofenix</a></td>
+                <td class="funding-cell">$14.0M</td>
+                <td class="focus-cell">NeuroBall · Stroke rehab through gaming</td>
+                <td class="location-cell">London, UK 🇬🇧</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.cumulusneurosciences.com" target="_blank">Cumulus Neurosciences</a></td>
+                <td class="funding-cell">$12.7M</td>
+                <td class="focus-cell">AI platform · Physiological & digital biomarkers</td>
+                <td class="location-cell">Dublin, Ireland 🇮🇪</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.nextmind.com" target="_blank">NextMind</a></td>
+                <td class="funding-cell">$9.2M</td>
+                <td class="focus-cell">Non-invasive EEG-based BCI · Mass market</td>
+                <td class="location-cell">Paris, France 🇫🇷</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.winterlightlabs.com" target="_blank">Winterlight Labs</a></td>
+                <td class="funding-cell">$4.2M</td>
+                <td class="focus-cell">Voice recognition · Cognitive decline detection</td>
+                <td class="location-cell">Toronto, Canada 🇨🇦</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://openbci.com" target="_blank">OpenBCI</a></td>
+                <td class="funding-cell">$4.0M</td>
+                <td class="focus-cell">Open-source BCI platform · Biosensing</td>
+                <td class="location-cell">New York, NY</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://koniku.io" target="_blank">Koniku</a></td>
+                <td class="funding-cell">—</td>
+                <td class="focus-cell">Microprocessors using wetware biological neurons</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.humm.co" target="_blank">Humm</a></td>
+                <td class="funding-cell">—</td>
+                <td class="focus-cell">Wearable patch · Working memory improvement</td>
+                <td class="location-cell">San Francisco, CA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.q30innovations.com" target="_blank">Q30 Innovations</a></td>
+                <td class="funding-cell">—</td>
+                <td class="focus-cell">Q-Collar · Brain protection from head injuries</td>
+                <td class="location-cell">Boston, MA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.wibotic.com" target="_blank">WiBotic</a></td>
+                <td class="funding-cell">—</td>
+                <td class="focus-cell">Wireless charging · Medical/robotic devices</td>
+                <td class="location-cell">Seattle, WA</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr>
+                <td class="name-cell"><a href="https://www.ceryxmedical.com" target="_blank">Ceryx Medical</a></td>
+                <td class="funding-cell">$19.9M</td>
+                <td class="focus-cell">Bioelectronic therapies · Heart failure</td>
+                <td class="location-cell">London, UK 🇬🇧</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div style="margin-top:10px;font-size:0.72rem;color:var(--muted);">
+        <strong style="color:#22c55e;">9 companies actively hiring</strong> · Source: SeedTable · Updated May 2026
+    </div>
+</div>
+
+<!-- Data Sources -->
+<div class="section">
+    <h2>📚 Sources</h2>
+    <div style="display: grid; gap: 8px; font-size: 0.8rem; color: var(--muted);">
+        <div>• <strong style="color:var(--text)">SeedTable</strong> — 84 neurotech startups · $4.1B aggregate funding (seedtable.com/best-neurotechnology-startups)</div>
+        <div>• <strong style="color:var(--text)">Neurotech Futures</strong> — Naveen Rao's bi-monthly funding snapshots (neurotechnology.substack.com)</div>
+        <div>• <strong style="color:var(--text)">Neurofounders</strong> — BCI funding map and ecosystem directory (neurofounders.co)</div>
+        <div>• <strong style="color:var(--text)">CNBC / Tech Press</strong> — Human implant milestones and big rounds</div>
+        <div>• <strong style="color:var(--text)">Tracxn / Crunchbase</strong> — Funding database</div>
+    </div>
+</div>
+
+<div class="footer">
+    Neurotech Intelligence Dashboard · Hermes cron daily 8AM · Data: SeedTable, Neurotech Futures, Neurofounders, Crunchbase, CNBC<br>
+    <span id="file-path">/Users/jordan/workspace/007-Axton/neuromatch/funding/neurotech-dashboard.html</span>
+</div>
+
+<script>
+document.getElementById('updated').textContent = 'Updated: ' + new Date().toLocaleString();
+document.getElementById('file-path').textContent = '/Users/jordan/workspace/007-Axton/neuromatch/funding/neurotech-dashboard.html';
+</script>
+</body>
+</html>
