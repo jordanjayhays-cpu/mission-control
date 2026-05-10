@@ -216,7 +216,7 @@ The event is June 4th, 2026. We have ~3 weeks to set up. Budget is basic costs o
 
 ---
 
-### Option F: Twilio SendGrid (ESSENTIAL — $15/mo for 5K emails)
+### Option E: Twilio SendGrid (ESSENTIAL — $15/mo for 5K emails)
 | Factor | Detail |
 |--------|--------|
 | **Cost** | $15/mo for 5K emails/mo, $25/mo for 100K emails/mo |
@@ -229,6 +229,48 @@ The event is June 4th, 2026. We have ~3 weeks to set up. Budget is basic costs o
 **Best for:** Developer-first teams, transactional emails, high-volume sends
 **Key limitation:** UI is less intuitive for non-technical users. Best for API-driven sending rather than visual campaign building.
 **Setup time:** 1-2 hours (can be fully API-driven, no UI needed)
+
+---
+
+### Option F: HubSpot Email (Marketing Hub Starter — $15/mo, Professional — $89/mo)
+| Factor | Detail |
+|--------|--------|
+| **Cost** | $15/mo Starter (1K contacts), $89/mo Professional (2K contacts) |
+| **Email builder** | Good drag-and-drop, AI assist on Professional |
+| **Automation** | Workflows — yes, very powerful on Professional |
+| **CRM** | Full CRM native — contacts, deals, pipeline |
+| **Survey forms** | Yes — native HubSpot forms |
+| **Event management** | Yes — Marketing Events app |
+| **SMS** | ❌ **SMS ONLY available for US/Canada phone numbers (+1). Cannot send SMS to Spain (+34).** |
+| **Forms** | Native form builder, strong |
+| **Lead scoring** | Yes — Professional+ |
+| **Analytics** | Excellent — full attribution |
+
+**Best for:** If Niah wants a unified CRM + email + automation + event tracking — all in one place.
+**Key limitation:** **HubSpot SMS does NOT work in Spain.** The SMS add-on is geographically restricted to US/Canada only. For the South Summit event in Madrid, we'd need a separate SMS tool (MessageBird or Twilio) regardless.
+**Contact-based pricing:** Scales expensively. 5K contacts = $320+/mo Professional.
+**Setup time:** 3-5 hours (CRM setup, list import, workflow building)
+
+---
+
+### Can HubSpot Do Everything? Answer: NO for SMS + Spain
+
+HubSpot is excellent for:
+- ✅ Email campaigns + automation
+- ✅ Survey form collection
+- ✅ CRM (contacts, deals, pipeline)
+- ✅ Event registration + tracking
+- ✅ Analytics + attribution
+- ❌ **SMS to Spain** — blocked, US/Canada only
+- ❌ **Website hosting** — not a hosting platform
+
+**For the South Summit event, the stack would be:**
+- HubSpot for CRM + email + automation
+- Tally for survey (or HubSpot forms, they're good)
+- MessageBird or Twilio for SMS (HubSpot can't do Spain SMS)
+- Squarespace for web hosting
+
+**If the goal is to consolidate tools:** HubSpot + MessageBird covers everything except Squarespace hosting. That's a 2-platform solution instead of 4-5 separate tools.
 
 ---
 

@@ -1,0 +1,371 @@
+{
+  "name": "Niah Afterparty – South Summit Matchmaking",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "niah-south-summit-rsvp",
+        "responseMode": "responseNode",
+        "options": {"rawBody": false}
+      },
+      "id": "tally-trigger",
+      "name": "Tally Form Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "name", "value": "={{ $json.body.fields.name.value }}"},
+            {"name": "email", "value": "={{ $json.body.fields.email.value }}"},
+            {"name": "phone", "value": "={{ $json.body.fields.phone.value }}"},
+            {"name": "role", "value": "={{ $json.body.fields.role.value }}"},
+            {"name": "company", "value": "={{ $json.body.fields.company.value }}"},
+            {"name": "what_brings_you", "value": "={{ $json.body.fields.what_brings_you.value }}"},
+            {"name": "who_to_meet", "value": "={{ $json.body.fields.who_to_meet.value }}"},
+            {"name": "what_can_you_help", "value": "={{ $json.body.fields.what_can_you_help.value }}"},
+            {"name": "preferences", "value": "={{ $json.body.fields.preferences.value }}"},
+            {"name": "submitted_at", "value": "={{ $json.body.created_at }}"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "parse-tally",
+      "name": "Parse Tally Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetName": "Sheet1",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.name }}",
+            "email": "={{ $json.email }}",
+            "phone": "={{ $json.phone }}",
+            "role": "={{ $json.role }}",
+            "company": "={{ $json.company }}",
+            "what_brings_you": "={{ $json.what_brings_you }}",
+            "who_to_meet": "={{ $json.who_to_meet }}",
+            "what_can_you_help": "={{ $json.what_can_you_help }}",
+            "preferences": "={{ $json.preferences }}",
+            "status": "Pending Match",
+            "submitted_at": "={{ $json.submitted_at }}",
+            "match_name": "",
+            "match_email": "",
+            "match_reason": "",
+            "notified_at": ""
+          }
+        }
+      },
+      "id": "sheets-add",
+      "name": "Add to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [440, 150],
+      "credentials": {"googleSheetsOAuth2Api": {"id": "", "name": "Google Sheets"}}
+    },
+    {
+      "parameters": {
+        "operation": "add",
+        "email": "={{ $json.email }}",
+        "firstName": "={{ $json.name.split(' ')[0] }}",
+        "lastName": "={{ $json.name.split(' ').slice(1).join(' ') }}",
+        "tags": [
+          {"name": "south-summit", "status": "active"},
+          {"name": "={{ $json.role }}", "status": "active"},
+          {"name": "afterparty", "status": "active"}
+        ],
+        "options": {"status": "subscribed"}
+      },
+      "id": "mailchimp-add",
+      "name": "Add to Mailchimp",
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [440, 450],
+      "credentials": {"mailchimpApi": {"id": "", "name": "Mailchimp"}}
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WHATSAPP_API_URL }}/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2",
+        "sendHeaders": true,
+        "headerParameters": {"parameters": [
+          {"name": "Authorization", "value": "Bearer {{ $env.WHATSAPP_TOKEN }}"},
+          {"name": "Content-Type", "value": "application/json"}
+        ]},
+        "sendBody": true,
+        "bodyParameters": {"parameters": [
+          {"name": "messaging_product", "value": "whatsapp"},
+          {"name": "to", "value": "={{ $json.phone }}"},
+          {"name": "type", "value": "template"},
+          {"name": "template", "value": {
+            "name": "confirmation",
+            "language": {"code": "en"},
+            "components": [{"type": "body", "parameters": [{"type": "text", "text": "={{ $json.name }}"}]}]
+          }}
+        ]},
+        "options": {}
+      },
+      "id": "whatsapp-confirm",
+      "name": "WhatsApp Confirmation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [660, 300],
+      "credentials": {"oAuth2": {"id": "", "name": "WhatsApp Business"}}
+    },
+    {
+      "parameters": {
+        "rule": {"type": "cron", "expression": "0 9 * * 1-5"},
+        "timezone": "Europe/Madrid"
+      },
+      "id": "schedule-daily",
+      "name": "Daily Schedule (June 1-4)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 600],
+      "events": [{"name": "every", "interval": [1]}]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "sheetName": "Sheet1",
+        "options": {}
+      },
+      "id": "sheets-get-pending",
+      "name": "Get Pending Matches",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [220, 600],
+      "credentials": {"googleSheetsOAuth2Api": {"id": "", "name": "Google Sheets"}}
+    },
+    {
+      "parameters": {
+        "dataType": "boolean",
+        "value1": "={{ $json.status }}",
+        "rules": {"rules": [{"operation": "equals", "value2": "Pending Match"}]},
+        "fallbackOutputs": ["otherwise"]
+      },
+      "id": "switch-pending",
+      "name": "Has Pending Status?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [440, 600]
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "email": "={{ $json.email }}",
+        "subject": "Reminder: Your South Summit match is waiting – Take 60 seconds",
+        "bodyContentType": "html",
+        "bodyContent": "Hi {{ $json.name }},\n\nThe Social Summit After-Party is TOMORROW at La Nave, and your match is waiting.\n\nTake 60 seconds to complete your Niah profile:\n\n👉 [SURVEY LINK]\n\nWe'll send your personalized introduction before you walk in the door.\n\n— The Niah team"
+      },
+      "id": "mailchimp-reminder",
+      "name": "Send Reminder Email",
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [660, 600],
+      "credentials": {"mailchimpApi": {"id": "", "name": "Mailchimp"}}
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "sheetName": "Sheet1",
+        "options": {"filter": {"operator": "equals", "value": "={{ $json.status }}", "property": "Matched"}}
+      },
+      "id": "sheets-match-trigger",
+      "name": "Match Status Updated",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [880, 300],
+      "credentials": {"googleSheetsOAuth2Api": {"id": "", "name": "Google Sheets"}},
+      "notes": "Triggered when matching team updates Status to 'Matched' in Google Sheets"
+    },
+    {
+      "parameters": {
+        "dataType": "boolean",
+        "value1": "={{ $json.whatsapp_window_open }}",
+        "rules": {"rules": [{"value2": true, "operation": "equals"}]},
+        "fallbackOutputs": ["false"]
+      },
+      "id": "switch-whatsapp-window",
+      "name": "WhatsApp 24h Window Open?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [1100, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WHATSAPP_API_URL }}/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2",
+        "sendHeaders": true,
+        "headerParameters": {"parameters": [
+          {"name": "Authorization", "value": "Bearer {{ $env.WHATSAPP_TOKEN }}"},
+          {"name": "Content-Type", "value": "application/json"}
+        ]},
+        "sendBody": true,
+        "bodyParameters": {"parameters": [
+          {"name": "messaging_product", "value": "whatsapp"},
+          {"name": "to", "value": "={{ $json.phone }}"},
+          {"name": "type", "value": "template"},
+          {"name": "template", "value": {
+            "name": "match_notification",
+            "language": {"code": "en"},
+            "components": [
+              {"type": "body", "parameters": [
+                {"type": "text", "text": "={{ $json.name }}"},
+                {"type": "text", "text": "={{ $json.match_name }}"},
+                {"type": "text", "text": "={{ $json.match_reason }}"}
+              ]},
+              {"type": "button", "subtype": "url", "index": 0, "parameters": [{"type": "text", "text": "={{ $json.match_link }}"}]}
+            ]
+          }}
+        ]},
+        "options": {}
+      },
+      "id": "whatsapp-match",
+      "name": "WhatsApp Match (FREE)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1320, 200],
+      "credentials": {"oAuth2": {"id": "", "name": "WhatsApp Business"}}
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "email": "={{ $json.email }}",
+        "subject": "Your South Summit Match – Meet {{ $json.match_name }}",
+        "bodyContentType": "html",
+        "bodyContent": "Hi {{ $json.name }},\n\nYou're matched with **{{ $json.match_name }}** at **{{ $json.match_company }}**.\n\nWhy: {{ $json.match_reason }}\n\nFind them at the **Niah Bar, La Nave, 8 PM** tonight.\n\n— The Niah team"
+      },
+      "id": "mailchimp-match",
+      "name": "Mailchimp Match Email",
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [1320, 400],
+      "credentials": {"mailchimpApi": {"id": "", "name": "Mailchimp"}}
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "sheetName": "Sheet1",
+        "columnToMatchOn": "email",
+        "valueToMatchOn": "={{ $json.email }}",
+        "updateFields": {"status": "Notified", "notified_at": "={{ $now }}"}
+      },
+      "id": "sheets-notified",
+      "name": "Update Status to Notified",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [1540, 300],
+      "credentials": {"googleSheetsOAuth2Api": {"id": "", "name": "Google Sheets"}}
+    },
+    {
+      "parameters": {
+        "rule": {"type": "cron", "expression": "0 10 5 6 *"},
+        "timezone": "Europe/Madrid"
+      },
+      "id": "schedule-post-event",
+      "name": "Post-Event Survey (June 5)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 900],
+      "events": [{"name": "every", "interval": [1]}]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "sheetName": "Sheet1",
+        "options": {"filter": {"operator": "equals", "value": "={{ $json.status }}", "property": "Notified"}}
+      },
+      "id": "sheets-get-notified",
+      "name": "Get Notified Contacts",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [220, 900],
+      "credentials": {"googleSheetsOAuth2Api": {"id": "", "name": "Google Sheets"}}
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.io/webhook/niah-satisfaction",
+        "sendBody": true,
+        "bodyParameters": {"parameters": [
+          {"name": "name", "value": "={{ $json.name }}"},
+          {"name": "email", "value": "={{ $json.email }}"},
+          {"name": "event", "value": "South Summit Afterparty 2026"}
+        ]},
+        "options": {}
+      },
+      "id": "tally-satisfaction",
+      "name": "Send Satisfaction Survey",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [440, 900]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": "Dashboard",
+        "fieldsToUpdate": {
+          "event_name": "South Summit Afterparty",
+          "event_date": "June 4, 2026",
+          "total_rsvps": "={{ $vars.total_rsvps }}",
+          "total_matches_sent": "={{ $vars.total_matches }}",
+          "satisfaction_score": "={{ $vars.satisfaction_score }}",
+          "updated_at": "={{ $now }}"
+        }
+      },
+      "id": "airtable-dashboard",
+      "name": "Update Niah Dashboard",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [660, 900],
+      "credentials": {"airtableApi": {"id": "", "name": "Airtable"}}
+    }
+  ],
+  "connections": {
+    "Tally Form Trigger": {"main": [[{"node": "Parse Tally Data", "type": "main"}]]},
+    "Parse Tally Data": {"main": [[
+      {"node": "Add to Google Sheets", "type": "main"},
+      {"node": "Add to Mailchimp", "type": "main"},
+      {"node": "WhatsApp Confirmation", "type": "main"}
+    ]]},
+    "Add to Google Sheets": {"main": [[{"node": "", "type": "main"}]]},
+    "Add to Mailchimp": {"main": [[{"node": "", "type": "main"}]]},
+    "WhatsApp Confirmation": {"main": [[{"node": "", "type": "main"}]]},
+    "Daily Schedule (June 1-4)": {"main": [[{"node": "Get Pending Matches", "type": "main"}]]},
+    "Get Pending Matches": {"main": [[{"node": "Has Pending Status?", "type": "main"}]]},
+    "Has Pending Status?": {"main": [[{"node": "Send Reminder Email", "type": "main"}], []]},
+    "Send Reminder Email": {"main": [[{"node": "", "type": "main"}]]},
+    "Match Status Updated": {"main": [[{"node": "WhatsApp 24h Window Open?", "type": "main"}]]},
+    "WhatsApp 24h Window Open?": {"main": [
+      [{"node": "WhatsApp Match (FREE)", "type": "main"}],
+      [{"node": "Mailchimp Match Email", "type": "main"}]
+    ]]},
+    "WhatsApp Match (FREE)": {"main": [[{"node": "Update Status to Notified", "type": "main"}]]},
+    "Mailchimp Match Email": {"main": [[{"node": "Update Status to Notified", "type": "main"}]]},
+    "Update Status to Notified": {"main": [[{"node": "", "type": "main"}]]},
+    "Post-Event Survey (June 5)": {"main": [[{"node": "Get Notified Contacts", "type": "main"}]]},
+    "Get Notified Contacts": {"main": [[{"node": "Send Satisfaction Survey", "type": "main"}]]},
+    "Send Satisfaction Survey": {"main": [[{"node": "Update Niah Dashboard", "type": "main"}]]},
+    "Update Niah Dashboard": {"main": [[{"node": "", "type": "main"}]]}
+  },
+  "settings": {
+    "executionOrder": "v2",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": ["niah", "south-summit", "matchmaking", "afterparty"]
+}
