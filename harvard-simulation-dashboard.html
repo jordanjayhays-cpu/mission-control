@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvard GSCM Simulation — Prep Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #1C1816;
+    --off-white: #F2EBE1;
+    --terracotta: #A65746;
+    --taupe: #8C7B6C;
+    --border: #332D29;
+    --green: #4CAF50;
+    --red: #e74c3c;
+    --blue: #2196F3;
+    --purple: #9C27B0;
+  }
+  body { background: var(--bg); color: var(--off-white); font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: var(--border); padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--terracotta); }
+
+  header { background: var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--terracotta); }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-icon { width: 36px; height: 36px; background: var(--terracotta); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--off-white); }
+  .brand-name { font-size: 20px; font-weight: 700; color: var(--off-white); letter-spacing: 2px; }
+  .header-right { font-size: 13px; color: var(--taupe); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+  h1 { font-size: 28px; font-weight: 700; color: var(--off-white); margin-bottom: 8px; }
+  .subtitle { font-size: 13px; color: var(--taupe); margin-bottom: 32px; }
+
+  h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--taupe); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+  /* SECTION CARDS */
+  .section { background: var(--border); border-radius: 12px; padding: 24px; border: 1px solid var(--border); margin-bottom: 24px; }
+  .section h3 { font-size: 16px; font-weight: 600; color: var(--terracotta); margin-bottom: 16px; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--bg); padding: 10px 14px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--taupe); border-bottom: 1px solid var(--border); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--off-white); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.03); }
+  td strong { color: var(--terracotta); }
+
+  /* KEY RULE BADGES */
+  .rule { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .rule-green { background: rgba(76,175,80,0.2); color: var(--green); }
+  .rule-red { background: rgba(231,76,60,0.2); color: var(--red); }
+  .rule-blue { background: rgba(33,150,243,0.2); color: var(--blue); }
+
+  /* MATH BOX */
+  .math-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .math-item { background: var(--bg); border-radius: 8px; padding: 16px; border-left: 3px solid var(--terracotta); }
+  .math-name { font-size: 12px; color: var(--taupe); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .math-formula { font-size: 16px; font-weight: 700; color: var(--off-white); margin-bottom: 4px; }
+  .math-example { font-size: 12px; color: var(--taupe); }
+
+  /* ROOM FLOW */
+  .room-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .room-card { background: var(--bg); border-radius: 8px; padding: 16px; border: 1px solid var(--border); text-align: center; }
+  .room-num { width: 28px; height: 28px; background: var(--terracotta); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--off-white); margin: 0 auto 10px; }
+  .room-name { font-size: 14px; font-weight: 700; color: var(--off-white); margin-bottom: 8px; }
+  .room-action { font-size: 12px; color: var(--taupe); margin-bottom: 8px; }
+  .room-rule { font-size: 11px; font-weight: 600; color: var(--terracotta); }
+
+  /* BOARD MEMBERS */
+  .board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .board-card { background: var(--bg); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .board-name { font-size: 14px; font-weight: 700; color: var(--terracotta); margin-bottom: 2px; }
+  .board-role { font-size: 11px; color: var(--taupe); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .board-q { font-size: 12px; color: var(--off-white); font-style: italic; margin-bottom: 6px; }
+  .board-a { font-size: 12px; color: var(--green); }
+
+  /* OPTIONS TABLE */
+  .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .option-card { background: var(--bg); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .option-year { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--terracotta); margin-bottom: 8px; font-weight: 700; }
+  .option-list { font-size: 12px; color: var(--off-white); line-height: 1.8; }
+
+  /* CHEAT SHEET */
+  .cheat-box { background: var(--bg); border-radius: 8px; padding: 20px; border: 2px solid var(--terracotta); }
+  .cheat-line { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .cheat-line:last-child { border-bottom: none; }
+  .cheat-room { min-width: 100px; font-weight: 700; color: var(--terracotta); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding-top: 2px; }
+  .cheat-text { color: var(--off-white); }
+
+  /* PRINT BUTTON */
+  .print-btn { display: inline-block; background: var(--terracotta); color: var(--off-white); padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; margin-top: 8px; }
+  .print-btn:hover { opacity: 0.9; }
+
+  footer { text-align: center; padding: 32px; font-size: 12px; color: var(--taupe); border-top: 1px solid var(--border); margin-top: 48px; }
+
+  @media (max-width: 768px) {
+    .room-flow { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 22px; }
+  }
+  @media print {
+    body { background: white; color: black; }
+    .section { border: 1px solid #ccc; break-inside: avoid; }
+    .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">H</div>
+    <span class="brand-name">HARVARD GSCM</span>
+  </div>
+  <div class="header-right">Simulation V2 · 4 Years · 4 Rooms</div>
+</header>
+
+<main>
+
+  <h1>How to Win the Harvard Simulation</h1>
+  <p class="subtitle">Process guide — not memorization. Numbers change. Decisions don't.</p>
+
+  <!-- ROOM FLOW -->
+  <h2>Your 4-Room Process (Every Year)</h2>
+  <div class="room-flow">
+    <div class="room-card">
+      <div class="room-num">1</div>
+      <div class="room-name">Design Room</div>
+      <div class="room-action">Pick option with highest profit per unit</div>
+      <div class="room-rule">Higher profit = better</div>
+    </div>
+    <div class="room-card">
+      <div class="room-num">2</div>
+      <div class="room-name">Forecasting Room</div>
+      <div class="room-action">Your own average × 8 months</div>
+      <div class="room-rule">Use your math, not Consensus</div>
+    </div>
+    <div class="room-card">
+      <div class="room-num">3</div>
+      <div class="room-name">Production Room</div>
+      <div class="room-action">Model A → slow/cheap. Model B → fast/expensive</div>
+      <div class="room-rule">Match supplier to demand type</div>
+    </div>
+    <div class="room-card">
+      <div class="room-num">4</div>
+      <div class="room-name">Boardroom</div>
+      <div class="room-action">Explain WHY you made each choice</div>
+      <div class="room-rule">Thinking > numbers</div>
+    </div>
+  </div>
+
+  <!-- MATH FORMULAS -->
+  <h2 style="margin-top: 24px;">The Math (4 Calculations)</h2>
+  <div class="math-box">
+    <div class="math-item">
+      <div class="math-name">Profit per unit</div>
+      <div class="math-formula">Price − Cost</div>
+      <div class="math-example">$245 − $175 = $70</div>
+    </div>
+    <div class="math-item">
+      <div class="math-name">Margin %</div>
+      <div class="math-formula">(Profit ÷ Price) × 100</div>
+      <div class="math-example">($70 ÷ $245) × 100 = 28.6%</div>
+    </div>
+    <div class="math-item">
+      <div class="math-name">Total units</div>
+      <div class="math-formula">Average × 8</div>
+      <div class="math-example">60 × 8 = 480 units</div>
+    </div>
+    <div class="math-item">
+      <div class="math-name">Your average</div>
+      <div class="math-formula">Sum of 6 ÷ 6</div>
+      <div class="math-example">359 ÷ 6 = 60</div>
+    </div>
+  </div>
+
+  <!-- NEWSVENDOR RULE -->
+  <h2 style="margin-top: 24px;">Newsvendor Rule — Produce More or Less?</h2>
+  <div class="section">
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Overage Cost<br><span style="font-size:10px;text-transform:none;letter-spacing:0;color:var(--taupe)">(Cost − Markdown)</span></th>
+          <th>Underage Cost<br><span style="font-size:10px;text-transform:none;letter-spacing:0;color:var(--taupe)">(Price − Cost = Profit)</span></th>
+          <th>Rule</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Model A</strong></td>
+          <td>$17.50</td>
+          <td>$70</td>
+          <td>Underage > Overage</td>
+          <td><span class="rule rule-green">OVERPRODUCE</span></td>
+        </tr>
+        <tr>
+          <td><strong>Model B</strong></td>
+          <td>$136.50</td>
+          <td>$90</td>
+          <td>Overage > Underage</td>
+          <td><span class="rule rule-red">UNDERPRODUCE</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:var(--taupe); margin-top:12px;">
+      <strong>Rule:</strong> If overage cost > underage cost → make LESS than forecast. If underage > overage → make MORE.
+    </p>
+  </div>
+
+  <!-- SUPPLIERS -->
+  <h2>The 4 Suppliers</h2>
+  <div class="section">
+    <table>
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Cost</th>
+          <th>Speed</th>
+          <th>Capacity</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>FarFarAway</strong></td>
+          <td>Cheapest</td>
+          <td>Slow — 4 months</td>
+          <td>60K/month</td>
+          <td><span class="rule rule-green">Model A (stable)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Far Away</strong></td>
+          <td>Medium</td>
+          <td>Medium — 3 months</td>
+          <td>60K/month</td>
+          <td>Backup / mixed</td>
+        </tr>
+        <tr>
+          <td><strong>PrettyClose</strong></td>
+          <td>Expensive (+$10/unit)</td>
+          <td>Fast — 0 months</td>
+          <td>35K/month</td>
+          <td><span class="rule rule-red">Model B (volatile)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Very Fast</strong></td>
+          <td>Most expensive</td>
+          <td>Fastest — 0 months</td>
+          <td>40K/month</td>
+          <td>Mid-year adjustments</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:var(--taupe); margin-top:12px;">
+      <strong>Rule:</strong> Model A = stable = cheap/slow. Model B = volatile = expensive/fast (so you can react).
+    </p>
+  </div>
+
+  <!-- BOARD MEMBERS -->
+  <h2>The 5 Board Members</h2>
+  <div class="board-grid">
+    <div class="board-card">
+      <div class="board-name">Carla</div>
+      <div class="board-role">Forecasting</div>
+      <div class="board-q">"How did you develop your forecast?"</div>
+      <div class="board-a">"We calculated our own average of all 6 forecasters — not just the Consensus."</div>
+    </div>
+    <div class="board-card">
+      <div class="board-name">Ankit</div>
+      <div class="board-role">Risk</div>
+      <div class="board-q">"How did you manage demand uncertainty?"</div>
+      <div class="board-a">"We chose options that reduce standard deviation. For Model B, we underproduce because overage cost > underage cost."</div>
+    </div>
+    <div class="board-card">
+      <div class="board-name">Matheo</div>
+      <div class="board-role">Cost</div>
+      <div class="board-q">"Why those particular suppliers?"</div>
+      <div class="board-a">"Model A → low-cost (stable demand). Model B → flexible supplier (volatile demand)."</div>
+    </div>
+    <div class="board-card">
+      <div class="board-name">Adele</div>
+      <div class="board-role">Sourcing</div>
+      <div class="board-q">"How do you ensure supply flexibility?"</div>
+      <div class="board-a">"We scheduled 30-50% of Model B production early with a fast supplier to preserve adjustment room."</div>
+    </div>
+    <div class="board-card">
+      <div class="board-name">Mia</div>
+      <div class="board-role">Capacity</div>
+      <div class="board-q">"What's your capacity plan?"</div>
+      <div class="board-a">"We maintain maximum flexible capacity for demand swings. Issue change order if demand runs 20%+ above forecast."</div>
+    </div>
+  </div>
+
+  <!-- DESIGN OPTIONS BY YEAR -->
+  <h2 style="margin-top: 24px;">Design Options by Year</h2>
+  <div class="options-grid">
+    <div class="option-card">
+      <div class="option-year">Year 1</div>
+      <div class="option-list">Upgraded Communication<br>Exterior Material<br>Stylish<br>Storage Capacity</div>
+    </div>
+    <div class="option-card">
+      <div class="option-year">Year 2</div>
+      <div class="option-list">Stylish<br>Storage Capacity<br>Extended Battery<br>Durability</div>
+    </div>
+    <div class="option-card">
+      <div class="option-year">Year 3</div>
+      <div class="option-list">Extended Battery<br>Durability<br>Audio Quality<br>GPS Anti-theft</div>
+    </div>
+    <div class="option-card">
+      <div class="option-year">Year 4</div>
+      <div class="option-list">GPS Anti-theft<br>Audio Quality<br>Super Slim<br>Camera Quality</div>
+    </div>
+  </div>
+
+  <!-- ONE-PAGE CHEAT SHEET -->
+  <h2 style="margin-top: 24px;">One-Page Cheat Sheet (Print This)</h2>
+  <div class="cheat-box">
+    <div class="cheat-line">
+      <div class="cheat-room">Design</div>
+      <div class="cheat-text">Look at Profit column next to each option. Check the box with the HIGHEST profit for Model A. Do the same for Model B.</div>
+    </div>
+    <div class="cheat-line">
+      <div class="cheat-room">Forecasting</div>
+      <div class="cheat-text">Add up all 6 forecaster numbers. Divide by 6. That's your average. Multiply by 8 (8 selling months: May–Dec). Enter it.</div>
+    </div>
+    <div class="cheat-line">
+      <div class="cheat-room">Production</div>
+      <div class="cheat-text">Model A → FarFarAway (cheapest/slow). Model B → PrettyClose (expensive/fast). Check capacity isn't exceeded.</div>
+    </div>
+    <div class="cheat-line">
+      <div class="cheat-room">Boardroom</div>
+      <div class="cheat-text">Always explain WHY. "We picked the option with the highest profit per unit." "We used our own average not Consensus." "We matched suppliers to demand profiles."</div>
+    </div>
+    <div class="cheat-line">
+      <div class="cheat-room">Newsvendor</div>
+      <div class="cheat-text">Model B: overage $136.50 > underage $90 → UNDERPRODUCE. When in doubt on Model B, make less than the forecast.</div>
+    </div>
+    <div class="cheat-line">
+      <div class="cheat-room">Sales Window</div>
+      <div class="cheat-text">May–December only = 8 months. Zero demand January–April. Always multiply by 8.</div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print This Page</button>
+
+  <!-- FULL GUIDE LINK -->
+  <div style="background: var(--border); border-radius: 12px; padding: 20px; border: 1px solid var(--border); margin-top: 24px; text-align: center;">
+    <p style="font-size: 13px; color: var(--taupe); margin-bottom: 8px;">Need the full step-by-step guide with pitfall explanations and boardroom practice?</p>
+    <a href="https://raw.githubusercontent.com/jordanjayhays-cpu/mission-control/master/harvard-simulation-prep-guide.md" style="color: var(--terracotta); font-size: 13px; font-weight: 600;">Open Full Markdown Guide →</a>
+  </div>
+
+</main>
+
+<footer>
+  Harvard Global Supply Chain Management Simulation V2 · Product 8623-HTM-ENG · Janice H. Hammond
+</footer>
+
+</body>
+</html>
