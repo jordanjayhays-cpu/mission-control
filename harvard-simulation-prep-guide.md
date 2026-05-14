@@ -1,193 +1,175 @@
-# HARVARD GSCM SIMULATION — COMPLETE PREP GUIDE
+# HOW TO WIN THE HARVARD SIMULATION
+## Process Guide — Not Memorization
 
 ---
 
-## SECTION 1: CHEAT SHEET
+## THE ONLY THINGS THAT MATTER
 
-### THE 4 ROOMS (in order, every year)
+1. **You make more profit than other teams**
+2. **You can explain every decision you made**
 
-```
-Year 1 → Design Room → Forecasting Room → Production Room → Boardroom
-         (pick option)  (enter forecast)   (pick suppliers)  (answer questions)
-```
+That's it. Numbers change. The process doesn't.
 
 ---
 
-### KEY NUMBERS (MEMORIZE THESE)
+## THE 4-ROOM PROCESS
 
-| | Model A | Model B |
+### ROOM 1: DESIGN ROOM
+**Your job:** Pick ONE option for Model A, ONE for Model B.
+
+**How to decide:**
+Look at the profit numbers next to each option. Find which option gives you the **MOST profit per unit**. That's the one you pick.
+
+**The rule:** Higher profit per unit = better. Don't overthink it.
+
+**What to write in your strategy statement:**
+"We evaluated all available options based on their impact on per-unit profit. We selected the option with the highest profit for each model."
+
+---
+
+### ROOM 2: FORECASTING ROOM
+**Your job:** Enter your predicted monthly demand for each model.
+
+**How to decide:**
+1. Find the Consensus number on the screen (it's the average of all 6 forecasters)
+2. Calculate your OWN average of all 6 numbers — add them up, divide by 6
+3. Compare your average to the Consensus
+4. **Use your average.** Write it down — you need it next.
+
+**Why this matters:** Carla (board member) checks if you just copied the Consensus or if you did the math yourself. Doing the math = her vote.
+
+**Then:** Multiply by 8 (there are 8 selling months: May–December). This is how many units to watch for.
+
+**The rule:** Calculate your own average. Don't just trust the number the game gives you.
+
+---
+
+### ROOM 3: PRODUCTION ROOM
+**Your job:** Pick one supplier for Model A, one for Model B.
+
+**The logic:**
+- Model A has **stable, predictable demand** → put it on the **cheapest, slowest** supplier
+- Model B has **unstable, changing demand** → put it on the **most expensive, fastest** supplier (so you can react when things change)
+
+**The rule:** Model A = cheapest supplier. Model B = fastest supplier.
+
+**Why this works:**
+- If Model A demand is predictable, you don't need flexibility. Save money by using a slow cheap supplier.
+- If Model B demand jumps around, you need to be able to change your mind fast. A fast expensive supplier lets you do that.
+
+**When you get asked in the boardroom:** "Why did you pick those suppliers?" → "We matched each product to the supplier that fits its demand profile. Model A is stable so we used a low-cost supplier. Model B is volatile so we used a flexible supplier."
+
+---
+
+### ROOM 4: BOARDROOM
+**Your job:** Answer questions about WHY you made your decisions.
+
+**The one skill you need:** Be able to say WHY you made each choice, not just what you chose.
+
+**Bad answer:** "We picked Stylish."
+**Good answer:** "We picked Stylish because it had the highest profit per unit ($75) compared to the other options, and the margin increase justified the added cost."
+
+**Bad answer:** "We used FarFarAway."
+**Good answer:** "We put Model A on FarFarAway because Model A demand is stable and predictable — we don't need the flexibility of a faster supplier. For Model B, we chose PrettyClose because demand is volatile and we needed the ability to react quickly."
+
+---
+
+## THE 5 BOARD MEMBERS AND WHAT THEY WANT TO HEAR
+
+| Board Member | Wants to hear | Say this |
 |---|---|---|
-| Price | $245 | $285 |
-| Cost | $175 | $195 |
-| Profit per unit | $70 | $90 |
-| Margin % | 28.6% | 31.6% |
-| Markdown (fire-sale) | $157.50 | $58.50 |
-| Holding cost/month | $3.50 | $3.90 |
-
-**Sales window:** May–December ONLY (8 months, zero demand Jan–Apr)
+| **Carla** | That you calculated your own average, not just followed Consensus | "We calculated the mathematical average of all 6 forecasters rather than relying on the pre-set Consensus." |
+| **Ankit** | That you managed risk, not just profit | "We chose options that maintain or reduce demand uncertainty — lower variance means less risk of over or under-producing." |
+| **Matheo** | That you matched suppliers to demand profiles | "We put stable demand (Model A) on low-cost suppliers and volatile demand (Model B) on flexible suppliers." |
+| **Adele** | That you planned for early demand changes | "We scheduled production early enough to have flexibility if actual demand differed from forecast." |
+| **Mia** | That you have capacity to respond | "We ensured we had spare flexible capacity to absorb demand swings without disruption." |
 
 ---
 
-### SUPPLIERS
+## THE NEWSVENDOR RULE (HOW TO DECIDE PRODUCTION QUANTITY)
 
-| Supplier | Setup Fee | Cost/Unit | Lead Time | Capacity |
-|---|---|---|---|---|
-| FarFarAway | $1M | cheapest | 4 months | 60K |
-| Far Away | $2M | medium | 3 months | 60K |
-| PrettyClose | $1M | expensive | 0 months | 35K |
-| Very Fast | $2M | most expensive | 0 months | 40K |
+This tells you whether to make MORE or LESS than the forecast.
 
-**Rule:**
-- Model A (stable) → FarFarAway (cheap, slow)
-- Model B (volatile) → PrettyClose (expensive, fast)
+**Two costs exist in the game:**
+- **Overage cost** = what you lose for EVERY unit you make but can't sell (cost minus fire-sale price)
+- **Underage cost** = what you lose for EVERY unit you DON'T make but could have sold (profit per unit)
+
+**If overage cost > underage cost** → Make LESS than forecast (underproduce)
+**If underage cost > overage cost** → Make MORE than forecast (overproduce)
+
+**For Model B specifically:** The overage cost is very high because if you make too many, you have to sell them at a deep discount (fire sale). So even if the forecast looks good → **lean toward underproducing Model B.**
+
+**When the board asks:** "How did you decide production quantity?"
+**Say:** "We applied the newsvendor logic — we compared the cost of overproducing versus underproducing. For Model B, the overage cost exceeded the underage cost, so we deliberately produced below the Consensus forecast."
 
 ---
 
-### DESIGN OPTIONS BY YEAR
+## WHAT BAD TEAMS DO (AND WHAT TO DO INSTEAD)
 
-| Year | Options |
+| Bad move | Why it's bad | What to do instead |
+|---|---|---|
+| Follow Consensus blindly | Carla votes against you | Calculate your own average |
+| Pick the most expensive option | Profit per unit might not justify it | Pick the one with highest profit |
+| Put Model B on slow supplier | Can't react when demand changes | Put Model B on fastest supplier |
+| Overproduce Model B | Excess inventory kills margin | Underproduce Model B |
+| Can't explain a decision | Board votes you down | Always know the WHY behind every choice |
+
+---
+
+## THE ONLY THINGS TO MEMORIZE
+
+1. **How to calculate profit per unit** (Price − Cost)
+2. **How to calculate margin %** ((Profit ÷ Price) × 100)
+3. **How to calculate total units** (Consensus or Average × 8)
+4. **Model A = cheap/slow supplier, Model B = fast/expensive supplier**
+5. **Model B = underproduce** (neverage the newsvendor logic)
+6. **Always calculate your own average** of the 6 forecasters
+7. **Be ready to explain the WHY** for every decision
+
+---
+
+## THE ONE-SENTENCE SUMMARY OF EACH ROOM
+
+| Room | One sentence |
 |---|---|
-| Year 1 | Stylish, Storage Capacity, Upgraded Communication, Exterior Material |
-| Year 2 | Stylish, Storage Capacity, Extended Battery, Durability |
-| Year 3 | Extended Battery, Durability, Audio Quality, GPS Anti-theft |
-| Year 4 | GPS Anti-theft, Audio Quality, Super Slim, Camera Quality |
+| **Design** | Pick the option with the highest profit per unit for each model |
+| **Forecasting** | Calculate your own average of all 6 forecasters, multiply by 8 |
+| **Production** | Model A → cheapest/slowest supplier. Model B → fastest/most expensive |
+| **Boardroom** | Explain WHY you made each decision — not just what you chose |
 
 ---
 
-### THE MATH (3 CALCULATIONS)
+## PRACTICE EXERCISES
 
-**1. Profit per unit:**
-Price − Cost = Profit
+**Exercise 1:** A teammate says "Let's just use the Consensus forecast for Model B." What do you say?
+**Answer:** "Let's calculate our own average first. If it differs from the Consensus, we should use our number and be ready to explain why."
 
-**2. Margin %:**
-(Profit ÷ Price) × 100
+**Exercise 2:** You have two options for Model B: one gives $90 profit, one gives $95 profit. Which do you pick?
+**Answer:** $95 — higher profit per unit.
 
-**3. Total units to produce:**
-Consensus × 8 = units
+**Exercise 3:** You're choosing a supplier for Model B. Demand keeps changing. Do you pick the cheapest supplier or the fastest one?
+**Answer:** The fastest one. You need flexibility to react when demand shifts.
 
----
+**Exercise 4:** The board asks "Why did you pick that design option?" What's a good answer?
+**Answer:** "It had the highest per-unit profit impact on our margin, and the additional cost was justified by the additional revenue."
 
-### NEWSVENDOR RULE
-
-**Overage cost** = what you lose per unit if you make too many (Cost − Markdown)
-**Underage cost** = what you lose per unit if you make too few (Profit per unit)
-
-| | Overage | Underage | Action |
-|---|---|---|---|
-| Model A | $17.50 | $70 | **Overproduce** |
-| Model B | $136.50 | $90 | **Underproduce** |
+**Exercise 5:** You're deciding how many Model B units to produce. The underage cost is $90, the overage cost is $105. Do you produce more or less than the forecast?
+**Answer:** Less. The overage cost ($105) is higher than the underage cost ($90) — it costs more to overproduce than to underproduce.
 
 ---
 
-## SECTION 2: PRACTICE QUIZ (10 QUESTIONS + ANSWERS)
+## FINAL POINT
 
-### Question 1
-Consensus for Model A = 65. How many units do you produce?
-**Answer: 65 × 8 = 520 units**
+On Tuesday, you'll see different numbers than what's in this guide. The prices might be different. The options might be different.
 
----
+But the process is ALWAYS the same:
+1. Find the highest profit option
+2. Calculate your own average
+3. Match suppliers to demand profiles
+4. Explain your reasoning
 
-### Question 2
-Model A: Price $245, Cost $175. What is the profit per unit?
-**Answer: $245 − $175 = $70**
+The board wants to hear the THINKING, not the numbers.
 
----
+You don't have to memorize $245 or $285. You have to know HOW TO DECIDE.
 
-### Question 3
-Model B: Price $285, Cost $195. What is the margin %?
-**Answer: ($285 − $195) ÷ $285 × 100 = 31.6%**
-
----
-
-### Question 4
-Model B overage cost = $136.50, underage cost = $90. Should you produce MORE or LESS than Consensus?
-**Answer: LESS (underproduce) — overage cost is higher**
-
----
-
-### Question 5
-Model A demand is stable and predictable. Which supplier should you use?
-**Answer: FarFarAway (cheap, slow, reliable)**
-
----
-
-### Question 6
-Model B demand is volatile. Which supplier should you use?
-**Answer: PrettyClose (expensive, fast, can react quickly)**
-
----
-
-### Question 7
-In the Design Room, how do you pick which option to choose?
-**Answer: Look at the profit per unit for each option. Pick the one with the HIGHEST profit for Model A. Do the same for Model B.**
-
----
-
-### Question 8
-Which months have zero demand?
-**Answer: January, February, March, April**
-
----
-
-### Question 9
-In the Forecasting Room, should you just use the Consensus number as-is?
-**Answer: Calculate your own average of all 6 forecasters first. Compare to Consensus. If different, use the average and be ready to explain why.**
-
----
-
-### Question 10
-The Board asks: "Why did you pick that design option?" What is a good answer?
-**Answer: "We chose the option with the highest profit per unit for each model. We calculated the margin for each option and picked the one that added the most to our bottom line while managing risk."**
-
----
-
-## SECTION 3: BOARDROOM SCRIPT
-
-### THE 5 BOARD MEMBERS AND WHAT THEY ASK
-
-| Board Member | Role | What They Ask | How to Answer |
-|---|---|---|---|
-| **Carla** | Forecasting | "How did you decide your forecast?" | "We calculated the mathematical average of all 6 forecasters. We compared it to the Consensus and used the average because it gives a more accurate picture of expected demand." |
-| **Ankit** | Risk | "How did you manage demand uncertainty?" | "We chose design options that reduce or maintain standard deviation — lower risk. For Model B, we underproduce relative to Consensus because overage costs exceed underage costs." |
-| **Matheo** | Cost | "Why did you pick those suppliers?" | "Model A goes to FarFarAway because stable demand doesn't need flexibility. Model B goes to PrettyClose because volatile demand needs fast reaction time — even though it's more expensive." |
-| **Adele** | Sourcing | "How are you ensuring you can react to demand changes?" | "We scheduled 30-50% of Model B production to start in January with a flexible supplier. This gives us room to adjust as actual demand becomes clearer." |
-| **Mia** | Flexibility | "What is your capacity plan?" | "We allocated maximum flexible capacity to absorb demand swings, especially for Model B. We monitor actual sales monthly and issue change orders when demand runs 20%+ above forecast." |
-
----
-
-### FAIL-SAFE ANSWER TEMPLATE
-
-When you don't know the exact question:
-
-1. **What did you decide?** → "We picked [option] for Model A and [option] for Model B"
-2. **Why?** → "Because it had the highest profit per unit / lowest risk / best supplier fit for the demand profile"
-3. **What would you change?** → "If demand continues to shift, we'd adjust production with a change order — but only if it exceeded 20% of our forecast"
-
----
-
-### WHAT GETS YOU A BAD SCORE
-
-- Following Consensus blindly without checking the math
-- Overproducing Model B (your biggest risk)
-- Putting Model B on a slow supplier (can't react)
-- Picking options that increase standard deviation (Ankit votes against you)
-- Not being able to explain your reasoning
-
----
-
-## ONE-PAGE SUMMARY (PRINT THIS)
-
-```
-Design Room:     Pick highest profit option for A and B
-Forecasting:     Consensus × 8 = units (check your own average first)
-Production:      Model A → FarFarAway, Model B → PrettyClose
-Boardroom:       Always explain the WHY behind your numbers
-Rule #1:         Model B → underproduce
-Rule #2:         Calculate your own average, don't trust Consensus blindly
-Rule #3:         Higher profit = better option
-Sales window:    May–December only (8 months)
-```
-
----
-
-Good luck on Tuesday.
+That's what wins.
