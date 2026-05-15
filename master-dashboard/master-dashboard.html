@@ -7,566 +7,545 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #050507;
-            --surface: #0a0a10;
-            --card: #10101a;
-            --border: #1a1a2e;
-            --text: #e8e8f0;
-            --muted: #5a5a7a;
-            --dim: #38384f;
-            --green: #00e87a;
-            --amber: #ffb800;
-            --red: #ff4560;
-            --blue: #00b4ff;
-            --purple: #b060ff;
-            --cyan: #00d4d4;
+            --bg: #0f0f13;
+            --surface: #16161d;
+            --card: #1e1e28;
+            --border: #2a2a38;
+            --text: #e8e8ec;
+            --muted: #666680;
+            --dim: #3a3a4d;
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --blue: #3b82f6;
+            --purple: #a855f7;
         }
         body {
-            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Segoe UI', monospace;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
             padding: 0;
+            line-height: 1.5;
         }
 
-        /* TOP HEADER */
+        /* HEADER */
         .header {
             background: var(--surface);
             border-bottom: 1px solid var(--border);
-            padding: 14px 20px;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 200;
         }
-        .header-left { display: flex; align-items: center; gap: 20px; }
         .logo {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
         .logo span { color: var(--green); }
-        .header-right { font-size: 0.65rem; color: var(--muted); }
+        .header-right { font-size: 0.75rem; color: var(--muted); }
 
-        /* GRID */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
-        .grid > * { background: var(--bg); }
+        /* MAIN */
+        .main { max-width: 800px; margin: 0 auto; padding: 24px; }
 
-        /* PANELS */
-        .panel { padding: 16px 20px; }
-        .panel-title {
-            font-size: 0.6rem;
+        /* SECTION LABEL */
+        .section-label {
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: var(--muted);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: 12px;
+            margin-top: 32px;
         }
-        .live-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 6px var(--green);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
+        .section-label:first-child { margin-top: 0; }
 
-        /* STATUS CARDS */
-        .status-row { display: flex; gap: 10px; margin-bottom: 16px; }
-        .status-card {
-            flex: 1;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 12px;
-        }
-        .status-card .label { font-size: 0.55rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-        .status-card .value { font-size: 1.2rem; font-weight: 700; }
-        .status-card.green .value { color: var(--green); }
-        .status-card.amber .value { color: var(--amber); }
-        .status-card.red .value { color: var(--red); }
-        .status-card.blue .value { color: var(--blue); }
-
-        /* CRON STATUS */
-        .cron-item {
+        /* WORK LOG */
+        .log-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
+            gap: 16px;
+            padding: 14px 0;
             border-bottom: 1px solid var(--border);
         }
-        .cron-item:last-child { border-bottom: none; }
-        .cron-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-        .cron-dot.on { background: var(--green); box-shadow: 0 0 5px var(--green); }
-        .cron-dot.off { background: var(--dim); }
-        .cron-name { font-size: 0.75rem; font-weight: 600; flex: 1; }
-        .cron-time { font-size: 0.6rem; color: var(--muted); }
+        .log-item:last-child { border-bottom: none; }
+        .log-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            width: 60px;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+        .log-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .log-dot.green { background: var(--green); }
+        .log-dot.amber { background: var(--amber); }
+        .log-dot.blue { background: var(--blue); }
+        .log-dot.purple { background: var(--purple); }
+        .log-content { flex: 1; }
+        .log-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+        .log-meta { font-size: 0.72rem; color: var(--muted); }
+        .log-tag {
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        .tag-hermes { background: rgba(34,197,94,0.15); color: var(--green); }
+        .tag-axton { background: rgba(168,85,247,0.15); color: var(--purple); }
+        .tag-jordan { background: rgba(59,130,246,0.15); color: var(--blue); }
 
-        /* TASK LIST */
+        /* PROJECTS */
+        .project-grid { display: flex; flex-direction: column; gap: 8px; }
+        .project-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .project-icon { font-size: 1.2rem; }
+        .project-info { flex: 1; }
+        .project-name { font-size: 0.85rem; font-weight: 700; }
+        .project-desc { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
+        .project-status {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .status-active { background: rgba(34,197,94,0.15); color: var(--green); }
+        .status-waiting { background: rgba(245,158,11,0.15); color: var(--amber); }
+        .status-blocked { background: rgba(239,68,68,0.15); color: var(--red); }
+        .status-done { background: rgba(102,102,128,0.2); color: var(--muted); }
+
+        /* TASKS */
+        .task-list { display: flex; flex-direction: column; gap: 6px; }
         .task-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid rgba(26,26,46,0.8);
+            padding: 10px 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
         }
-        .task-item:last-child { border-bottom: none; }
+        .task-item:hover { border-color: var(--dim); }
         .task-check {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
             border: 1.5px solid var(--dim);
             flex-shrink: 0;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             transition: all 0.15s;
         }
-        .task-check:hover { border-color: var(--green); }
-        .task-check.done { background: rgba(0,232,122,0.15); border-color: var(--green); color: var(--green); }
+        .task-check.done { background: rgba(34,197,94,0.2); border-color: var(--green); color: var(--green); }
         .task-body { flex: 1; }
-        .task-text { font-size: 0.78rem; line-height: 1.3; }
+        .task-text { font-size: 0.82rem; font-weight: 500; }
         .task-text.done { text-decoration: line-through; color: var(--muted); }
-        .task-meta { font-size: 0.6rem; color: var(--muted); margin-top: 2px; }
+        .task-meta { font-size: 0.68rem; color: var(--muted); }
         .task-pri {
-            font-size: 0.55rem;
-            font-weight: 700;
+            font-size: 0.58rem;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 4px;
-            flex-shrink: 0;
+            letter-spacing: 0.05em;
         }
-        .pri-h { background: rgba(255,69,96,0.15); color: var(--red); }
-        .pri-m { background: rgba(255,184,0,0.12); color: var(--amber); }
-        .pri-l { background: rgba(58,58,100,0.3); color: var(--muted); }
-
-        /* ACTIVITY FEED */
-        .feed-item {
-            display: flex;
-            gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(26,26,46,0.6);
-        }
-        .feed-item:last-child { border-bottom: none; }
-        .feed-time { font-size: 0.6rem; color: var(--dim); width: 42px; flex-shrink: 0; text-align: right; padding-top: 2px; font-family: monospace; }
-        .feed-dot-col { width: 10px; flex-shrink: 0; display: flex; justify-content: center; padding-top: 4px; }
-        .feed-dot { width: 5px; height: 5px; border-radius: 50%; }
-        .feed-body { flex: 1; }
-        .feed-title { font-size: 0.72rem; font-weight: 600; margin-bottom: 1px; }
-        .feed-meta { font-size: 0.62rem; color: var(--muted); }
+        .pri-h { background: rgba(239,68,68,0.15); color: var(--red); }
+        .pri-m { background: rgba(245,158,11,0.12); color: var(--amber); }
+        .pri-l { background: rgba(102,102,128,0.15); color: var(--muted); }
 
         /* BLOCKERS */
         .blocker-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 10px;
-            background: rgba(255,69,96,0.06);
-            border: 1px solid rgba(255,69,96,0.15);
-            border-radius: 7px;
+            padding: 12px 14px;
+            background: rgba(239,68,68,0.05);
+            border: 1px solid rgba(239,68,68,0.15);
+            border-radius: 8px;
             margin-bottom: 8px;
         }
         .blocker-item:last-child { margin-bottom: 0; }
-        .blocker-icon { font-size: 0.85rem; }
-        .blocker-text { flex: 1; }
-        .blocker-name { font-size: 0.75rem; font-weight: 600; }
-        .blocker-reason { font-size: 0.6rem; color: var(--muted); margin-top: 1px; }
+        .blocker-icon { font-size: 0.9rem; }
+        .blocker-name { font-size: 0.82rem; font-weight: 700; flex: 1; }
+        .blocker-reason { font-size: 0.68rem; color: var(--muted); margin-top: 1px; }
 
-        /* ACTION BUTTONS */
-        .action-row { display: flex; gap: 8px; flex-wrap: wrap; }
-        .action-btn {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            padding: 10px 16px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--text);
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.15s;
-            font-family: inherit;
-        }
-        .action-btn:hover { border-color: var(--blue); background: rgba(0,180,255,0.05); }
-        .action-btn.green:hover { border-color: var(--green); background: rgba(0,232,122,0.05); }
-
-        /* AGENT STATUS */
-        .agent-row {
+        /* CRONS */
+        .cron-row {
             display: flex;
             align-items: center;
             gap: 10px;
             padding: 10px 0;
             border-bottom: 1px solid var(--border);
         }
-        .agent-row:last-child { border-bottom: none; }
-        .agent-avatar { font-size: 1rem; }
-        .agent-info { flex: 1; }
-        .agent-name { font-size: 0.78rem; font-weight: 700; }
-        .agent-meta { font-size: 0.62rem; color: var(--muted); }
-        .agent-status { font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
-        .status-h { background: rgba(0,232,122,0.12); color: var(--green); }
-        .status-i { background: rgba(58,58,100,0.3); color: var(--muted); }
+        .cron-row:last-child { border-bottom: none; }
+        .cron-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .cron-dot.on { background: var(--green); }
+        .cron-dot.off { background: var(--dim); }
+        .cron-name { font-size: 0.82rem; font-weight: 600; flex: 1; }
+        .cron-time { font-size: 0.7rem; color: var(--muted); }
 
-        /* DECISION CARDS */
-        .decision-item {
-            background: var(--card);
-            border: 1px solid rgba(255,184,0,0.2);
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-        }
-        .decision-item:last-child { margin-bottom: 0; }
-        .decision-label { font-size: 0.58rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-        .decision-value { font-size: 0.78rem; font-weight: 600; }
+        /* DIVIDER */
+        .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 
-        /* REFRESH BADGE */
-        .refresh-bar {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 6px 20px;
-            font-size: 0.6rem;
-            color: var(--dim);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        /* CLOCK */
+        #clock { font-variant-numeric: tabular-nums; }
+
+        /* COMPLETED SECTION */
+        .completed-section { margin-top: 28px; }
+        .completed-toggle {
+            font-size: 0.72rem;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 6px 0;
+            user-select: none;
         }
-        .spinner { animation: spin 1s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .completed-toggle:hover { color: var(--text); }
+        .completed-list { display: none; margin-top: 8px; }
+        .completed-list.show { display: block; }
     </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
-    <div class="header-left">
-        <div class="logo">MISSION<span>CONTROL</span></div>
-        <div style="font-size:0.62rem;color:var(--muted);">Jordan Hays · Hermes 007 + Axton 008</div>
-    </div>
+    <div class="logo">Mission<span>Control</span></div>
     <div class="header-right">
         <span id="clock"></span> · <span id="date"></span>
     </div>
 </div>
 
-<!-- AUTO REFRESH BAR -->
-<div class="refresh-bar">
-    <span>🔄</span>
-    <span>Auto-refreshes every 30s · Last update: <span id="last-update">--:--:--</span></span>
-</div>
+<!-- MAIN -->
+<div class="main">
 
-<!-- STATUS CARDS -->
-<div style="padding: 16px 20px; background: var(--bg);">
-    <div class="status-row">
-        <div class="status-card green">
-            <div class="label">Active Crons</div>
-            <div class="value">7</div>
-        </div>
-        <div class="status-card blue">
-            <div class="label">Tasks</div>
-            <div class="value">8</div>
-        </div>
-        <div class="status-card amber">
-            <div class="label">Projects</div>
-            <div class="value">10</div>
-        </div>
-        <div class="status-card red">
-            <div class="label">Blockers</div>
-            <div class="value">5</div>
-        </div>
-    </div>
-</div>
+    <!-- WORK LOG — what we've done -->
+    <div class="section-label">What We've Done</div>
 
-<!-- MAIN GRID -->
-<div class="grid">
-    <!-- LEFT: AGENTS + CRONS -->
-    <div>
-        <div class="panel">
-            <div class="panel-title"><div class="live-dot"></div> Agent Status</div>
-            <div class="agent-row">
-                <div class="agent-avatar">🤖</div>
-                <div class="agent-info">
-                    <div class="agent-name">Hermes 007</div>
-                    <div class="agent-meta">Mac Mini · Local · Madrid</div>
-                </div>
-                <div class="agent-status status-h">● Active</div>
-            </div>
-            <div class="agent-row">
-                <div class="agent-avatar">🔮</div>
-                <div class="agent-info">
-                    <div class="agent-name">Axton 008</div>
-                    <div class="agent-meta">Railway · Cloud · EU-West</div>
-                </div>
-                <div class="agent-status status-h">● Active</div>
-            </div>
-            <div class="agent-row">
-                <div class="agent-avatar">🧠</div>
-                <div class="agent-info">
-                    <div class="agent-name">Honcho Memory</div>
-                    <div class="agent-meta">Peer: jordan · 21 facts loaded</div>
-                </div>
-                <div class="agent-status status-h">● Active</div>
-            </div>
-            <div class="agent-row">
-                <div class="agent-avatar">🗄️</div>
-                <div class="agent-info">
-                    <div class="agent-name">Supabase</div>
-                    <div class="agent-meta">Massage Club bookings · Madrid</div>
-                </div>
-                <div class="agent-status status-h">● Connected</div>
-            </div>
+    <div class="log-item">
+        <div class="log-date">Today</div>
+        <div class="log-dot green"></div>
+        <div class="log-content">
+            <div class="log-title">Memory restored + 21 facts backfilled to Honcho</div>
+            <div class="log-meta">Projects · workspace · Notion DBs · PISCO · Harvard cases · API keys</div>
         </div>
-
-        <div class="panel">
-            <div class="panel-title">⚡ Cron Jobs</div>
-            <div class="cron-item">
-                <div class="cron-dot on"></div>
-                <div class="cron-name">Self-Improvement Research</div>
-                <div class="cron-time">7:00 AM</div>
-            </div>
-            <div class="cron-item">
-                <div class="cron-dot on"></div>
-                <div class="cron-name">Neurotech: Non-US → US</div>
-                <div class="cron-time">8:00 AM</div>
-            </div>
-            <div class="cron-item">
-                <div class="cron-dot on"></div>
-                <div class="cron-name">Madrid Massage Leads Scout</div>
-                <div class="cron-time">9:00 AM</div>
-            </div>
-            <div class="cron-item">
-                <div class="cron-dot on"></div>
-                <div class="cron-name">last30days Research (Axton)</div>
-                <div class="cron-time">Nightly</div>
-            </div>
-            <div class="cron-item">
-                <div class="cron-dot off"></div>
-                <div class="cron-name">Intel Daily Brief (Axton)</div>
-                <div class="cron-time">Daily</div>
-            </div>
-        </div>
+        <div class="log-tag tag-hermes">HERMES</div>
     </div>
 
-    <!-- RIGHT: TASKS + BLOCKERS -->
-    <div>
-        <div class="panel">
-            <div class="panel-title">✅ Your Tasks</div>
-            <div class="task-item">
-                <div class="task-check" id="task1" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task1-text">DM Rachel King on LinkedIn — Massage Club intro</div>
-                    <div class="task-meta">Neurotech founder · BCI startup</div>
-                </div>
-                <div class="task-pri pri-h">HIGH</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task2" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task2-text">DM Victor Presa on LinkedIn — Madrid massage</div>
-                    <div class="task-meta">Strategic contact</div>
-                </div>
-                <div class="task-pri pri-h">HIGH</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task3" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task3-text">WhatsApp Javier Estrada — Mallorca lead</div>
-                    <div class="task-meta">Warm lead · Mallorca market</div>
-                </div>
-                <div class="task-pri pri-h">HIGH</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task4" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task4-text">Send 10 PISCO cold emails</div>
-                    <div class="task-meta">Blocked · need email tool</div>
-                </div>
-                <div class="task-pri pri-m">MED</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task5" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task5-text">Post ProfileStack on X/LinkedIn</div>
-                    <div class="task-meta">MVP ready to publish</div>
-                </div>
-                <div class="task-pri pri-m">MED</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task6" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task6-text">Decide COMARE ICP</div>
-                    <div class="task-meta">Pharmacies · Restaurants · Medical · Gyms</div>
-                </div>
-                <div class="task-pri pri-m">MED</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task7" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task7-text">Write Neurotech Video 1 script</div>
-                    <div class="task-meta">"The New Space Race" · thumbnail ready</div>
-                </div>
-                <div class="task-pri pri-l">NORMAL</div>
-            </div>
-            <div class="task-item">
-                <div class="task-check" id="task8" onclick="toggleTask(this)"></div>
-                <div class="task-body">
-                    <div class="task-text" id="task8-text">Buy massagepass.com domain</div>
-                    <div class="task-meta">~$10 · easy win</div>
-                </div>
-                <div class="task-pri pri-l">NORMAL</div>
-            </div>
+    <div class="log-item">
+        <div class="log-date">Today</div>
+        <div class="log-dot green"></div>
+        <div class="log-content">
+            <div class="log-title">Neurotech non-US → US market report</div>
+            <div class="log-meta">MindMaze · Synchron · CoMind · Zander Labs · Kandu Health — 12+ companies researched</div>
         </div>
+        <div class="log-tag tag-hermes">HERMES</div>
+    </div>
 
-        <div class="panel">
-            <div class="panel-title">⛔ Blockers</div>
-            <div class="blocker-item">
-                <div class="blocker-icon">🔑</div>
-                <div class="blocker-text">
-                    <div class="blocker-name">Vercel API Token</div>
-                    <div class="blocker-reason">Can't build custom apps without this</div>
-                </div>
-            </div>
-            <div class="blocker-item">
-                <div class="blocker-icon">🔑</div>
-                <div class="blocker-text">
-                    <div class="blocker-name">Notion API Key</div>
-                    <div class="blocker-reason">PISCO CRM · COMARE pipeline · MASSAGE-PASS</div>
-                </div>
-            </div>
-            <div class="blocker-item">
-                <div class="blocker-icon">📧</div>
-                <div class="blocker-text">
-                    <div class="blocker-name">Email Sending</div>
-                    <div class="blocker-reason">SendGrid / Apollo / Instantly</div>
-                </div>
-            </div>
-            <div class="blocker-item">
-                <div class="blocker-icon">🗄️</div>
-                <div class="blocker-text">
-                    <div class="blocker-name">Supabase service_role key</div>
-                    <div class="blocker-reason">Massage Club bookings pipeline</div>
-                </div>
-            </div>
-            <div class="blocker-item">
-                <div class="blocker-icon">🎵</div>
-                <div class="blocker-text">
-                    <div class="blocker-name">DistroKid account</div>
-                    <div class="blocker-reason">PK Music releases blocked</div>
-                </div>
-            </div>
+    <div class="log-item">
+        <div class="log-date">Today</div>
+        <div class="log-dot green"></div>
+        <div class="log-content">
+            <div class="log-title">The Passage — 50 new philosophical concepts added</div>
+            <div class="log-meta">86 total concepts · tabbed by region (East Asia, Europe, South Asia, Africa, Middle East, Americas, Pacific)</div>
         </div>
+        <div class="log-tag tag-hermes">HERMES</div>
     </div>
-</div>
 
-<!-- ACTIVITY FEED -->
-<div style="padding: 16px 20px;">
-    <div class="panel-title" style="padding: 0 0 14px 0;"><div class="live-dot"></div> Live Activity Feed</div>
-    <div id="feed">
-        <div class="feed-item">
-            <div class="feed-time">16:48</div>
-            <div class="feed-dot-col"><div class="feed-dot" style="background:var(--green);"></div></div>
-            <div class="feed-body">
-                <div class="feed-title">The Passage — 50 new philosophical concepts added <span style="color:var(--cyan);font-size:0.55rem;">HERMES</span></div>
-                <div class="feed-meta">86 total · tabbed by region</div>
-            </div>
+    <div class="log-item">
+        <div class="log-date">May 14</div>
+        <div class="log-dot amber"></div>
+        <div class="log-content">
+            <div class="log-title">PISCO CRM — 50+ European companies loaded</div>
+            <div class="log-meta">Transport/logistics · Meat processing · Construction · Hospitality sectors</div>
         </div>
-        <div class="feed-item">
-            <div class="feed-time">16:37</div>
-            <div class="feed-dot-col"><div class="feed-dot" style="background:var(--green);"></div></div>
-            <div class="feed-body">
-                <div class="feed-title">Neurotech non-US → US market report built <span style="color:var(--cyan);font-size:0.55rem;">HERMES</span></div>
-                <div class="feed-meta">Zander Labs · MindMaze · ByteDance neuro · 12+ companies</div>
-            </div>
-        </div>
-        <div class="feed-item">
-            <div class="feed-time">11:04</div>
-            <div class="feed-dot-col"><div class="feed-dot" style="background:var(--amber);"></div></div>
-            <div class="feed-body">
-                <div class="feed-title">PISCO CRM updated — 50+ European companies <span style="color:var(--cyan);font-size:0.55rem;">HERMES</span></div>
-                <div class="feed-meta">Transport/logistics · Meat processing · Construction · Hospitality</div>
-            </div>
-        </div>
-        <div class="feed-item">
-            <div class="feed-time">10:25</div>
-            <div class="feed-dot-col"><div class="feed-dot" style="background:var(--amber);"></div></div>
-            <div class="feed-body">
-                <div class="feed-title">City Match Quiz rebuilt — adaptive version <span style="color:var(--cyan);font-size:0.55rem;">HERMES</span></div>
-                <div class="feed-meta">60+ variables · Madrid market context</div>
-            </div>
-        </div>
-        <div class="feed-item">
-            <div class="feed-time">Today</div>
-            <div class="feed-dot-col"><div class="feed-dot" style="background:var(--blue);"></div></div>
-            <div class="feed-body">
-                <div class="feed-title">Honcho memory restored + 21 facts backfilled <span style="color:var(--cyan);font-size:0.55rem;">HERMES</span></div>
-                <div class="feed-meta">Projects · workspace · Notion DBs · PISCO · Harvard · API keys</div>
-            </div>
-        </div>
+        <div class="log-tag tag-hermes">HERMES</div>
     </div>
-</div>
 
-<!-- ACTIONS -->
-<div style="padding: 16px 20px 24px;">
-    <div class="panel-title" style="padding: 0 0 14px 0;">🚀 Quick Actions</div>
-    <div class="action-row">
-        <button class="action-btn green" onclick="sendCommand('Status')">
-            ⚡ Ask Hermes — What's happening?
-        </button>
-        <button class="action-btn" onclick="sendCommand('Tasks')">
-            ✅ List all tasks
-        </button>
-        <button class="action-btn" onclick="sendCommand('Blockers')">
-            ⛔ Review blockers
-        </button>
-        <button class="action-btn" onclick="sendCommand('Decisions')">
-            🔮 What should I decide?
-        </button>
-        <button class="action-btn" onclick="sendCommand('Summary')">
-            📊 Today's summary
-        </button>
+    <div class="log-item">
+        <div class="log-date">May 14</div>
+        <div class="log-dot amber"></div>
+        <div class="log-content">
+            <div class="log-title">City Match Quiz rebuilt — adaptive version</div>
+            <div class="log-meta">60+ variables · Madrid market context · decision framework</div>
+        </div>
+        <div class="log-tag tag-hermes">HERMES</div>
     </div>
-    <div style="margin-top:10px;" class="action-row">
-        <button class="action-btn" onclick="sendCommand('Pause cron 9am')">
-            ⏸️ Pause 9am cron
-        </button>
-        <button class="action-btn" onclick="sendCommand('Resume cron 9am')">
-            ▶️ Resume 9am cron
-        </button>
-        <button class="action-btn" onclick="sendCommand('Run now: Neurotech scan')">
-            🔄 Run Neurotech scan now
-        </button>
-        <button class="action-btn" onclick="sendCommand('New lead')">
-            ➕ Add new PISCO lead
-        </button>
-    </div>
-    <div id="cmd-status" style="margin-top:12px;font-size:0.7rem;color:var(--muted);display:none;">
-        → Command sent to Hermes via Telegram
-    </div>
-</div>
 
-<!-- FOOTER -->
-<div style="padding: 16px 20px; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-    <div style="font-size:0.6rem;color:var(--dim);">
-        🤖 Hermes 007 · 🔮 Axton 008 · 🧠 Honcho Memory · 🗄️ Supabase
+    <div class="log-item">
+        <div class="log-date">May 12</div>
+        <div class="log-dot blue"></div>
+        <div class="log-content">
+            <div class="log-title">Niah South Summit setup — Tally + Mailchimp + Squarespace + Zapier</div>
+            <div class="log-meta">Phase 1 manual first · automation after live working</div>
+        </div>
+        <div class="log-tag tag-jordan">JORDAN</div>
     </div>
-    <div style="font-size:0.6rem;color:var(--dim);">
-        <a href="https://jordanjayhays-cpu.github.io/mission-control/" style="color:var(--muted);text-decoration:none;">All Projects →</a>
-        · Local: /007-Axton/master-dashboard/
+
+    <div class="log-item">
+        <div class="log-date">May 11</div>
+        <div class="log-dot amber"></div>
+        <div class="log-content">
+            <div class="log-title">Workspace organized — MAP.md + project folders</div>
+            <div class="log-meta">PISCO · Massage Club · Niah · Neurotech · MBA structured</div>
+        </div>
+        <div class="log-tag tag-hermes">HERMES</div>
     </div>
+
+    <div class="log-item">
+        <div class="log-date">May 10</div>
+        <div class="log-dot green"></div>
+        <div class="log-content">
+            <div class="log-title">Master Dashboard built — Mission Control v1</div>
+            <div class="log-meta">Neurotech tracker · PISCO CRM · task monitoring · blockers</div>
+        </div>
+        <div class="log-tag tag-hermes">HERMES</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PROJECTS — where things stand -->
+    <div class="section-label">Projects</div>
+
+    <div class="project-grid">
+        <div class="project-item">
+            <div class="project-icon">🧠</div>
+            <div class="project-info">
+                <div class="project-name">Neurotech Intelligence</div>
+                <div class="project-desc">80+ companies tracked · funding · hiring signals · non-US → US report done</div>
+            </div>
+            <div class="project-status status-active">Active</div>
+        </div>
+        <div class="project-item">
+            <div class="project-icon">📦</div>
+            <div class="project-info">
+                <div class="project-name">PISCO Pipeline</div>
+                <div class="project-desc">50+ European companies · transport/logistics/meat/construction/hospitality</div>
+            </div>
+            <div class="project-status status-waiting">Waiting on email tool</div>
+        </div>
+        <div class="project-item">
+            <div class="project-icon">💆</div>
+            <div class="project-info">
+                <div class="project-name">Massage Pass / Massage Club</div>
+                <div class="project-desc">Madrid therapist marketplace · Supabase backend · leads DB live</div>
+            </div>
+            <div class="project-status status-active">Active</div>
+        </div>
+        <div class="project-item">
+            <div class="project-icon">🤝</div>
+            <div class="project-info">
+                <div class="project-name">Niah — South Summit</div>
+                <div class="project-desc">B2B event networking · Tally + Mailchimp + Squarespace · Phase 1 manual</div>
+            </div>
+            <div class="project-status status-active">Active</div>
+        </div>
+        <div class="project-item">
+            <div class="project-icon">🎓</div>
+            <div class="project-info">
+                <div class="project-name">Harvard MBA Simulation</div>
+                <div class="project-desc">W21312 · R1101C · 325031 · GSCM strategy cases</div>
+            </div>
+            <div class="project-status status-waiting">Waiting on case prep</div>
+        </div>
+        <div class="project-item">
+            <div class="project-icon">🎵</div>
+            <div class="project-info">
+                <div class="project-name">PK Music</div>
+                <div class="project-desc">ProfileStack MVP · Music releases</div>
+            </div>
+            <div class="project-status status-blocked">Blocked · DistroKid</div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TASKS — what needs doing -->
+    <div class="section-label">Tasks</div>
+
+    <div class="task-list" id="task-list">
+        <div class="task-item" onclick="toggleTask(this, 'task1')">
+            <div class="task-check" id="task1"></div>
+            <div class="task-body">
+                <div class="task-text" id="task1-text">DM Rachel King on LinkedIn — Massage Club intro</div>
+                <div class="task-meta">Neurotech founder · BCI startup · PISCO lead</div>
+            </div>
+            <div class="task-pri pri-h">HIGH</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task2')">
+            <div class="task-check" id="task2"></div>
+            <div class="task-body">
+                <div class="task-text" id="task2-text">DM Victor Presa on LinkedIn — Madrid massage</div>
+                <div class="task-meta">Strategic contact · Madrid market</div>
+            </div>
+            <div class="task-pri pri-h">HIGH</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task3')">
+            <div class="task-check" id="task3"></div>
+            <div class="task-body">
+                <div class="task-text" id="task3-text">WhatsApp Javier Estrada — Mallorca lead</div>
+                <div class="task-meta">Warm lead · Mallorca market</div>
+            </div>
+            <div class="task-pri pri-h">HIGH</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task4')">
+            <div class="task-check" id="task4"></div>
+            <div class="task-body">
+                <div class="task-text" id="task4-text">Send 10 PISCO cold emails</div>
+                <div class="task-meta">Need email tool first — SendGrid / Apollo / Instantly</div>
+            </div>
+            <div class="task-pri pri-m">MED</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task5')">
+            <div class="task-check" id="task5"></div>
+            <div class="task-body">
+                <div class="task-text" id="task5-text">Post ProfileStack on X/LinkedIn</div>
+                <div class="task-meta">MVP ready to publish</div>
+            </div>
+            <div class="task-pri pri-m">MED</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task6')">
+            <div class="task-check" id="task6"></div>
+            <div class="task-body">
+                <div class="task-text" id="task6-text">Decide COMARE ICP</div>
+                <div class="task-meta">Pharmacies · Restaurants · Medical · Gyms — pick one</div>
+            </div>
+            <div class="task-pri pri-m">MED</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task7')">
+            <div class="task-check" id="task7"></div>
+            <div class="task-body">
+                <div class="task-text" id="task7-text">Write Neurotech Video 1 script</div>
+                <div class="task-meta">"The New Space Race" · thumbnail ready</div>
+            </div>
+            <div class="task-pri pri-l">LOW</div>
+        </div>
+        <div class="task-item" onclick="toggleTask(this, 'task8')">
+            <div class="task-check" id="task8"></div>
+            <div class="task-body">
+                <div class="task-text" id="task8-text">Buy massagepass.com domain</div>
+                <div class="task-meta">~$10 · easy win</div>
+            </div>
+            <div class="task-pri pri-l">LOW</div>
+        </div>
+    </div>
+
+    <!-- COMPLETED TASKS -->
+    <div class="completed-section">
+        <div class="completed-toggle" onclick="toggleCompleted()">✓ Completed tasks (show)</div>
+        <div class="completed-list" id="completed-list">
+            <div class="task-item" style="opacity:0.5;">
+                <div class="task-check done">✓</div>
+                <div class="task-body">
+                    <div class="task-text done">Memory fixed — Honcho key replaced + backfilled 21 facts</div>
+                    <div class="task-meta">Today</div>
+                </div>
+            </div>
+            <div class="task-item" style="opacity:0.5;">
+                <div class="task-check done">✓</div>
+                <div class="task-body">
+                    <div class="task-text done">The Passage — added 50 new concepts (86 total)</div>
+                    <div class="task-meta">Today</div>
+                </div>
+            </div>
+            <div class="task-item" style="opacity:0.5;">
+                <div class="task-check done">✓</div>
+                <div class="task-body">
+                    <div class="task-text done">Niah South Summit setup — Tally + Mailchimp + Squarespace</div>
+                    <div class="task-meta">May 12</div>
+                </div>
+            </div>
+            <div class="task-item" style="opacity:0.5;">
+                <div class="task-check done">✓</div>
+                <div class="task-body">
+                    <div class="task-text done">Workspace organized — MAP.md + project folders</div>
+                    <div class="task-meta">May 11</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- BLOCKERS -->
+    <div class="section-label">Blockers</div>
+
+    <div class="blocker-item">
+        <div class="blocker-icon">🔑</div>
+        <div>
+            <div class="blocker-name">Email sending tool</div>
+            <div class="blocker-reason">PISCO outreach blocked · SendGrid / Apollo / Instantly needed</div>
+        </div>
+    </div>
+    <div class="blocker-item">
+        <div class="blocker-icon">🔑</div>
+        <div>
+            <div class="blocker-name">Vercel API Token</div>
+            <div class="blocker-reason">Can't build custom apps without this</div>
+        </div>
+    </div>
+    <div class="blocker-item">
+        <div class="blocker-icon">🔑</div>
+        <div>
+            <div class="blocker-name">Notion API Key</div>
+            <div class="blocker-reason">PISCO CRM · COMARE pipeline · MASSAGE-PASS synced</div>
+        </div>
+    </div>
+    <div class="blocker-item">
+        <div class="blocker-icon">🔑</div>
+        <div>
+            <div class="blocker-name">Supabase service_role key</div>
+            <div class="blocker-reason">Massage Club bookings pipeline</div>
+        </div>
+    </div>
+    <div class="blocker-item">
+        <div class="blocker-icon">🔑</div>
+        <div>
+            <div class="blocker-name">DistroKid account</div>
+            <div class="blocker-reason">PK Music releases blocked</div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CRON JOBS -->
+    <div class="section-label">Scheduled Crons</div>
+
+    <div class="cron-row">
+        <div class="cron-dot on"></div>
+        <div class="cron-name">Self-Improvement Research</div>
+        <div class="cron-time">7:00 AM daily</div>
+    </div>
+    <div class="cron-row">
+        <div class="cron-dot on"></div>
+        <div class="cron-name">Madrid Massage Leads Scout</div>
+        <div class="cron-time">9:00 AM daily</div>
+    </div>
+    <div class="cron-row">
+        <div class="cron-dot on"></div>
+        <div class="cron-name">last30days Research (Axton 008)</div>
+        <div class="cron-time">Nightly</div>
+    </div>
+    <div class="cron-row">
+        <div class="cron-dot off"></div>
+        <div class="cron-name">Intel Daily Brief (Axton 008)</div>
+        <div class="cron-time">Daily</div>
+    </div>
+
 </div>
 
 <script>
@@ -575,47 +554,37 @@
         const now = new Date();
         document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit', hour12:false});
         document.getElementById('date').textContent = now.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'});
-        document.getElementById('last-update').textContent = now.toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false});
     }
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Task toggle — saves to localStorage
-    function toggleTask(el) {
-        const id = el.id;
-        const textEl = document.getElementById(id + '-text');
-        const isDone = el.classList.toggle('done');
-        if (textEl) textEl.classList.toggle('done', isDone);
+    // Task toggle
+    function toggleTask(item, id) {
+        const check = document.getElementById(id);
+        const text = document.getElementById(id + '-text');
+        const isDone = check.classList.toggle('done');
+        if (text) text.classList.toggle('done', isDone);
         localStorage.setItem('task_' + id, isDone ? 'done' : '');
     }
 
     // Restore task states
-    document.querySelectorAll('.task-check').forEach(el => {
-        const state = localStorage.getItem('task_' + el.id);
+    ['task1','task2','task3','task4','task5','task6','task7','task8'].forEach(id => {
+        const state = localStorage.getItem('task_' + id);
         if (state === 'done') {
-            el.classList.add('done');
-            const textEl = document.getElementById(el.id + '-text');
-            if (textEl) textEl.classList.add('done');
+            const check = document.getElementById(id);
+            const text = document.getElementById(id + '-text');
+            if (check) check.classList.add('done');
+            if (text) text.classList.add('done');
         }
     });
 
-    // Send command to Hermes via Telegram message
-    function sendCommand(cmd) {
-        const statusEl = document.getElementById('cmd-status');
-        statusEl.textContent = '→ Sending: ' + cmd + '...';
-        statusEl.style.display = 'block';
-
-        // Use Telegram inline bot URL if available, otherwise show instruction
-        const tgUrl = 'https://t.me/JordanHaysBot?text=' + encodeURIComponent(cmd);
-        window.open(tgUrl, '_blank');
-
-        setTimeout(() => {
-            statusEl.textContent = '→ Command sent to Hermes via Telegram · Switch to Telegram to see the response';
-        }, 1500);
+    // Show/hide completed
+    function toggleCompleted() {
+        const el = document.getElementById('completed-list');
+        const toggle = el.previousElementSibling;
+        el.classList.toggle('show');
+        toggle.textContent = el.classList.contains('show') ? '✓ Completed tasks (hide)' : '✓ Completed tasks (show)';
     }
-
-    // Auto-refresh every 30s
-    setTimeout(() => { location.reload(); }, 30000);
 </script>
 </body>
 </html>
