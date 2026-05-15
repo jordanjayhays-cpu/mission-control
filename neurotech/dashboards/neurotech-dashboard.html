@@ -77,6 +77,22 @@
         .refresh-btn { background: var(--border); border: 1px solid #2a2a3e; color: var(--muted); padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; cursor: pointer; }
         .refresh-btn:hover { background: #2a2a3e; color: var(--text); }
 
+        /* Non-US highlight — orange border + bg */
+        .section-nonus { background: rgba(166,87,70,0.06); border-radius: 14px; padding: 20px; border: 1px solid rgba(166,87,70,0.4); margin-bottom: 16px; }
+        .section-nonus h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #a65746; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .section-nonus .nonus-label { background: rgba(166,87,70,0.2); color: #c27060; padding: 3px 10px; border-radius: 10px; font-size: 0.65rem; font-weight: 700; margin-right: 6px; }
+        .nonus-card { background: rgba(30,41,59,0.5); border-radius: 10px; padding: 14px; border: 1px solid rgba(166,87,70,0.25); margin-bottom: 10px; }
+        .nonus-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 6px; }
+        .nonus-card .name { font-weight: 700; font-size: 0.95rem; }
+        .nonus-card .flag { font-size: 1rem; margin-right: 4px; }
+        .nonus-card .amount { color: #a65746; font-weight: 700; }
+        .nonus-card .bottom { display: flex; flex-direction: column; gap: 4px; font-size: 0.75rem; color: var(--muted); }
+        .nonus-card .tag-row { display: flex; flex-wrap: wrap; gap: 4px; }
+        .nonus-hot { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+        .nonus-hot .hot-label { background: rgba(239,68,68,0.25); color: #ef4444; font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: inline-block; }
+        .nonus-seasia { background: rgba(166,87,70,0.08); border: 1px solid rgba(166,87,70,0.3); border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+        .nonus-seasia .seasia-label { background: rgba(166,87,70,0.2); color: #a65746; font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: inline-block; }
+
         /* Company Directory Table */
         .company-table-wrap { overflow-x: auto; }
         .company-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
@@ -222,6 +238,11 @@
 <div class="section">
     <h2>🌱 New Entrants (2025–2026)</h2>
     <div class="new-company-card">
+        <div class="name">Kordata (BIOS Health US Spinoff)</div>
+        <div class="what">AI-powered NeuroTune platform for optimizing treatment dosages in Alzheimer's, Parkinson's, epilepsy — spinoff of UK-based BIOS Health, launching in Bakersfield CA</div>
+        <div class="meta"><span class="tag tag-new">New Entrant</span> <span class="tag tag-ai">NeuroAI</span> Pre-seed · Kern Venture Group + MAVRK · May 2026 · Bakersfield CA · Hiring 11 locals</div>
+    </div>
+    <div class="new-company-card">
         <div class="name">Epia Neuro</div>
         <div class="what">Therapeutic BCI for stroke recovery — founded by Michel Maharbiz (neural dust) + Gil Mandelbaum</div>
         <div class="meta"><span class="tag tag-new">New Entrant</span> <span class="tag tag-bci">BCI</span> Founded 2026 · SF</div>
@@ -275,6 +296,176 @@
         <div class="name">Connectome Health</div>
         <div class="what">Cognitive intelligence platform quantifying brain activity over time — $2M pre-seed, Redstone-led</div>
         <div class="meta"><span class="tag tag-new">New Entrant</span> <span class="tag tag-ai">NeuroAI</span> Founded 2026 · Zurich, Switzerland 🇨🇭</div>
+    </div>
+<!-- Non-US Companies Seeking US Entry — TARGETS FOR JORDAN'S SALES -->
+<div class="section-nonus">
+    <h2>🌍 Non-US Neurocos Ready for US Entry — Jordan's Sales Targets <span class="nonus-label">Hot</span></h2>
+
+    <div style="margin-bottom:14px;font-size:0.75rem;color:#94a3b8;line-height:1.5;">
+        Non-US neuro companies <strong style="color:#f2ebe1;">actively seeking US partners, distribution, or market expansion.</strong>
+        Highest-probability outreach targets — English-speaking sales/partner role.
+    </div>
+
+    <!-- 🔴 HOT — Actively seeking US partners NOW -->
+    <div style="margin-bottom:16px;">
+        <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:#ef4444;margin-bottom:10px;font-weight:700;">🔥 Actively Seeking US Partners — Reach Out NOW</div>
+
+        <div class="nonus-hot">
+            <div class="hot-label">🔥 Top Priority — CEO on record seeking US partners</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+                <div class="name"><span class="flag">🇳🇱🇩🇪</span> Zander Labs <span style="font-size:0.7rem;color:#64748b;">(Netherlands / Germany)</span></div>
+                <div class="amount">€30M contract</div>
+            </div>
+            <div style="font-size:0.8rem;color:#f2ebe1;margin-bottom:6px;">Passive BCI (pBCI) — detects mental state (focus, workload, intent) subconsciously. Privacy-first. Targets defense, robotics, healthcare, air traffic.</div>
+            <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px;"><strong style="color:#22c55e;">US Signal:</strong> Officially entering US in 2026. CEO Jonathan Zwaan on record: "actively seeking US partners on the West Coast." Building partner ecosystem from scratch.</div>
+            <div class="tag-row">
+                <span class="tag tag-bci">BCI</span>
+                <span class="tag tag-ai">NeuroAI</span>
+                <span class="tag" style="background:rgba(239,68,68,0.15);color:#ef4444;">🎯 US Partner Search</span>
+            </div>
+        </div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇧🇪</span> Nobi <span style="font-size:0.7rem;color:#64748b;">(Belgium)</span></div>
+                <div class="amount">€35M ($37M) Series B</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">AI smart lights for elderly care — 51% fall reduction, 94% faster caregiver response. In 22 countries. US office already open.</div>
+                <div style="margin-top:4px;"><strong style="color:#22c55e;">US Signal:</strong> Explicitly using Series B to expand into US + UK markets. Building B2B care home channel.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag" style="background:rgba(166,87,70,0.15);color:#a65746;">AgeTech</span>
+                    <span class="tag" style="background:rgba(34,197,94,0.15);color:#22c55e;">US Office ✓</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇫🇷</span> Hilo <span style="font-size:0.7rem;color:#64748b;">(France)</span></div>
+                <div class="amount">$100M+ total · $42M Series B</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">AI-powered smart glasses — memory, focus, productivity. Consumer "neuro intelligence" wearable. "Next generation of cognitive performance."</div>
+                <div style="margin-top:4px;"><strong style="color:#22c55e;">US Signal:</strong> Raised $42M Series B (2025) explicitly to expand. French company going global — US consumer market is the prize.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag" style="background:rgba(168,85,247,0.15);color:#c084fc;">Cognitive Wearable</span>
+                    <span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8;">Neuro Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🟡 Warm — Strong funding, US in sight -->
+    <div style="margin-bottom:16px;">
+        <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:#f59e0b;margin-bottom:10px;font-weight:700;">🟡 Strong Non-US Players — US Expansion Underway</div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇪🇸</span> INBRAIN Neuroelectronics <span style="font-size:0.7rem;color:#64748b;">(Spain — Barcelona)</span></div>
+                <div class="amount">$50M Series B</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">Graphene-based bidirectional BCI — world's first human enrollment with graphene neural interfaces. Medical/therapeutic.</div>
+                <div style="margin-top:4px;"><strong style="color:#22c55e;">US Signal:</strong> Series B with imec. Pursuing US regulatory + commercial path. One of Europe's largest neurotech rounds.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag tag-bci">BCI</span>
+                    <span class="tag tag-clinical">Clinical</span>
+                    <span class="tag" style="background:rgba(14,165,233,0.15);color:#38bdf8;">First Human ✓</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇦🇺</span> Emotiv <span style="font-size:0.7rem;color:#64748b;">(Australia)</span></div>
+                <div class="amount">Institutional</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">Wireless EEG headsets + software platform. 20M+ people have used their tech. Tan Le (founder) is high-profile. Sells heavily in North America.</div>
+                <div style="margin-top:4px;"><strong style="color:#f59e0b;">US Signal:</strong> Already has SF office. Less "entry" need — more "accelerate US presence" need.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag tag-bci">BCI</span>
+                    <span class="tag tag-ai">NeuroAI</span>
+                    <span class="tag" style="background:rgba(34,197,94,0.15);color:#22c55e;">US Office ✓</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇬🇧</span> Cerca Magnetics <span style="font-size:0.7rem;color:#64748b;">(UK)</span></div>
+                <div class="amount">€4.3M Seed (2025)</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">Wearable brain imaging using quantum sensing (OPM). Less intrusive than traditional EEG.</div>
+                <div style="margin-top:4px;"><strong style="color:#f59e0b;">US Signal:</strong> UK startup, likely seeking global expansion post-seed.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8;">Quantum Sensing</span>
+                    <span class="tag tag-bci">BCI</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nonus-card">
+            <div class="top">
+                <div class="name"><span class="flag">🇱🇻</span> Qualia Therapeutics <span style="font-size:0.7rem;color:#64748b;">(Latvia — Riga)</span></div>
+                <div class="amount">Undisclosed</div>
+            </div>
+            <div class="bottom">
+                <div style="color:#94a3b8;">AI-driven non-invasive brain therapy. Niche, early-stage.</div>
+                <div class="tag-row" style="margin-top:6px;">
+                    <span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8;">NeuroAI</span>
+                    <span class="tag tag-clinical">Therapy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🟢 Southeast Asia -->
+    <div>
+        <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:#a65746;margin-bottom:10px;font-weight:700;">🟢 Southeast Asia — Neuro Health Startups</div>
+
+        <div class="nonus-seasia">
+            <div class="seasia-label">🇸🇬 Singapore</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+                <div class="name">Intellect <span style="font-size:0.7rem;color:#64748b;">— Asia's best-funded mental health startup</span></div>
+                <div class="amount">$20M+ Series A</div>
+            </div>
+            <div style="font-size:0.8rem;color:#94a3b8;margin-bottom:6px;">Digital mental health platform — self-care tools, coaching, therapy, 24/7 EAP. "Largest Series A ever raised by a mental health startup in Asia." Softbank-backed.</div>
+            <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px;"><strong style="color:#22c55e;">US Signal:</strong> Scaling across Asia. Strong B2B mental health product. Global expansion is the next phase.</div>
+            <div class="tag-row">
+                <span class="tag" style="background:rgba(168,85,247,0.15);color:#c084fc;">Mental Health</span>
+                <span class="tag" style="background:rgba(34,197,94,0.15);color:#22c55e;">Best-Funded Asia Mental Health</span>
+            </div>
+        </div>
+
+        <div class="nonus-seasia">
+            <div class="seasia-label">🇸🇬 Singapore</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+                <div class="name">Neurowyzr</div>
+                <div class="amount">$2.1M+ Seed</div>
+            </div>
+            <div style="font-size:0.8rem;color:#94a3b8;margin-bottom:6px;">Neuroscience clinic + Digital Brain Function Screen (DBFS). Cognitive decline detection, brain health assessment. Backed by Peak XV Surge + Jungle Ventures.</div>
+            <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px;"><strong style="color:#f59e0b;">US Signal:</strong> Early stage, primarily SG/MY market. Could grow to US with right partner or US distributor.</div>
+            <div class="tag-row">
+                <span class="tag" style="background:rgba(168,85,247,0.15);color:#c084fc;">Cognitive Assessment</span>
+                <span class="tag" style="background:rgba(245,158,11,0.15);color:#f59e0b;">Early Stage</span>
+            </div>
+        </div>
+
+        <div class="nonus-seasia">
+            <div class="seasia-label">🇸🇬 Singapore</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+                <div class="name">Healint <span style="font-size:0.7rem;color:#64748b;">(already in directory)</span></div>
+                <div class="amount">—</div>
+            </div>
+            <div style="font-size:0.8rem;color:#94a3b8;margin-bottom:6px;">Migraine tracking + virtual reality rehab. Singapore-based. Real-world neurological data at scale.</div>
+            <div class="tag-row">
+                <span class="tag" style="background:rgba(168,85,247,0.15);color:#c084fc;">VR Rehab</span>
+                <span class="tag" style="background:rgba(245,158,11,0.15);color:#f59e0b;">Neurological Data</span>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1377,6 +1568,41 @@
                 <td class="location-cell">San Francisco, CA</td>
                 <td class="hiring-cell hiring-yes">✓</td>
             </tr>
+            <tr style="background:rgba(166,87,70,0.08);">
+                <td class="name-cell"><a href="https://www.zanderlabs.com" target="_blank">Zander Labs</a> <span style="background:rgba(166,87,70,0.2);color:#c27060;font-size:0.58rem;padding:1px 5px;border-radius:6px;margin-left:4px;">🌍 NL/DE</span></td>
+                <td class="funding-cell" style="color:#a65746;">€30M contract</td>
+                <td class="focus-cell">Passive BCI · Mental state detection · Neuroadaptive AI · Defense/Robotics</td>
+                <td class="location-cell">Netherlands 🇳🇱 / Germany 🇩🇪</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr style="background:rgba(166,87,70,0.08);">
+                <td class="name-cell"><a href="https://nobi.life" target="_blank">Nobi</a> <span style="background:rgba(166,87,70,0.2);color:#c27060;font-size:0.58rem;padding:1px 5px;border-radius:6px;margin-left:4px;">🌍 BE</span></td>
+                <td class="funding-cell" style="color:#a65746;">€35M ($37M) Series B</td>
+                <td class="focus-cell">AI smart lights · Fall detection · AgeTech · 51% fall reduction</td>
+                <td class="location-cell">Belgium 🇧🇪 · US + UK offices</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr style="background:rgba(166,87,70,0.08);">
+                <td class="name-cell">Hilo <span style="background:rgba(166,87,70,0.2);color:#c27060;font-size:0.58rem;padding:1px 5px;border-radius:6px;margin-left:4px;">🌍 FR</span></td>
+                <td class="funding-cell" style="color:#a65746;">$100M+ total · $42M Series B</td>
+                <td class="focus-cell">AI smart glasses · Cognitive performance · Memory/focus wearable</td>
+                <td class="location-cell">France 🇫🇷</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
+            <tr style="background:rgba(166,87,70,0.08);">
+                <td class="name-cell">Intellect <span style="background:rgba(166,87,70,0.2);color:#c27060;font-size:0.58rem;padding:1px 5px;border-radius:6px;margin-left:4px;">🌍 SG</span></td>
+                <td class="funding-cell" style="color:#a65746;">$20M+ Series A</td>
+                <td class="focus-cell">Digital mental health · Coaching + therapy · B2B EAP</td>
+                <td class="location-cell">Singapore 🇸🇬</td>
+                <td class="hiring-cell hiring-yes">✓</td>
+            </tr>
+            <tr style="background:rgba(166,87,70,0.08);">
+                <td class="name-cell"><a href="https://neurowyzr.com" target="_blank">Neurowyzr</a> <span style="background:rgba(166,87,70,0.2);color:#c27060;font-size:0.58rem;padding:1px 5px;border-radius:6px;margin-left:4px;">🌍 SG</span></td>
+                <td class="funding-cell" style="color:#a65746;">$2.1M+ Seed</td>
+                <td class="focus-cell">Digital Brain Function Screen · Cognitive decline · Peak XV + Jungle backed</td>
+                <td class="location-cell">Singapore 🇸🇬</td>
+                <td class="hiring-cell hiring-no">—</td>
+            </tr>
         </tbody>
     </table>
     </div>
@@ -1450,6 +1676,33 @@
             </div>
             <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px 12px;">
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                    <span style="font-weight:700;font-size:0.8rem;color:#f2ebe1;">Cala Health</span>
+                    <span style="background:rgba(245,158,11,0.2);color:#f59e0b;font-size:0.62rem;font-weight:700;padding:2px 6px;border-radius:4px;">OPS</span>
+                </div>
+                <div style="font-size:0.78rem;color:#ccc;margin-bottom:4px;">Controller — <strong style="color:#f59e0b;">$190K–$240K</strong> · San Mateo CA</div>
+                <div style="font-size:0.72rem;color:#94a3b8;">CPA, GAAP, Big 4 experience. NetSuite + Medicare revenue cycle. VC-backed medtech scale.</div>
+                <a href="https://jobs.gv.com/jobs/cala-health" target="_blank" style="color:#818cf8;font-size:0.72rem;text-decoration:none;margin-top:4px;display:inline-block;">→ jobs.gv.com/jobs/cala-health</a>
+            </div>
+            <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px 12px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                    <span style="font-weight:700;font-size:0.8rem;color:#f2ebe1;">Cala Health</span>
+                    <span style="background:rgba(245,158,11,0.2);color:#f59e0b;font-size:0.62rem;font-weight:700;padding:2px 6px;border-radius:4px;">OPS</span>
+                </div>
+                <div style="font-size:0.78rem;color:#ccc;margin-bottom:4px;">Manager, People Operations — <strong style="color:#f59e0b;">$110K–$175K</strong> · San Mateo CA</div>
+                <div style="font-size:0.72rem;color:#94a3b8;">Employee relations, change management, performance management. HR leadership at growth-stage medtech.</div>
+                <a href="https://jobs.gv.com/jobs/cala-health" target="_blank" style="color:#818cf8;font-size:0.72rem;text-decoration:none;margin-top:4px;display:inline-block;">→ jobs.gv.com/jobs/cala-health</a>
+            </div>
+            <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px 12px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                    <span style="font-weight:700;font-size:0.8rem;color:#f2ebe1;">Cala Health</span>
+                    <span style="background:rgba(245,158,11,0.2);color:#f59e0b;font-size:0.62rem;font-weight:700;padding:2px 6px;border-radius:4px;">OPS</span>
+                </div>
+                <div style="font-size:0.78rem;color:#ccc;margin-bottom:4px;">Revenue Cycle Specialist — Remote</div>
+                <div style="font-size:0.72rem;color:#94a3b8;">Salesforce + Medicare revenue cycle for wearable neuro device. Medical device or healthtech billing experience.</div>
+                <a href="https://jobs.gv.com/jobs/cala-health" target="_blank" style="color:#818cf8;font-size:0.72rem;text-decoration:none;margin-top:4px;display:inline-block;">→ jobs.gv.com/jobs/cala-health</a>
+            </div>
+            <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:10px 12px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
                     <span style="font-weight:700;font-size:0.8rem;color:#f2ebe1;">Attune Neurosciences</span>
                     <span style="background:rgba(245,158,11,0.2);color:#f59e0b;font-size:0.62rem;font-weight:700;padding:2px 6px;border-radius:4px;">OPS</span>
                 </div>
@@ -1472,6 +1725,15 @@
                 <div style="font-size:0.78rem;color:#ccc;margin-bottom:4px;">Head of Demand Gen (Digital Marketing) — <strong style="color:#f59e0b;">$150K–$220K</strong> · Alameda CA</div>
                 <div style="font-size:0.72rem;color:#94a3b8;">PRIMA subretinal prosthesis — demand generation, campaigns, lifecycle marketing. Medtech or ophthalmology a plus.</div>
                 <a href="https://neurotechjobs.io/" target="_blank" style="color:#818cf8;font-size:0.72rem;text-decoration:none;margin-top:4px;display:inline-block;">→ neurotechjobs.io</a>
+            </div>
+            <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:10px 12px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                    <span style="font-weight:700;font-size:0.8rem;color:#f2ebe1;">Cala Health</span>
+                    <span style="background:rgba(34,197,94,0.2);color:#22c55e;font-size:0.62rem;font-weight:700;padding:2px 6px;border-radius:4px;">🔥 SALES</span>
+                </div>
+                <div style="font-size:0.78rem;color:#ccc;margin-bottom:4px;">Director, Marketing — <strong style="color:#f59e0b;">$170K–$220K</strong> · San Mateo CA</div>
+                <div style="font-size:0.72rem;color:#94a3b8;">Commercialization lead for FDA-cleared wearable tremor therapy. Full-funnel marketing, diagnostics, regulated device experience required.</div>
+                <a href="https://jobs.gv.com/jobs/cala-health" target="_blank" style="color:#818cf8;font-size:0.72rem;text-decoration:none;margin-top:4px;display:inline-block;">→ jobs.gv.com/jobs/cala-health</a>
             </div>
             <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:10px 12px;">
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
@@ -1589,7 +1851,7 @@
 </div>
 
 <script>
-document.getElementById('updated').textContent = 'Updated: May 14, 2026 10:00 AM';
+document.getElementById('updated').textContent = 'Updated: May 15, 2026 10:00 AM';
 document.getElementById('file-path').textContent = '/Users/jordan/workspace/007-Axton/neurotech/dashboards/neurotech-dashboard.html';
 </script>
 </body>
