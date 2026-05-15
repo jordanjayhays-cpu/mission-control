@@ -3,410 +3,689 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jordan's Mission Control</title>
+    <title>Mission Control — Jordan</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #0a0a0f; --card: #141420; --border: #1e1e2e; --text: #e2e8f0;
-            --muted: #64748b; --green: #22c55e; --yellow: #f59e0b; --red: #ef4444;
-            --cyan: #06b6d4; --purple: #a855f7;
+            --bg: #07090f;
+            --surface: #0d1117;
+            --panel: #161b22;
+            --border: #21262d;
+            --text: #e6edf3;
+            --muted: #7d8590;
+            --dim: #484f58;
+            --green: #3fb950;
+            --amber: #d29922;
+            --red: #f85149;
+            --blue: #58a6ff;
+            --purple: #bc8cff;
+            --cyan: #39d0d8;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px 24px; }
-        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
-        h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #6366f1, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .header-sub { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-        .badge { background: rgba(99,102,241,0.15); color: #818cf8; padding: 3px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
-        .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
-        .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
-        .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
-        .badge-cyan { background: rgba(6,182,212,0.15); color: var(--cyan); }
-        .badge-purple { background: rgba(168,85,247,0.15); color: #c084fc; }
-        .section { background: var(--card); border-radius: 12px; padding: 16px; border: 1px solid var(--border); margin-bottom: 14px; }
-        .section h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
-        .section h2 .count { opacity: 0.6; font-weight: 400; }
-        .dash-link { display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(30,41,59,0.4); border-radius: 9px; border: 1px solid var(--border); margin-bottom: 6px; text-decoration: none; color: var(--text); transition: border-color 0.2s; }
-        .dash-link:hover { border-color: #6366f1; }
-        .dash-link .icon { font-size: 1.1rem; width: 26px; text-align: center; flex-shrink: 0; }
-        .dash-link .label { font-weight: 600; font-size: 0.82rem; }
-        .dash-link .desc { font-size: 0.68rem; color: var(--muted); }
-        .dash-link .tag { font-size: 0.6rem; padding: 1px 6px; border-radius: 6px; margin-left: auto; flex-shrink: 0; }
-        .task-item { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; border-bottom: 1px solid rgba(30,41,59,0.5); }
-        .task-item:last-child { border-bottom: none; }
-        .task-item .cb { width: 15px; height: 15px; border-radius: 4px; border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 2px; }
-        .task-item .text { font-size: 0.8rem; line-height: 1.4; }
-        .task-item .meta { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
-        .task-item.done .text { text-decoration: line-through; color: var(--muted); }
-        .task-item.high .cb { border-color: var(--red); background: rgba(239,68,68,0.1); }
-        .task-item.med .cb { border-color: var(--yellow); background: rgba(245,158,11,0.1); }
-        .dec-item { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(30,41,59,0.5); font-size: 0.8rem; }
-        .dec-item:last-child { border-bottom: none; }
-        .dec-item .arrow { color: var(--yellow); }
-        .pending-card { background: rgba(239,68,68,0.08); border-radius: 8px; padding: 10px; border: 1px solid rgba(239,68,68,0.2); margin-bottom: 6px; }
-        .pending-card .title { font-weight: 600; font-size: 0.8rem; color: var(--red); margin-bottom: 2px; }
-        .pending-card .why { font-size: 0.68rem; color: var(--muted); }
-        .footer { text-align: center; color: var(--muted); font-size: 0.65rem; margin-top: 28px; }
-        .section-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
-        .tag-web { background: rgba(34,197,94,0.15); color: var(--green); }
-        .tag-local { background: rgba(245,158,11,0.15); color: var(--yellow); }
-        .tag-remove { background: rgba(239,68,68,0.1); color: var(--red); }
-        .subsection { margin-bottom: 14px; }
-        .subsection:last-child { margin-bottom: 0; }
-        /* WORK LOG STYLES */
-        .log-entry { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(30,41,59,0.5); }
-        .log-entry:last-child { border-bottom: none; }
-        .log-time { width: 60px; flex-shrink: 0; font-size: 0.65rem; color: var(--muted); padding-top: 3px; text-align: right; }
-        .log-body { flex: 1; }
-        .log-title { font-weight: 600; font-size: 0.82rem; margin-bottom: 2px; }
-        .log-meta { font-size: 0.68rem; color: var(--muted); }
-        .log-link { font-size: 0.68rem; color: #818cf8; text-decoration: none; margin-top: 2px; display: inline-block; }
-        .log-agent { font-size: 0.6rem; padding: 1px 5px; border-radius: 4px; font-weight: 600; }
-        .log-agent.hermes { background: rgba(6,182,212,0.15); color: var(--cyan); }
-        .log-agent.axton { background: rgba(168,85,247,0.15); color: #c084fc; }
-        .log-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topbar-left { display: flex; align-items: center; gap: 16px; }
+        .topbar-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        .topbar-logo span { color: var(--green); }
+        .topbar-status { display: flex; gap: 16px; align-items: center; }
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
         .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
-        .dot-yellow { background: var(--yellow); }
-        .dot-cyan { background: var(--cyan); }
+        .dot-amber { background: var(--amber); }
+        .dot-blue { background: var(--blue); }
         .dot-purple { background: var(--purple); }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .topbar-right { font-size: 0.7rem; color: var(--dim); }
+
+        /* MAIN LAYOUT */
+        .main { display: flex; flex: 1; }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 200px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 16px 0;
+            flex-shrink: 0;
+        }
+        .sidebar-section { margin-bottom: 20px; }
+        .sidebar-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dim);
+            padding: 0 16px 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.15s;
+            border-left: 2px solid transparent;
+        }
+        .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+        .nav-item.active { color: var(--text); background: rgba(88,166,255,0.08); border-left-color: var(--blue); }
+        .nav-item .icon { font-size: 0.9rem; width: 18px; text-align: center; }
+        .nav-item .tag {
+            margin-left: auto;
+            font-size: 0.55rem;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        .tag-new { background: rgba(63,185,80,0.15); color: var(--green); }
+        .tag-upd { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+        /* CONTENT */
+        .content { flex: 1; padding: 20px 24px; overflow-y: auto; }
+
+        /* SECTION HEADERS */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .section-header h2 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+        }
+        .section-header .line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .section-header .time { font-size: 0.65rem; color: var(--dim); margin-left: auto; }
+
+        /* CARD GRID */
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .metric-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .metric-card .label { font-size: 0.65rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .metric-card .value { font-size: 1.6rem; font-weight: 700; color: var(--text); line-height: 1; }
+        .metric-card .sub { font-size: 0.65rem; color: var(--muted); margin-top: 4px; }
+        .metric-card.green .value { color: var(--green); }
+        .metric-card.amber .value { color: var(--amber); }
+        .metric-card.blue .value { color: var(--blue); }
+        .metric-card.purple .value { color: var(--purple); }
+
+        /* PANELS */
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+        .panel-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .panel-header .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+        .panel-header h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+        .panel-header .agent-badge { margin-left: auto; font-size: 0.6rem; padding: 2px 7px; border-radius: 6px; font-weight: 700; }
+        .agent-hermes { background: rgba(57,208,216,0.12); color: var(--cyan); }
+        .agent-axton { background: rgba(188,140,255,0.12); color: var(--purple); }
+
+        .panel-body { padding: 12px 16px; }
+
+        /* LOG ENTRY */
+        .log-entry {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(33,38,45,0.8);
+        }
+        .log-entry:last-child { border-bottom: none; }
+        .log-time-col { width: 48px; flex-shrink: 0; text-align: right; }
+        .log-time-col .time { font-size: 0.65rem; color: var(--dim); font-family: 'Courier New', monospace; }
+        .log-dot-col { width: 14px; flex-shrink: 0; display: flex; justify-content: center; padding-top: 5px; }
+        .log-dot { width: 7px; height: 7px; border-radius: 50%; }
+        .log-body-col { flex: 1; }
+        .log-title { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+        .log-meta { font-size: 0.68rem; color: var(--muted); line-height: 1.4; }
+        .log-link { font-size: 0.68rem; color: var(--blue); text-decoration: none; }
+        .log-link:hover { text-decoration: underline; }
+
+        /* TASKS */
+        .task-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(33,38,45,0.6);
+        }
+        .task-row:last-child { border-bottom: none; }
+        .task-check {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1.5px solid var(--border);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .task-row.done .task-check { border-color: var(--green); background: rgba(63,185,80,0.15); }
+        .task-row.done .task-text { text-decoration: line-through; color: var(--muted); }
+        .task-text { font-size: 0.8rem; flex: 1; }
+        .task-meta { font-size: 0.65rem; color: var(--dim); }
+        .task-priority {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+        .pri-high { background: rgba(248,81,73,0.12); color: var(--red); }
+        .pri-med { background: rgba(210,153,34,0.12); color: var(--amber); }
+        .pri-low { background: rgba(125,133,144,0.12); color: var(--muted); }
+
+        /* CRON ROWS */
+        .cron-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(33,38,45,0.6);
+        }
+        .cron-row:last-child { border-bottom: none; }
+        .cron-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .cron-active { background: var(--green); box-shadow: 0 0 5px var(--green); }
+        .cron-name { font-size: 0.8rem; font-weight: 600; flex: 1; }
+        .cron-meta { font-size: 0.65rem; color: var(--muted); display: flex; gap: 12px; }
+        .cron-next { font-size: 0.65rem; color: var(--dim); }
+
+        /* BLOCKERS */
+        .blocker-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(248,81,73,0.05);
+            border: 1px solid rgba(248,81,73,0.12);
+            border-radius: 7px;
+            margin-bottom: 8px;
+        }
+        .blocker-icon { font-size: 0.9rem; }
+        .blocker-name { font-size: 0.8rem; font-weight: 600; flex: 1; }
+        .blocker-why { font-size: 0.65rem; color: var(--muted); }
+
+        /* PROJECTS STRIP */
+        .projects-strip {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .project-chip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 14px;
+            text-decoration: none;
+            color: var(--text);
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: border-color 0.15s;
+        }
+        .project-chip:hover { border-color: var(--blue); }
+        .project-chip .icon { font-size: 0.9rem; }
+        .project-chip .name { font-size: 0.75rem; font-weight: 600; }
+        .project-chip .arrow { font-size: 0.7rem; color: var(--dim); }
+
+        /* GRID LAYOUTS */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+        .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+
+        @media(max-width: 1200px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(max-width: 900px) { .sidebar { display: none; } .two-col, .three-col { grid-template-columns: 1fr; } }
+
+        /* NOISE TEXTURE OVERLAY */
+        .content::before {
+            content: '';
+            position: fixed;
+            top: 52px;
+            left: 200px;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+        .content > * { position: relative; z-index: 1; }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div>
-        <h1>Jordan's Mission Control</h1>
-        <div class="header-sub">All work · one place · Hermes 007 + Axton 008</div>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-        <div style="display:flex;gap:6px;">
-            <span class="badge badge-cyan">007 Hermes</span>
-            <span class="badge badge-purple">008 Axton</span>
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="topbar-left">
+        <div class="topbar-logo">MISSION<span>CONTROL</span></div>
+        <div class="topbar-status">
+            <div class="status-pill">
+                <div class="status-dot dot-green"></div>
+                Hermes 007
+            </div>
+            <div class="status-pill">
+                <div class="status-dot dot-purple"></div>
+                Axton 008
+            </div>
+            <div class="status-pill">
+                <div class="status-dot dot-green"></div>
+                Supabase
+            </div>
+            <div class="status-pill">
+                <div class="status-dot dot-green"></div>
+                Honcho Memory
+            </div>
         </div>
-        <div style="font-size:0.65rem;color:var(--muted);">Updated: <span id="now"></span></div>
+    </div>
+    <div class="topbar-right">Updated: <span id="now"></span></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-label">Overview</div>
+            <div class="nav-item active">📊 Dashboard</div>
+            <div class="nav-item">⚡ Cron Jobs</div>
+            <div class="nav-item">📋 Work Log</div>
+            <div class="nav-item">✅ Tasks</div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">Projects</div>
+            <div class="nav-item">🧠 Neurotech <span class="tag tag-new">NEW</span></div>
+            <div class="nav-item">🌍 PISCO</div>
+            <div class="nav-item">💆 Massage Pass</div>
+            <div class="nav-item">🤝 Niah</div>
+            <div class="nav-item">🎓 Harvard</div>
+            <div class="nav-item">🌌 The Passage</div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">Quick Links</div>
+            <div class="nav-item">📁 All Files</div>
+            <div class="nav-item">⛔ Blockers</div>
+            <div class="nav-item">🎯 Decisions</div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- METRICS -->
+        <div class="card-grid">
+            <div class="metric-card green">
+                <div class="label">Active Crons</div>
+                <div class="value">4</div>
+                <div class="sub">2 Hermes · 2 Axton</div>
+            </div>
+            <div class="metric-card blue">
+                <div class="label">Projects</div>
+                <div class="value">10</div>
+                <div class="sub">25 HTML files</div>
+            </div>
+            <div class="metric-card amber">
+                <div class="label">Tasks Pending</div>
+                <div class="value">8</div>
+                <div class="sub">3 high · 3 med · 2 normal</div>
+            </div>
+            <div class="metric-card purple">
+                <div class="label">Blockers</div>
+                <div class="value">5</div>
+                <div class="sub">APIs needed</div>
+            </div>
+        </div>
+
+        <!-- ACTIVE CRONS -->
+        <div class="section-header">
+            <h2>⚡ Live Cron Jobs</h2>
+            <div class="line"></div>
+            <div class="time">Running right now</div>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <div class="dot dot-green"></div>
+                <h3>Hermes 007 — Daily Routines</h3>
+            </div>
+            <div class="panel-body">
+                <div class="cron-row">
+                    <div class="cron-status cron-active"></div>
+                    <div class="cron-name">Self-Improvement Research</div>
+                    <div class="cron-meta"><span>7:00 AM</span><span>Web + Search + Skills</span></div>
+                    <div class="cron-next">Next: tomorrow 7am</div>
+                </div>
+                <div class="cron-row">
+                    <div class="cron-status cron-active"></div>
+                    <div class="cron-name">Neurotech Intelligence Scan</div>
+                    <div class="cron-meta"><span>8:00 AM</span><span>Non-US → US market</span></div>
+                    <div class="cron-next">Next: tomorrow 8am</div>
+                </div>
+                <div class="cron-row">
+                    <div class="cron-status cron-active"></div>
+                    <div class="cron-name">Madrid Massage Leads Scout</div>
+                    <div class="cron-meta"><span>9:00 AM</span><span>FB groups → Supabase</span></div>
+                    <div class="cron-next">Next: tomorrow 9am</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <div class="dot dot-purple"></div>
+                <h3>Axton 008 — Nightly Routines</h3>
+            </div>
+            <div class="panel-body">
+                <div class="cron-row">
+                    <div class="cron-status cron-active"></div>
+                    <div class="cron-name">last30days Research</div>
+                    <div class="cron-meta"><span>Nightly</span><span>Reddit + GitHub + HN</span></div>
+                    <div class="cron-next">Next: tonight</div>
+                </div>
+                <div class="cron-row">
+                    <div class="cron-status cron-active"></div>
+                    <div class="cron-name">Daily Intel Brief</div>
+                    <div class="cron-meta"><span>Daily</span><span>12 ideas · 3 trends · 1 action</span></div>
+                    <div class="cron-next">Next: tomorrow</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORK LOG -->
+        <div class="section-header" style="margin-top: 20px;">
+            <h2>📋 Recent Work</h2>
+            <div class="line"></div>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <div class="dot dot-green"></div>
+                <h3>What Hermes + Axton Did Today</h3>
+                <span class="agent-badge agent-hermes">Hermes</span>
+            </div>
+            <div class="panel-body">
+                <div class="log-entry">
+                    <div class="log-time-col"><div class="time">16:48</div></div>
+                    <div class="log-dot-col"><div class="log-dot" style="background:var(--green);"></div></div>
+                    <div class="log-body-col">
+                        <div class="log-title">The Passage — 50 new philosophical concepts added</div>
+                        <div class="log-meta">86 total · tabbed by region · East Asia 22, Europe 32, South Asia 12, Africa 5, Middle East 12, Americas 2, Pacific 1</div>
+                        <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">→ neuromatch/the-passage.html</a>
+                    </div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time-col"><div class="time">16:37</div></div>
+                    <div class="log-dot-col"><div class="log-dot" style="background:var(--green);"></div></div>
+                    <div class="log-body-col">
+                        <div class="log-title">Neurotech non-US companies entering US market</div>
+                        <div class="log-meta">Zander Labs (German-Dutch, $33M) · MindMaze (Swiss) · NeuroPace · ByteDance neuro · Chinese BCI — 12+ companies with analysis</div>
+                        <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">→ neurotech-intelligence/neurotech-us-entry-may2026.html</a>
+                    </div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time-col"><div class="time">Today</div></div>
+                    <div class="log-dot-col"><div class="log-dot" style="background:var(--cyan);"></div></div>
+                    <div class="log-body-col">
+                        <div class="log-title">Honcho memory restored + backfilled</div>
+                        <div class="log-meta">API key replaced · 21 facts backfilled (projects, workspace, Notion DBs, PISCO, Harvard cases, API keys, Jordan's style)</div>
+                    </div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time-col"><div class="time">11:04</div></div>
+                    <div class="log-dot-col"><div class="log-dot" style="background:var(--amber);"></div></div>
+                    <div class="log-body-col">
+                        <div class="log-title">PISCO CRM — leads updated</div>
+                        <div class="log-meta">50+ European companies · transport/logistics, meat processing, construction, hospitality · LinkedIn decision makers</div>
+                        <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">→ neuromatch/pisco-dashboard.html</a>
+                    </div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time-col"><div class="time">10:25</div></div>
+                    <div class="log-dot-col"><div class="log-dot" style="background:var(--amber);"></div></div>
+                    <div class="log-body-col">
+                        <div class="log-title">City Match Quiz — adaptive version rebuilt</div>
+                        <div class="log-meta">Research-backed · 60+ variables · Madrid market context · tabbed navigation</div>
+                        <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">→ city-quiz-site/index.html</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TASKS + BLOCKERS -->
+        <div class="two-col" style="margin-top: 20px;">
+            <div>
+                <div class="section-header">
+                    <h2>👤 Your Tasks</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">DM Rachel King on LinkedIn — Masssage Club intro</div>
+                            <div class="task-priority pri-high">HIGH</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">DM Victor Presa on LinkedIn — Madrid massage</div>
+                            <div class="task-priority pri-high">HIGH</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">WhatsApp Javier Estrada — Mallorca lead</div>
+                            <div class="task-priority pri-high">HIGH</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">Send 10 PISCO cold emails</div>
+                            <div class="task-priority pri-med">MED</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">Post ProfileStack on X/LinkedIn</div>
+                            <div class="task-priority pri-med">MED</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">Decide COMARE ICP</div>
+                            <div class="task-priority pri-med">MED</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">Write Neurotech Video 1 script</div>
+                            <div class="task-priority pri-low">NORMAL</div>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-check"></div>
+                            <div class="task-text">Buy massagepass.com domain</div>
+                            <div class="task-priority pri-low">NORMAL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="section-header">
+                    <h2>⛔ Blockers</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="blocker-row">
+                            <div class="blocker-icon">🔑</div>
+                            <div>
+                                <div class="blocker-name">Vercel API Token</div>
+                                <div class="blocker-why">Can't build custom apps for you without this</div>
+                            </div>
+                        </div>
+                        <div class="blocker-row">
+                            <div class="blocker-icon">🔑</div>
+                            <div>
+                                <div class="blocker-name">Notion API Key</div>
+                                <div class="blocker-why">PISCO CRM, COMARE, MASSAGE-PASS backend</div>
+                            </div>
+                        </div>
+                        <div class="blocker-row">
+                            <div class="blocker-icon">📧</div>
+                            <div>
+                                <div class="blocker-name">Email Sending</div>
+                                <div class="blocker-why">SendGrid / Apollo / Instantly — 10 PISCO emails written but can't send</div>
+                            </div>
+                        </div>
+                        <div class="blocker-row">
+                            <div class="blocker-icon">🗄️</div>
+                            <div>
+                                <div class="blocker-name">Supabase service_role key</div>
+                                <div class="blocker-why">Massage Club bookings pipeline broken</div>
+                            </div>
+                        </div>
+                        <div class="blocker-row">
+                            <div class="blocker-icon">🎵</div>
+                            <div>
+                                <div class="blocker-name">DistroKid account</div>
+                                <div class="blocker-why">PK Music releases blocked</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT QUICK LINKS -->
+        <div class="section-header" style="margin-top: 20px;">
+            <h2>🚀 Projects</h2>
+            <div class="line"></div>
+        </div>
+        <div class="projects-strip">
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">
+                <span class="icon">🌍</span><span class="name">Neurotech US Entry</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">
+                <span class="icon">🌌</span><span class="name">The Passage</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">
+                <span class="icon">🌍</span><span class="name">PISCO Pipeline</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-full.html" target="_blank">
+                <span class="icon">🎓</span><span class="name">Harvard Sim</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/massage-pass-landing.html" target="_blank">
+                <span class="icon">💆</span><span class="name">Massage Pass</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/leadpulse.html" target="_blank">
+                <span class="icon">🎯</span><span class="name">LeadPulse</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/niah-dashboard.html" target="_blank">
+                <span class="icon">🤝</span><span class="name">Niah South Summit</span><span class="arrow">→</span>
+            </a>
+            <a class="project-chip" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">
+                <span class="icon">🏙️</span><span class="name">City Match Quiz</span><span class="arrow">→</span>
+            </a>
+        </div>
+
+        <!-- DECISIONS -->
+        <div class="section-header" style="margin-top: 20px;">
+            <h2>🔮 Decisions You Need to Make</h2>
+            <div class="line"></div>
+        </div>
+        <div class="panel">
+            <div class="panel-body">
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;flex:1;min-width:200px;">
+                        <div style="font-size:0.65rem;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">COMARE ICP</div>
+                        <div style="font-size:0.8rem;font-weight:600;">Pharmacies OR Restaurants OR Medical OR Gyms</div>
+                    </div>
+                    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;flex:1;min-width:200px;">
+                        <div style="font-size:0.65rem;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">New Bali Location</div>
+                        <div style="font-size:0.8rem;font-weight:600;">Bohol OR Dumaguete OR Siargao</div>
+                    </div>
+                    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;flex:1;min-width:200px;">
+                        <div style="font-size:0.65rem;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Neurotech Channel</div>
+                        <div style="font-size:0.8rem;font-weight:600;">Name TBD for YouTube branding</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NORTH STAR -->
+        <div class="section-header" style="margin-top: 20px;">
+            <h2>🎯 North Star</h2>
+            <div class="line"></div>
+        </div>
+        <div class="panel" style="border-color:rgba(63,185,80,0.2);">
+            <div class="panel-body" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+                <div style="flex:1;min-width:200px;">
+                    <div style="font-size:0.7rem;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Goal</div>
+                    <div style="font-size:0.9rem;line-height:1.6;">Build location-independent income<br>Graduate IMBA with 3 working projects<br>Achieve time + financial freedom</div>
+                </div>
+                <div style="text-align:center;padding:16px;">
+                    <div style="font-size:2rem;font-weight:800;color:var(--green);">~210</div>
+                    <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;">days to IMBA</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- WORK LOG — HERMES DID THIS -->
-<div class="section">
-    <h2>📋 Work Log <span class="count">· what Hermes + Axton did recently</span></h2>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-green"></div>
-        <div class="log-time">16:48</div>
-        <div class="log-body">
-            <div class="log-title">The Passage: 50 new philosophical concepts <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">86 total concepts · tabbed by region · East Asia 22, Europe 32, South Asia 12, Africa 5, Middle East 12, Americas 2, Pacific 1</div>
-            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">→ neuromatch/the-passage.html</a>
-        </div>
-    </div>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-green"></div>
-        <div class="log-time">16:37</div>
-        <div class="log-body">
-            <div class="log-title">Neurotech non-US companies entering US market <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">Zander Labs (German-Dutch, $33M), MindMaze (Swiss), NeuroPace, ByteDance neuro, Chinese BCI — 12+ companies with analysis</div>
-            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">→ neurotech-intelligence/neurotech-us-entry-may2026.html</a>
-        </div>
-    </div>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-cyan"></div>
-        <div class="log-time">Today</div>
-        <div class="log-body">
-            <div class="log-title">Self-Improvement Research cron created <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">7am daily · researches how Hermes and other AI agents are improving · reports here</div>
-        </div>
-    </div>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-cyan"></div>
-        <div class="log-time">Today</div>
-        <div class="log-body">
-            <div class="log-title">Neurotech Intelligence Scan cron created <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">8am daily · non-US neurocompanies entering US market · delivers here</div>
-        </div>
-    </div>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-green"></div>
-        <div class="log-time">Today</div>
-        <div class="log-body">
-            <div class="log-title">Honcho memory restored + backfilled <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">API key replaced · 21 facts backfilled (projects, workspace, Notion DBs, PISCO, Harvard cases, API keys, Jordan's style)</div>
-        </div>
-    </div>
-
-    <div class="log-entry">
-        <div class="log-dot dot-yellow"></div>
-        <div class="log-time">11:04</div>
-        <div class="log-body">
-            <div class="log-title">PISCO CRM — leads updated <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">50+ European companies with hiring signals · LinkedIn decision makers ·transport/logistics, meat processing, construction, hospitality</div>
-            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">→ neuromatch/pisco-dashboard.html</a>
-        </div>
-    </div>
-    
-    <div class="log-entry">
-        <div class="log-dot dot-yellow"></div>
-        <div class="log-time">10:25</div>
-        <div class="log-body">
-            <div class="log-title">City Match Quiz — adaptive version live <span class="log-agent hermes">Hermes</span></div>
-            <div class="log-meta">Research-backed city/location decision quiz · 60+ variables · Madrid market context</div>
-            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">→ city-quiz-site/index.html</a>
-        </div>
-    </div>
-</div>
-
-<!-- ACTIVE CRONS -->
-<div class="section">
-    <h2>⚡ Active Cron Jobs <span class="count">· 4 running</span></h2>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Self-Improvement Research <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 7:00 AM · how to get better</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Neurotech Intelligence Scan <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 8:00 AM · non-US neuro → US market</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Madrid Massage Leads Scout <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 9:00 AM · FB groups → Supabase</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">last30days Research <span class="log-agent axton" style="margin-left:6px;">Axton</span></div><div class="meta">Nightly · Reddit + GitHub + HN mentions</div></div>
-    </div>
-</div>
-
-<!-- ALL DASHBOARDS -->
-<div class="section">
-    <h2>📊 All Dashboards <span class="count">· 25 pages</span></h2>
-
-    <div class="grid-2">
-    <div>
-    <!-- 🧠 Neurotech -->
-    <div class="subsection">
-        <div class="section-label">🧠 Neurotech Intelligence</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">
-            <span class="icon">🌍</span><div><div class="label">Non-US Neuro → US Market</div><div class="desc">12+ companies · Zander Labs · MindMaze · Chinese BCI · entering US</div></div>
-            <span class="tag tag-web">🌐 NEW</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/funding/neurotech-dashboard.html" target="_blank">
-            <span class="icon">🧠</span><div><div class="label">Neurotech Dashboard</div><div class="desc">84+ companies · funding stages · BCI · NeuroAI · Wearables</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">
-            <span class="icon">🌍</span><div><div class="label">PISCO + Neurotech Sales Pipeline</div><div class="desc">130 European companies · B2B Filipino recruitment · LinkedIn decision makers</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-    </div>
-
-    <!-- 🎵 Philosophy & Music -->
-    <div class="subsection">
-        <div class="section-label">🎵 Philosophy & Music</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">
-            <span class="icon">🌌</span><div><div class="label">The Passage — 86 Philosophical Concepts</div><div class="desc">86 concepts · 7 regions · tabbed by continent · dark atmospheric</div></div>
-            <span class="tag tag-web">🌐 UPDATED</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/philosophy-songs.html" target="_blank">
-            <span class="icon">🎶</span><div><div class="label">Philosophy Songhooks — Week 1</div><div class="desc">5 concepts: Sankofa · Yugen · Fana · Querencia · Ayllu</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-    </div>
-
-    <!-- 👷‍♂️ Hiring & Recruitment -->
-    <div class="subsection">
-        <div class="section-label">👷‍♂️ Hiring & Recruitment</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/bulgaria-dashboard.html" target="_blank">
-            <span class="icon">🇧🇬</span><div><div class="label">Bulgaria Hiring Dashboard</div><div class="desc">Transport · Meat · Construction · Hospitality · Sofia/Varna/Plovdiv</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/europe-hiring-linkedins.html" target="_blank">
-            <span class="icon">🔗</span><div><div class="label">Europe Hiring LinkedIns</div><div class="desc">Hiring managers · transport/logistics · meat processing · construction</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-    </div>
-
-    <!-- 🏙️ City Decision Tools -->
-    <div class="subsection">
-        <div class="section-label">🏙️ City Decision Tools</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">
-            <span class="icon">🏙️</span><div><div class="label">City Match Quiz — Full Site</div><div class="desc">Adaptive city/location decision quiz · research-backed · 60+ variables</div></div>
-            <span class="tag tag-web">🌐 UPDATED</span>
-        </a>
-    </div>
-    </div>
-
-    <div>
-    <!-- 📚 Harvard MBA -->
-    <div class="subsection">
-        <div class="section-label">📚 Harvard MBA Simulations</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-full.html" target="_blank">
-            <span class="icon">🎓</span><div><div class="label">Harvard Simulation Full Dashboard</div><div class="desc">GSCM · W21312 · R1101C · 325031 · strategy + case prep</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-quiz.html" target="_blank">
-            <span class="icon">❓</span><div><div class="label">Harvard Simulation Quiz</div><div class="desc">Case prep quiz · participation pointers · grading rubric</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-    </div>
-
-    <!-- 💆 Massage Pass -->
-    <div class="subsection">
-        <div class="section-label">💆 Massage Pass</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/massage-pass-landing.html" target="_blank">
-            <span class="icon">🌐</span><div><div class="label">Massage Pass — Landing Page</div><div class="desc">Pre-launch variant · waitlist signup · Madrid market</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/massage-club/campaigns/01-madrid-launch-brief.html" target="_blank">
-            <span class="icon">📋</span><div><div class="label">Madrid Launch Brief</div><div class="desc">Full campaign plan · Chamberí micro-launch · week-by-week</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/massage-club/data/competitor-analysis.md" target="_blank">
-            <span class="icon">🔍</span><div><div class="label">Competitor Analysis</div><div class="desc">Booksy · Treatwell · Fulero positioning</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-    </div>
-
-    <!-- 🤝 Niah -->
-    <div class="subsection">
-        <div class="section-label">🤝 Niah · South Summit</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/niah-dashboard.html" target="_blank">
-            <span class="icon">🌐</span><div><div class="label">Niah Dashboard</div><div class="desc">RSVP tracking · match flow · Tally + Mailchimp + Squarespace</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/niah/south-summit/niah-south-summit-setup-guide.md" target="_blank">
-            <span class="icon">📄</span><div><div class="label">South Summit Setup Guide</div><div class="desc">Tool chain · Tally · Mailchimp · Squarespace · Zapier · n8n</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-    </div>
-
-    <!-- 🏨 PISCO Sales -->
-    <div class="subsection">
-        <div class="section-label">🏨 PISCO Sales Pipeline</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/pisco-hotel-pitch.html" target="_blank">
-            <span class="icon">🏨</span><div><div class="label">PISCO Hotel Pitch Deck</div><div class="desc">Sales deck · NH · Meliá · Barceló · Accor · European bulk hiring</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/leadpulse.html" target="_blank">
-            <span class="icon">🎯</span><div><div class="label">LeadPulse — Warm Outreach Tracker</div><div class="desc">Kanban · Cold/Warm/Hot/Booked · streak counter</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-    </div>
-
-    <!-- ⏱️ Accountability -->
-    <div class="subsection">
-        <div class="section-label">⏱️ Accountability & Productivity</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/commitment-clock.html" target="_blank">
-            <span class="icon">⏱️</span><div><div class="label">CommitmentClock</div><div class="desc">Win rate · day/week streaks · work/health/project/life tracking</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-    </div>
-    </div>
-    </div>
-</div>
-
-<!-- JORDAN TASKS -->
-<div class="section">
-    <h2>👤 Jordan's Tasks</h2>
-
-    <div style="margin-bottom:12px;">
-        <div class="section-label" style="color:#ef4444;">🔴 HIGH</div>
-        <div class="task-item high">
-            <div class="cb"></div>
-            <div><div class="text">DM Rachel King on LinkedIn about Massage Club</div><div class="meta">Neurotech founder · BCI startup · Key intro</div></div>
-        </div>
-        <div class="task-item high">
-            <div class="cb"></div>
-            <div><div class="text">DM Victor Presa on LinkedIn</div><div class="meta">Madrid massage market · Strategic contact</div></div>
-        </div>
-        <div class="task-item high">
-            <div class="cb"></div>
-            <div><div class="text">WhatsApp Javier Estrada — Mallorca massage lead</div><div class="meta">Warm lead · Mallorca market</div></div>
-        </div>
-    </div>
-
-    <div style="margin-bottom:12px;">
-        <div class="section-label" style="color:#f59e0b;">🟡 MEDIUM</div>
-        <div class="task-item med">
-            <div class="cb"></div>
-            <div><div class="text">Send 10 PISCO cold emails</div><div class="meta">Blocked on email tool</div></div>
-        </div>
-        <div class="task-item med">
-            <div class="cb"></div>
-            <div><div class="text">Post ProfileStack on X/LinkedIn</div><div class="meta">MVP ready</div></div>
-        </div>
-        <div class="task-item med">
-            <div class="cb"></div>
-            <div><div class="text">Decide COMARE ICP</div><div class="meta">Pharmacies OR Restaurants OR Medical OR Gyms</div></div>
-        </div>
-    </div>
-
-    <div>
-        <div class="section-label" style="color:#64748b;">⚪ NORMAL</div>
-        <div class="task-item">
-            <div class="cb"></div>
-            <div><div class="text">Write + record Neurotech Video 1 script</div><div class="meta">"The New Space Race" · thumbnail ready</div></div>
-        </div>
-        <div class="task-item">
-            <div class="cb"></div>
-            <div><div class="text">Film + edit Neurotech Video 1 for YouTube</div><div class="meta">After script done</div></div>
-        </div>
-        <div class="task-item">
-            <div class="cb"></div>
-            <div><div class="text">Buy massagepass.com domain</div><div class="meta">~$10 · easy win</div></div>
-        </div>
-        <div class="task-item">
-            <div class="cb"></div>
-            <div><div class="text">Release first PK song (DistroKid + Suno)</div><div class="meta">Target: 20 songs</div></div>
-        </div>
-    </div>
-</div>
-
-<!-- BLOCKERS -->
-<div class="section">
-    <h2>⛔ Blockers</h2>
-    <div class="pending-card">
-        <div class="title">⏳ Vercel API Token</div>
-        <div class="why">"Build me an app for X" won't work without this</div>
-    </div>
-    <div class="pending-card">
-        <div class="title">⏳ Notion API Key</div>
-        <div class="why">PISCO CRM, COMARE pipeline, MASSAGE-PASS backend</div>
-    </div>
-    <div class="pending-card">
-        <div class="title">⏳ Email sending (SendGrid / Apollo / Instantly)</div>
-        <div class="why">10 PISCO emails written but can't send yet</div>
-    </div>
-    <div class="pending-card">
-        <div class="title">⏳ Supabase service_role key</div>
-        <div class="why">Massage Club bookings pipeline broken</div>
-    </div>
-    <div class="pending-card">
-        <div class="title">⏳ DistroKid account</div>
-        <div class="why">PK Music releases blocked</div>
-    </div>
-</div>
-
-<!-- NORTH STAR -->
-<div class="section">
-    <h2>🎯 North Star</h2>
-    <div style="font-size:0.85rem;line-height:1.8;color:var(--muted);">
-        Build location-independent income<br>
-        Graduate IMBA with 3 working projects<br>
-        Achieve time + financial freedom<br><br>
-        <span style="color:var(--text);">~210 days to IMBA graduation</span>
-    </div>
-</div>
-
-<div class="footer">
-    Jordan's Mission Control · Hermes 007 + Axton 008<br>
-    Local: /Users/jordan/workspace/007-Axton/master-dashboard/master-dashboard.html<br>
-    Web: https://jordanjayhays-cpu.github.io/mission-control/master-dashboard/master-dashboard.html
-</div>
-
-<script>document.getElementById('now').textContent = new Date().toLocaleString();</script>
+<script>
+document.getElementById('now').textContent = new Date().toLocaleString('en-US', {
+    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+});
+</script>
 </body>
 </html>
