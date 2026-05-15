@@ -11,8 +11,8 @@
             --muted: #64748b; --green: #22c55e; --yellow: #f59e0b; --red: #ef4444;
             --cyan: #06b6d4; --purple: #a855f7;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
-        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px 24px; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
         h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #6366f1, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .header-sub { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
         .badge { background: rgba(99,102,241,0.15); color: #818cf8; padding: 3px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
@@ -51,6 +51,24 @@
         .tag-remove { background: rgba(239,68,68,0.1); color: var(--red); }
         .subsection { margin-bottom: 14px; }
         .subsection:last-child { margin-bottom: 0; }
+        /* WORK LOG STYLES */
+        .log-entry { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(30,41,59,0.5); }
+        .log-entry:last-child { border-bottom: none; }
+        .log-time { width: 60px; flex-shrink: 0; font-size: 0.65rem; color: var(--muted); padding-top: 3px; text-align: right; }
+        .log-body { flex: 1; }
+        .log-title { font-weight: 600; font-size: 0.82rem; margin-bottom: 2px; }
+        .log-meta { font-size: 0.68rem; color: var(--muted); }
+        .log-link { font-size: 0.68rem; color: #818cf8; text-decoration: none; margin-top: 2px; display: inline-block; }
+        .log-agent { font-size: 0.6rem; padding: 1px 5px; border-radius: 4px; font-weight: 600; }
+        .log-agent.hermes { background: rgba(6,182,212,0.15); color: var(--cyan); }
+        .log-agent.axton { background: rgba(168,85,247,0.15); color: #c084fc; }
+        .log-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+        .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+        .dot-yellow { background: var(--yellow); }
+        .dot-cyan { background: var(--cyan); }
+        .dot-purple { background: var(--purple); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -58,7 +76,7 @@
 <div class="header">
     <div>
         <h1>Jordan's Mission Control</h1>
-        <div class="header-sub">Master hub — all dashboards · all tasks · both agents</div>
+        <div class="header-sub">All work · one place · Hermes 007 + Axton 008</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
         <div style="display:flex;gap:6px;">
@@ -69,53 +87,119 @@
     </div>
 </div>
 
+<!-- WORK LOG — HERMES DID THIS -->
+<div class="section">
+    <h2>📋 Work Log <span class="count">· what Hermes + Axton did recently</span></h2>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-green"></div>
+        <div class="log-time">16:48</div>
+        <div class="log-body">
+            <div class="log-title">The Passage: 50 new philosophical concepts <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">86 total concepts · tabbed by region · East Asia 22, Europe 32, South Asia 12, Africa 5, Middle East 12, Americas 2, Pacific 1</div>
+            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">→ neuromatch/the-passage.html</a>
+        </div>
+    </div>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-green"></div>
+        <div class="log-time">16:37</div>
+        <div class="log-body">
+            <div class="log-title">Neurotech non-US companies entering US market <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">Zander Labs (German-Dutch, $33M), MindMaze (Swiss), NeuroPace, ByteDance neuro, Chinese BCI — 12+ companies with analysis</div>
+            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">→ neurotech-intelligence/neurotech-us-entry-may2026.html</a>
+        </div>
+    </div>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-cyan"></div>
+        <div class="log-time">Today</div>
+        <div class="log-body">
+            <div class="log-title">Self-Improvement Research cron created <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">7am daily · researches how Hermes and other AI agents are improving · reports here</div>
+        </div>
+    </div>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-cyan"></div>
+        <div class="log-time">Today</div>
+        <div class="log-body">
+            <div class="log-title">Neurotech Intelligence Scan cron created <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">8am daily · non-US neurocompanies entering US market · delivers here</div>
+        </div>
+    </div>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-green"></div>
+        <div class="log-time">Today</div>
+        <div class="log-body">
+            <div class="log-title">Honcho memory restored + backfilled <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">API key replaced · 21 facts backfilled (projects, workspace, Notion DBs, PISCO, Harvard cases, API keys, Jordan's style)</div>
+        </div>
+    </div>
+
+    <div class="log-entry">
+        <div class="log-dot dot-yellow"></div>
+        <div class="log-time">11:04</div>
+        <div class="log-body">
+            <div class="log-title">PISCO CRM — leads updated <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">50+ European companies with hiring signals · LinkedIn decision makers ·transport/logistics, meat processing, construction, hospitality</div>
+            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">→ neuromatch/pisco-dashboard.html</a>
+        </div>
+    </div>
+    
+    <div class="log-entry">
+        <div class="log-dot dot-yellow"></div>
+        <div class="log-time">10:25</div>
+        <div class="log-body">
+            <div class="log-title">City Match Quiz — adaptive version live <span class="log-agent hermes">Hermes</span></div>
+            <div class="log-meta">Research-backed city/location decision quiz · 60+ variables · Madrid market context</div>
+            <a class="log-link" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">→ city-quiz-site/index.html</a>
+        </div>
+    </div>
+</div>
+
 <!-- ACTIVE CRONS -->
 <div class="section">
-    <h2>⚡ Active Cron Jobs <span class="count">· 5 running</span></h2>
+    <h2>⚡ Active Cron Jobs <span class="count">· 4 running</span></h2>
     <div class="task-item">
-        <div class="cb" style="border-color:var(--green);background:rgba(34,197,94,0.1);"></div>
-        <div><div class="text">Neurotech Intelligence Scan</div><div class="meta">Daily 8:00 AM · Hermes 007</div></div>
+        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
+        <div><div class="text">Self-Improvement Research <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 7:00 AM · how to get better</div></div>
     </div>
     <div class="task-item">
-        <div class="cb" style="border-color:var(--green);background:rgba(34,197,94,0.1);"></div>
-        <div><div class="text">Madrid Massage Leads Scout</div><div class="meta">Daily 9:00 AM · Hermes 007</div></div>
+        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
+        <div><div class="text">Neurotech Intelligence Scan <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 8:00 AM · non-US neuro → US market</div></div>
     </div>
     <div class="task-item">
-        <div class="cb" style="border-color:var(--green);background:rgba(34,197,94,0.1);"></div>
-        <div><div class="text">Supabase Bookings Monitor</div><div class="meta">Real-time poll · Hermes 007</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">last30days Research</div><div class="meta">Nightly · Axton 008</div></div>
+        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
+        <div><div class="text">Madrid Massage Leads Scout <span class="log-agent hermes" style="margin-left:6px;">Hermes</span></div><div class="meta">Daily 9:00 AM · FB groups → Supabase</div></div>
     </div>
     <div class="task-item">
         <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">Intel Daily Brief</div><div class="meta">Nightly · Axton 008</div></div>
+        <div><div class="text">last30days Research <span class="log-agent axton" style="margin-left:6px;">Axton</span></div><div class="meta">Nightly · Reddit + GitHub + HN mentions</div></div>
     </div>
 </div>
 
 <!-- ALL DASHBOARDS -->
 <div class="section">
-    <h2>📊 All Dashboards <span class="count">· 28 pages</span></h2>
+    <h2>📊 All Dashboards <span class="count">· 25 pages</span></h2>
 
+    <div class="grid-2">
+    <div>
     <!-- 🧠 Neurotech -->
     <div class="subsection">
         <div class="section-label">🧠 Neurotech Intelligence</div>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/funding/neurotech-dashboard.html" target="_blank">
-            <span class="icon">🧠</span><div><div class="label">Neurotech Dashboard — neuromatch/funding</div><div class="desc">84+ companies · funding stages · jobs · BCI · NeuroAI · Wearables</div></div>
-            <span class="tag tag-web">🌐 Web</span>
+        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neurotech-intelligence/neurotech-us-entry-may2026.html" target="_blank">
+            <span class="icon">🌍</span><div><div class="label">Non-US Neuro → US Market</div><div class="desc">12+ companies · Zander Labs · MindMaze · Chinese BCI · entering US</div></div>
+            <span class="tag tag-web">🌐 NEW</span>
         </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/neurotech/dashboards/neurotech-dashboard.html" target="_blank">
-            <span class="icon">🧠</span><div><div class="label">Neurotech Dashboard — neurotech/ folder</div><div class="desc">Alternative version · local</div></div>
-            <span class="tag tag-local">💻 Local</span>
+        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/funding/neurotech-dashboard.html" target="_blank">
+            <span class="icon">🧠</span><div><div class="label">Neurotech Dashboard</div><div class="desc">84+ companies · funding stages · BCI · NeuroAI · Wearables</div></div>
+            <span class="tag tag-web">🌐 Web</span>
         </a>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/pisco-dashboard.html" target="_blank">
             <span class="icon">🌍</span><div><div class="label">PISCO + Neurotech Sales Pipeline</div><div class="desc">130 European companies · B2B Filipino recruitment · LinkedIn decision makers</div></div>
             <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/pisco-dashboard.html" target="_blank">
-            <span class="icon">🌍</span><div><div class="label">PISCO Dashboard — root level</div><div class="desc">Local root version</div></div>
-            <span class="tag tag-local">💻 Local</span>
         </a>
     </div>
 
@@ -123,8 +207,8 @@
     <div class="subsection">
         <div class="section-label">🎵 Philosophy & Music</div>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/the-passage.html" target="_blank">
-            <span class="icon">🌌</span><div><div class="label">The Passage — Interactive Philosophy Songhooks</div><div class="desc">36 concepts · 7 regions · tabbed by continent · dark atmospheric visual</div></div>
-            <span class="tag tag-web">🌐 Web</span>
+            <span class="icon">🌌</span><div><div class="label">The Passage — 86 Philosophical Concepts</div><div class="desc">86 concepts · 7 regions · tabbed by continent · dark atmospheric</div></div>
+            <span class="tag tag-web">🌐 UPDATED</span>
         </a>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/neuromatch/philosophy-songs.html" target="_blank">
             <span class="icon">🎶</span><div><div class="label">Philosophy Songhooks — Week 1</div><div class="desc">5 concepts: Sankofa · Yugen · Fana · Querencia · Ayllu</div></div>
@@ -148,28 +232,14 @@
     <!-- 🏙️ City Decision Tools -->
     <div class="subsection">
         <div class="section-label">🏙️ City Decision Tools</div>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/city-quiz-site/index.html" target="_blank">
-            <span class="icon">🏙️</span><div><div class="label">City Match Quiz — Full Site (city-quiz-site)</div><div class="desc">Adaptive city/location decision quiz · research-backed</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/city-quiz/index.html" target="_blank">
-            <span class="icon">🧭</span><div><div class="label">City Match Quiz — main folder</div><div class="desc">Original city quiz</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/city-quiz/city-match-quiz.html" target="_blank">
-            <span class="icon">📍</span><div><div class="label">City Match Quiz v1</div><div class="desc">Original version</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/city-quiz/city-match-quiz-v2.html" target="_blank">
-            <span class="icon">🧭</span><div><div class="label">City Match Quiz v2</div><div class="desc">Version 2 · adaptive quiz engine</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/neuromatch/city-quiz/index.html" target="_blank">
-            <span class="icon">📍</span><div><div class="label">City Quiz — neuromatch folder</div><div class="desc">In neuromatch subfolder</div></div>
-            <span class="tag tag-local">💻 Local</span>
+        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/city-quiz-site/index.html" target="_blank">
+            <span class="icon">🏙️</span><div><div class="label">City Match Quiz — Full Site</div><div class="desc">Adaptive city/location decision quiz · research-backed · 60+ variables</div></div>
+            <span class="tag tag-web">🌐 UPDATED</span>
         </a>
     </div>
+    </div>
 
+    <div>
     <!-- 📚 Harvard MBA -->
     <div class="subsection">
         <div class="section-label">📚 Harvard MBA Simulations</div>
@@ -180,10 +250,6 @@
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-quiz.html" target="_blank">
             <span class="icon">❓</span><div><div class="label">Harvard Simulation Quiz</div><div class="desc">Case prep quiz · participation pointers · grading rubric</div></div>
             <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/mba/mba-case-prep.md" target="_blank">
-            <span class="icon">📝</span><div><div class="label">MBA Case Prep (Markdown)</div><div class="desc">W21312 · R1101C · 325031 · participation pointers</div></div>
-            <span class="tag tag-local">💻 Local</span>
         </a>
     </div>
 
@@ -198,16 +264,8 @@
             <span class="icon">📋</span><div><div class="label">Madrid Launch Brief</div><div class="desc">Full campaign plan · Chamberí micro-launch · week-by-week</div></div>
             <span class="tag tag-web">🌐 Web</span>
         </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/massage-club/campaigns/01-madrid-launch-brief.md" target="_blank">
-            <span class="icon">📄</span><div><div class="label">Madrid Launch Brief (Markdown)</div><div class="desc">Full plan · Chamberí micro-launch · week-by-week</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/massage-club/drafts/outreach-templates.md" target="_blank">
-            <span class="icon">📝</span><div><div class="label">Outreach Templates (Markdown)</div><div class="desc">Spanish DMs for studios + clients</div></div>
-            <span class="tag tag-local">💻 Local</span>
-        </a>
         <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/massage-club/data/competitor-analysis.md" target="_blank">
-            <span class="icon">🔍</span><div><div class="label">Competitor Analysis (Markdown)</div><div class="desc">Booksy · Treatwell · Fulero positioning</div></div>
+            <span class="icon">🔍</span><div><div class="label">Competitor Analysis</div><div class="desc">Booksy · Treatwell · Fulero positioning</div></div>
             <span class="tag tag-local">💻 Local</span>
         </a>
     </div>
@@ -216,15 +274,11 @@
     <div class="subsection">
         <div class="section-label">🤝 Niah · South Summit</div>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/niah-dashboard.html" target="_blank">
-            <span class="icon">🌐</span><div><div class="label">Niah Dashboard (root)</div><div class="desc">RSVP tracking · match flow · Tally + Mailchimp + Squarespace</div></div>
+            <span class="icon">🌐</span><div><div class="label">Niah Dashboard</div><div class="desc">RSVP tracking · match flow · Tally + Mailchimp + Squarespace</div></div>
             <span class="tag tag-web">🌐 Web</span>
         </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/niah/dashboards/niah-dashboard.html" target="_blank">
-            <span class="icon">🌐</span><div><div class="label">Niah Dashboard (niah/ folder)</div><div class="desc">Alternative version · web</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/niah/south-summit/niah-south-summit-proposal.md" target="_blank">
-            <span class="icon">📄</span><div><div class="label">Event Proposal (Markdown)</div><div class="desc">100 attendees · €118 price · tool chain</div></div>
+        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/niah/south-summit/niah-south-summit-setup-guide.md" target="_blank">
+            <span class="icon">📄</span><div><div class="label">South Summit Setup Guide</div><div class="desc">Tool chain · Tally · Mailchimp · Squarespace · Zapier · n8n</div></div>
             <span class="tag tag-local">💻 Local</span>
         </a>
     </div>
@@ -236,17 +290,9 @@
             <span class="icon">🏨</span><div><div class="label">PISCO Hotel Pitch Deck</div><div class="desc">Sales deck · NH · Meliá · Barceló · Accor · European bulk hiring</div></div>
             <span class="tag tag-web">🌐 Web</span>
         </a>
-        <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/analytics.html" target="_blank">
-            <span class="icon">📊</span><div><div class="label">PISCO Analytics Dashboard</div><div class="desc">CRM report · revenue projection · pipeline metrics</div></div>
-            <span class="tag tag-web">🌐 Web</span>
-        </a>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/leadpulse.html" target="_blank">
             <span class="icon">🎯</span><div><div class="label">LeadPulse — Warm Outreach Tracker</div><div class="desc">Kanban · Cold/Warm/Hot/Booked · streak counter</div></div>
             <span class="tag tag-web">🌐 Web</span>
-        </a>
-        <a class="dash-link" href="file:///Users/jordan/workspace/007-Axton/pisco-dashboard.html" target="_blank">
-            <span class="icon">🌍</span><div><div class="label">PISCO Dashboard (root)</div><div class="desc">Local root version</div></div>
-            <span class="tag tag-local">💻 Local</span>
         </a>
     </div>
 
@@ -254,38 +300,11 @@
     <div class="subsection">
         <div class="section-label">⏱️ Accountability & Productivity</div>
         <a class="dash-link" href="https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/commitment-clock.html" target="_blank">
-            <span class="icon">⏱️</span><div><div class="label">CommitmentClock — Daily Accountability</div><div class="desc">Win rate · day/week streaks · work/health/project/life tracking</div></div>
+            <span class="icon">⏱️</span><div><div class="label">CommitmentClock</div><div class="desc">Win rate · day/week streaks · work/health/project/life tracking</div></div>
             <span class="tag tag-web">🌐 Web</span>
         </a>
     </div>
-
-    <!-- ⚠️ Offline -->
-    <div class="subsection">
-        <div class="section-label" style="color:#ef4444;">⚠️ Not in GitHub — Offline</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(239,68,68,0.05);border-radius:9px;border:1px solid rgba(239,68,68,0.15);margin-bottom:6px;">
-            <span style="font-size:1.1rem;">🧮</span>
-            <div>
-                <div style="font-weight:600;font-size:0.82rem;color:#ef4444;">ProfileStack Calculator</div>
-                <div style="font-size:0.68rem;color:var(--muted);">Not found in repo · local only</div>
-            </div>
-            <span class="tag tag-remove">❌ Offline</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(239,68,68,0.05);border-radius:9px;border:1px solid rgba(239,68,68,0.15);margin-bottom:6px;">
-            <span style="font-size:1.1rem;">🏝️</span>
-            <div>
-                <div style="font-weight:600;font-size:0.82rem;color:#ef4444;">NewBali Cost Calculator</div>
-                <div style="font-size:0.68rem;color:var(--muted);">Not found in repo · local only</div>
-            </div>
-            <span class="tag tag-remove">❌ Offline</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(239,68,68,0.05);border-radius:9px;border:1px solid rgba(239,68,68,0.15);">
-            <span style="font-size:1.1rem;">💱</span>
-            <div>
-                <div style="font-weight:600;font-size:0.82rem;color:#ef4444;">COMARE Dashboard</div>
-                <div style="font-size:0.68rem;color:var(--muted);">Not found in repo · local only</div>
-            </div>
-            <span class="tag tag-remove">❌ Offline</span>
-        </div>
+    </div>
     </div>
 </div>
 
@@ -346,56 +365,6 @@
     </div>
 </div>
 
-<!-- HERMES TASKS -->
-<div class="section">
-    <h2>🤖 Hermes Tasks (007)</h2>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Daily Neurotech Intelligence scan</div><div class="meta">8AM cron · research → dashboard → Telegram</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Daily Madrid Massage Leads scout</div><div class="meta">9AM cron · FB groups → Supabase</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--cyan);background:rgba(6,182,212,0.1);"></div>
-        <div><div class="text">Monitor Supabase bookings</div><div class="meta">Real-time · Telegram alert on new booking</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--yellow);background:rgba(245,158,11,0.1);"></div>
-        <div><div class="text">Build full neurotech company directory</div><div class="meta">84+ companies · BCI · Neuromodulation · NeuroAI</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--yellow);background:rgba(245,158,11,0.1);"></div>
-        <div><div class="text">Add actively hiring column to neurotech dashboard</div><div class="meta">For Jordan's job search</div></div>
-    </div>
-</div>
-
-<!-- AXTON TASKS -->
-<div class="section">
-    <h2>🤖 Axton Tasks (008)</h2>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">last30days research on Jordan mentions</div><div class="meta">Reddit + GitHub + HN · nightly</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">Daily Intel Brief</div><div class="meta">12 ideas · 3 trends · 1 actionable</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">Neurotech content calendar</div><div class="meta">10 videos planned · "The New Space Race" next</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--purple);background:rgba(168,85,247,0.1);"></div>
-        <div><div class="text">Maintain AUTONOMOUS.md</div><div class="meta">Task backlog · project state</div></div>
-    </div>
-    <div class="task-item">
-        <div class="cb" style="border-color:var(--yellow);background:rgba(245,158,11,0.1);"></div>
-        <div><div class="text">PISCO + COMARE + MASSAGE-PASS daily logs</div><div class="meta">Project activity tracking</div></div>
-    </div>
-</div>
-
 <!-- BLOCKERS -->
 <div class="section">
     <h2>⛔ Blockers</h2>
@@ -421,16 +390,6 @@
     </div>
 </div>
 
-<!-- DECISIONS NEEDED -->
-<div class="section">
-    <h2>🔮 Decisions Jordan Needs to Make</h2>
-    <div class="dec-item"><span class="arrow">▶</span> COMARE ICP — Pharmacies OR Restaurants OR Medical OR Gyms</div>
-    <div class="dec-item"><span class="arrow">▶</span> New Bali location — Bohol OR Dumaguete OR Siargao</div>
-    <div class="dec-item"><span class="arrow">▶</span> PK Music release strategy — Suno + DistroKid OR other</div>
-    <div class="dec-item"><span class="arrow">▶</span> Neurotech channel name — for branding</div>
-    <div class="dec-item"><span class="arrow">▶</span> OpenRouter API key — 401 errors on current key</div>
-</div>
-
 <!-- NORTH STAR -->
 <div class="section">
     <h2>🎯 North Star</h2>
@@ -444,7 +403,7 @@
 
 <div class="footer">
     Jordan's Mission Control · Hermes 007 + Axton 008<br>
-    Master: /Users/jordan/workspace/007-Axton/master-dashboard/master-dashboard.html<br>
+    Local: /Users/jordan/workspace/007-Axton/master-dashboard/master-dashboard.html<br>
     Web: https://jordanjayhays-cpu.github.io/mission-control/master-dashboard/master-dashboard.html
 </div>
 
