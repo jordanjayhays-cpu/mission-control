@@ -13,57 +13,29 @@
     .header h1 { font-size: 24px; font-weight: 700; }
     .header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
     .badge { background: var(--accent); color: #fff; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
-    .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-    .filter-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; }
-    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .filter-btn:hover { border-color: var(--accent); }
-    .search-box { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 20px; font-size: 14px; width: 260px; }
-    .search-box::placeholder { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
-    .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-    .name { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
-    .title { color: var(--muted); font-size: 13px; }
-    .country-badge { font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 600; }
-    .country-NL { background: #001f3f; color: #fff; }
-    .country-DE { background: #7f0000; color: #fff; }
-    .country-BE { background: #333; color: #fff; }
-    .country-IE { background: #169b62; color: #fff; }
-    .country-HR { background: #1a1a4e; color: #fff; }
-    .country-LT { background: #0d3b66; color: #fff; }
-    .country-OTHER { background: var(--border); color: var(--muted); }
-    .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 6px; margin: 2px; }
+    .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 700; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .section { margin-bottom: 32px; }
+    .section-title { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .name { font-size: 15px; font-weight: 600; }
+    .title { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .flag { font-size: 14px; }
+    .country-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+    .tag { font-size: 10px; padding: 2px 7px; border-radius: 5px; }
     .tag-logistics { background: #065f46; color: var(--green); }
     .tag-bluecollar { background: #7c2d12; color: #fb923c; }
     .tag-commission { background: #1e1b4b; color: var(--purple); }
     .tag-b2b { background: #1e3a5f; color: #60a5fa; }
     .tag-hr { background: #3f3f46; color: var(--text); }
-    .meta { display: flex; gap: 16px; margin: 12px 0; font-size: 12px; color: var(--muted); }
-    .meta span { display: flex; align-items: center; gap: 4px; }
-    .linkedin-btn { display: inline-flex; align-items: center; gap: 6px; background: #0077b5; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; text-decoration: none; margin-top: 8px; }
-    .linkedin-btn:hover { background: #006399; }
-    .status-row { display: flex; gap: 8px; margin-top: 12px; }
-    .status-btn { flex: 1; padding: 6px; border-radius: 6px; font-size: 12px; border: none; cursor: pointer; }
-    .status-contacted { background: #1e3a5f; color: #60a5fa; }
-    .status-qualified { background: #1a3a2a; color: var(--green); }
-    .status-hired { background: #3f1d5c; color: var(--purple); }
-    .status-pass { background: #2a1a1a; color: var(--red); }
-    .notes { margin-top: 12px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; }
-    .notes textarea { width: 100%; background: transparent; border: none; color: var(--text); font-size: 12px; resize: none; outline: none; }
-    .section-title { font-size: 14px; color: var(--muted); margin: 24px 0 12px; text-transform: uppercase; letter-spacing: 1px; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
-    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
-    .stat-num { font-size: 28px; font-weight: 700; }
-    .stat-label { color: var(--muted); font-size: 12px; margin-top: 4px; }
-    .stat-card.green { border-color: #065f46; }
-    .stat-card.green .stat-num { color: var(--green); }
-    .stat-card.yellow { border-color: #78350f; }
-    .stat-card.yellow .stat-num { color: var(--yellow); }
-    .stat-card.purple { border-color: #3b1d5c; }
-    .stat-card.purple .stat-num { color: var(--purple); }
-    .export-btn { background: var(--green); color: #fff; padding: 10px 20px; border-radius: 8px; border: none; font-size: 14px; cursor: pointer; }
-    .export-btn:hover { opacity: 0.9; }
-    @media(max-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .notes { font-size: 11px; color: var(--yellow); margin-top: 6px; border-top: 1px solid var(--border); padding-top: 6px; }
+    .linkedin { display: inline-block; background: #0077b5; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; text-decoration: none; margin-top: 8px; }
+    .priority-badge { background: var(--yellow); color: #000; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 700; margin-left: 6px; }
   </style>
 </head>
 <body>
@@ -71,163 +43,274 @@
   <div class="header">
     <div>
       <h1>🧑‍💼 PISCO Sales Agents</h1>
-      <p>Commission-based sales people to sell Placewell services in Europe</p>
+      <p>Commission-based freelancers to sell Placewell services in Europe</p>
     </div>
-    <div style="display:flex;gap:12px;align-items:center">
-      <span class="badge">30 Agents Found</span>
-      <button class="export-btn" onclick="exportCSV()">📥 Export CSV</button>
-    </div>
+    <span class="badge">30 Agents</span>
   </div>
 
   <div class="stats">
-    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Netherlands</div></div>
-    <div class="stat-card green"><div class="stat-num">8</div><div class="stat-label">Germany</div></div>
-    <div class="stat-card yellow"><div class="stat-num">7</div><div class="stat-label">Belgium</div></div>
-    <div class="stat-card purple"><div class="stat-num">9</div><div class="stat-label">Other Countries</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">🇳🇱 NL</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">🇩🇪 DE</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">🇧🇪 BE</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">🇮🇪 IE</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">🇱🇹 LT</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">🇭🇷 HR</div></div>
   </div>
 
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterAll()">All (30)</button>
-    <button class="filter-btn" onclick="filterCountry('NL')">🇳🇱 NL (6)</button>
-    <button class="filter-btn" onclick="filterCountry('DE')">🇩🇪 DE (8)</button>
-    <button class="filter-btn" onclick="filterCountry('BE')">🇧🇪 BE (7)</button>
-    <button class="filter-btn" onclick="filterCountry('IE')">🇮🇪 IE (4)</button>
-    <button class="filter-btn" onclick="filterCountry('LT')">🇱🇹 LT (3)</button>
-    <button class="filter-btn" onclick="filterCountry('HR')">🇭🇷 HR (2)</button>
-    <button class="filter-btn" onclick="filterTag('logistics')">📦 Logistics</button>
-    <button class="filter-btn" onclick="filterTag('commission')">💰 Commission</button>
-    <button class="filter-btn" onclick="filterTag('bluecollar')">🔧 Blue Collar</button>
-  </div>
-  <input type="text" class="search-box" placeholder="Search name, company, sector..." oninput="search(this.value)">
-
-  <div class="section-title">HIGH PRIORITY</div>
-  <div class="grid" id="agents"></div>
-</div>
-
-<script>
-const agents = [
-  { id: 1, name: "Karen Marwitz", title: "Independent Recruiter / Headhunter", company: "Self-employed", country: "NL", sector: "logistics", tags: ["logistics","bluecollar"], linkedin: "https://nl.linkedin.com/in/kmarwitz", notes: "SPECIALIST in logistics — perfect for PISCO transport/logistics sector", status: "new" },
-  { id: 2, name: "Johan Gemels", title: "Independent Sales Agent", company: "EUROWAGON", country: "BE", sector: "logistics", tags: ["logistics","b2b"], linkedin: "https://be.linkedin.com/in/johan-gemels-12418114", notes: "Active in logistics — could represent PISCO in Belgium", status: "new" },
-  { id: 3, name: "Sabrina Shortt", title: "Freelance Recruitment Consultant", company: "Self-employed", country: "IE", sector: "commission", tags: ["commission","hr"], linkedin: "https://ie.linkedin.com/in/sabrina-shortt-8bb842148", notes: "Works on commission basis — ideal model for PISCO", status: "new" },
-  { id: 4, name: "Rareș A.", title: "Headhunter | Recruiter", company: "Freelance", country: "DE", sector: "bluecollar", tags: ["bluecollar","hr"], linkedin: "https://de.linkedin.com/in/arl", notes: "Blue collar recruitment — relevant for meat processing, construction", status: "new" },
-  { id: 5, name: "Olivier Goossens", title: "Commercial Manager", company: "ECO-LOGISTIC", country: "BE", sector: "logistics", tags: ["logistics","b2b"], linkedin: "https://be.linkedin.com/in/olivier-goossens-a9139b31", notes: "Commercial manager at ECO-LOGISTIC — logistics connections", status: "new" },
-  { id: 6, name: "Marleen Coppens", title: "Freelance HR Consultant", company: "Freelance", country: "BE", sector: "hr", tags: ["hr","bluecollar"], linkedin: "https://be.linkedin.com/in/marleencoppens", notes: "Multi-country HR consultant with cross-border experience", status: "new" },
-  { id: 7, name: "Callum Kennedy", title: "Commission Sales Associate", company: "Self-employed", country: "IE", sector: "commission", tags: ["commission","b2b"], linkedin: "https://ie.linkedin.com/in/callum-kennedy-632a703a9", notes: "Currently commission-only — open to similar arrangements", status: "new" },
-  { id: 8, name: "Robin Aeissing", title: "Independent Recruiter", company: "APPLY Recruitment", country: "NL", sector: "hr", tags: ["hr"], linkedin: "https://nl.linkedin.com/in/robinaeissing", notes: "", status: "new" },
-  { id: 9, name: "Erik R.", title: "Freelance Sales Closer", company: "Freelance", country: "NL", sector: "b2b", tags: ["b2b"], linkedin: "https://nl.linkedin.com/in/erik-r-842568224", notes: "", status: "new" },
-  { id: 10, name: "Roger van den Heuvel", title: "Interim Sales Manager / ZZP", company: "Freelance", country: "NL", sector: "b2b", tags: ["b2b"], linkedin: "https://nl.linkedin.com/in/heuvelvandenroger", notes: "ZZP = zelfstandige zonder personeel (Dutch freelancer)", status: "new" },
-  { id: 11, name: "Uwe Prasse", title: "Senior IT Sales Recruiter", company: "Self-employed", country: "DE", sector: "hr", tags: ["hr","b2b"], linkedin: "https://de.linkedin.com/in/uwe-prasse-b66377", notes: "Dusseldorf based", status: "new" },
-  { id: 12, name: "Max von Waberer", title: "Interim Recruiter", company: "Freelance", country: "DE", sector: "hr", tags: ["hr"], linkedin: "https://de.linkedin.com/in/berlintechrecruiter", notes: "Berlin based", status: "new" },
-  { id: 13, name: "Yuri Goldberg", title: "B2B Recruiter", company: "Self-employed", country: "DE", sector: "b2b", tags: ["b2b","hr"], linkedin: "https://de.linkedin.com/in/yuri-goldberg-89836919a", notes: "Berlin", status: "new" },
-  { id: 14, name: "Philip Huys", title: "Independent Sales Consultant", company: "Self-employed", country: "BE", sector: "b2b", tags: ["b2b"], linkedin: "https://be.linkedin.com/in/philiphuys", notes: "", status: "new" },
-  { id: 15, name: "Philippe F. Durieux", title: "Independent Consultant", company: "Freelance", country: "BE", sector: "b2b", tags: ["b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 16, name: "Mieke De Saedeleer", title: "Independent Consultant", company: "Freelance", country: "BE", sector: "b2b", tags: ["b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 17, name: "Giuliano Carli", title: "Procurement / Supply Chain", company: "Independent", country: "BE", sector: "logistics", tags: ["logistics","b2b"], linkedin: "#", notes: "Supply chain expertise", status: "new" },
-  { id: 18, name: "Steven Gleeson", title: "Headhunter", company: "PRC Headhunting", country: "IE", sector: "hr", tags: ["hr"], linkedin: "https://ie.linkedin.com/in/stevengleeson", notes: "", status: "new" },
-  { id: 19, name: "Darragh Mac Gearailt", title: "Head of Sales", company: "Recruitment Agency", country: "IE", sector: "hr", tags: ["hr","b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 20, name: "Henar Cabrera", title: "Senior Recruitment Consultant", company: "Agency", country: "IE", sector: "hr", tags: ["hr"], linkedin: "#", notes: "", status: "new" },
-  { id: 21, name: "Alan Osborne", title: "Recruiter", company: "Independent", country: "IE", sector: "hr", tags: ["hr","b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 22, name: "Brian C.", title: "Founder / Principal Recruiter", company: "Self-employed", country: "DE", sector: "hr", tags: ["hr","b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 23, name: "Usama Zabair", title: "Recruitment Consultant", company: "Self-employed", country: "DE", sector: "hr", tags: ["hr"], linkedin: "#", notes: "", status: "new" },
-  { id: 24, name: "Kristine Heinrichs", title: "B2B Insight Recruiter", company: "Self-employed", country: "DE", sector: "b2b", tags: ["b2b"], linkedin: "#", notes: "", status: "new" },
-  { id: 25, name: "Voodoo Sales", title: "Headhunting Agency", company: "Voodoo Sales", country: "LT", sector: "hr", tags: ["hr","bluecollar"], linkedin: "https://voodoosales.lt/en/", notes: "Lithuanian headhunting agency", status: "new" },
-  { id: 26, name: "Valentis", title: "Freelance Sales Agent", company: "Hiring", country: "LT", sector: "b2b", tags: ["commission"], linkedin: "#", notes: "Actively hiring freelance sales agents", status: "new" },
-  { id: 27, name: "Enlito", title: "International Recruitment", company: "Agency", country: "LT", sector: "hr", tags: ["hr","bluecollar"], linkedin: "#", notes: "Multi-country recruitment", status: "new" },
-  { id: 28, name: "TalentWorldGroup", title: "Croatian Pre-Sales Rep", company: "Freelance", country: "HR", sector: "b2b", tags: ["commission"], linkedin: "#", notes: "", status: "new" },
-  { id: 29, name: "EURES", title: "Freelance Sales Agents Program", company: "EU-wide", country: "HR", sector: "b2b", tags: ["commission"], linkedin: "#", notes: "European Job Days — freelance sales agents program", status: "new" },
-  { id: 30, name: "Sian Venter", title: "Recruitment Consultant", company: "Balance Talent Acquisition", country: "NL", sector: "hr", tags: ["hr"], linkedin: "#", notes: "", status: "new" },
-];
-
-let filter = { country: null, tag: null, search: "" };
-
-function countryFlag(c) {
-  const f = { NL: "🇳🇱", DE: "🇩🇪", BE: "🇧🇪", IE: "🇮🇪", LT: "🇱🇹", HR: "🇭🇷" };
-  return f[c] || "🌍";
-}
-
-function render() {
-  let a = agents.filter(e => {
-    if (filter.country && e.country !== filter.country) return false;
-    if (filter.tag && !e.tags.includes(filter.tag)) return false;
-    if (filter.search) {
-      const s = filter.search.toLowerCase();
-      if (!e.name.toLowerCase().includes(s) && !e.title.toLowerCase().includes(s) && !e.company.toLowerCase().includes(s)) return false;
-    }
-    return true;
-  });
-  document.getElementById("agents").innerHTML = a.map(e => `
-    <div class="card">
-      <div class="card-head">
-        <div>
-          <div class="name">${e.name}</div>
-          <div class="title">${e.title}${e.company ? " @ " + e.company : ""}</div>
+  <div class="section">
+    <div class="section-title">⭐ HIGH PRIORITY — Best Fit for PISCO</div>
+    <div class="grid">
+      <!-- Karen Marwitz - NL -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Karen Marwitz <span class="priority-badge">TOP</span></div>
+            <div class="title">Independent Recruiter/Headhunter — Logistics Specialist</div></div>
+          <span class="flag">🇳🇱</span>
         </div>
-        <span class="country-badge country-${e.country}">${countryFlag(e.country)} ${e.country}</span>
+        <div class="tag-row">
+          <span class="tag tag-logistics">logistics</span>
+          <span class="tag tag-bluecollar">blue collar</span>
+        </div>
+        <div class="notes">⭐ PERFECT FIT — Logistics specialist for PISCO transport/logistics sector</div>
+        <a href="https://nl.linkedin.com/in/kmarwitz" target="_blank" class="linkedin">View LinkedIn →</a>
       </div>
-      <div class="meta">
-        <span>📦 ${e.sector}</span>
+      <!-- Johan Gemels - BE -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Johan Gemels <span class="priority-badge">TOP</span></div>
+            <div class="title">Independent Sales Agent @ EUROWAGON</div></div>
+          <span class="flag">🇧🇪</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-logistics">logistics</span>
+          <span class="tag tag-b2b">B2B</span>
+        </div>
+        <div class="notes">⭐ Active in logistics — could represent PISCO in Belgium</div>
+        <a href="https://be.linkedin.com/in/johan-gemels-12418114" target="_blank" class="linkedin">View LinkedIn →</a>
       </div>
-      <div>
-        ${e.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join("")}
+      <!-- Sabrina Shortt - IE -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Sabrina Shortt <span class="priority-badge">TOP</span></div>
+            <div class="title">Freelance Recruitment Consultant</div></div>
+          <span class="flag">🇮🇪</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-commission">commission</span>
+          <span class="tag tag-hr">HR</span>
+        </div>
+        <div class="notes">⭐ Works on commission basis — ideal model for PISCO</div>
+        <a href="https://ie.linkedin.com/in/sabrina-shortt-8bb842148" target="_blank" class="linkedin">View LinkedIn →</a>
       </div>
-      ${e.notes ? `<div class="notes"><textarea placeholder="Add notes..." rows="2" onblur="saveNotes(${e.id}, this.value)">${e.notes || ""}</textarea></div>` : ""}
-      <div style="margin-top:12px">
-        <a href="${e.linkedin}" target="_blank" class="linkedin-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          View Profile
-        </a>
+      <!-- Rares A. - DE -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Rareș A. <span class="priority-badge">TOP</span></div>
+            <div class="title">Headhunter | Recruiter — Blue Collar</div></div>
+          <span class="flag">🇩🇪</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-bluecollar">blue collar</span>
+          <span class="tag tag-hr">HR</span>
+        </div>
+        <div class="notes">⭐ Blue collar recruitment — relevant for meat processing, construction</div>
+        <a href="https://de.linkedin.com/in/arl" target="_blank" class="linkedin">View LinkedIn →</a>
       </div>
-      <div class="status-row">
-        <button class="status-btn status-contacted" onclick="setStatus(${e.id}, 'contacted')">📧 Contacted</button>
-        <button class="status-btn status-qualified" onclick="setStatus(${e.id}, 'qualified')">✅ Qualified</button>
-        <button class="status-btn status-hired" onclick="setStatus(${e.id}, 'hired')">🤝 Hired</button>
+      <!-- Olivier Goossens - BE -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Olivier Goossens</div>
+            <div class="title">Commercial Manager @ ECO-LOGISTIC</div></div>
+          <span class="flag">🇧🇪</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-logistics">logistics</span>
+          <span class="tag tag-b2b">B2B</span>
+        </div>
+        <div class="notes">Commercial manager at ECO-LOGISTIC — logistics connections</div>
+        <a href="https://be.linkedin.com/in/olivier-goossens-a9139b31" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <!-- Callum Kennedy - IE -->
+      <div class="card">
+        <div class="card-top">
+          <div><div class="name">Callum Kennedy</div>
+            <div class="title">Commission Sales Associate</div></div>
+          <span class="flag">🇮🇪</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-commission">commission</span>
+          <span class="tag tag-b2b">B2B</span>
+        </div>
+        <div class="notes">Currently commission-only — open to similar arrangements</div>
+        <a href="https://ie.linkedin.com/in/callum-kennedy-632a703a9" target="_blank" class="linkedin">View LinkedIn →</a>
       </div>
     </div>
-  `).join("");
-}
+  </div>
 
-function filterAll() { filter = { country: null, tag: null, search: filter.search }; updateButtons(); render(); }
-function filterCountry(c) { filter = { country: c, tag: null, search: filter.search }; updateButtons(); render(); }
-function filterTag(t) { filter = { country: null, tag: t, search: filter.search }; updateButtons(); render(); }
-function search(v) { filter.search = v; render(); }
+  <div class="section">
+    <div class="section-title">🇳🇱 Netherlands (6)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">Robin Aeissing</div><div class="title">Independent Recruiter @ APPLY Recruitment</div></div><span class="flag">🇳🇱</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+        <a href="https://nl.linkedin.com/in/robinaeissing" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Erik R.</div><div class="title">Freelance Sales Closer</div></div><span class="flag">🇳🇱</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+        <a href="https://nl.linkedin.com/in/erik-r-842568224" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Roger van den Heuvel</div><div class="title">Interim Sales Manager / ZZP</div></div><span class="flag">🇳🇱</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+        <a href="https://nl.linkedin.com/in/heuvelvandenroger" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Sian Venter</div><div class="title">Recruitment Consultant @ Balance Talent</div></div><span class="flag">🇳🇱</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+      </div>
+    </div>
+  </div>
 
-function updateButtons() {
-  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-}
+  <div class="section">
+    <div class="section-title">🇩🇪 Germany (8)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">Uwe Prasse</div><div class="title">Senior IT Sales Recruiter — Dusseldorf</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-b2b">B2B</span></div>
+        <a href="https://de.linkedin.com/in/uwe-prasse-b66377" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Max von Waberer</div><div class="title">Interim Recruiter — Berlin</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+        <a href="https://de.linkedin.com/in/berlintechrecruiter" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Yuri Goldberg</div><div class="title">B2B Recruiter — Berlin</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span><span class="tag tag-hr">HR</span></div>
+        <a href="https://de.linkedin.com/in/yuri-goldberg-89836919a" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Brian C.</div><div class="title">Founder/Principal Recruiter — Self-employed</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-b2b">B2B</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Usama Zabair</div><div class="title">Recruitment Consultant — Self-employed</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Kristine Heinrichs</div><div class="title">B2B Insight Recruiter — Self-employed</div></div><span class="flag">🇩🇪</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+      </div>
+    </div>
+  </div>
 
-function setStatus(id, status) {
-  const a = agents.find(e => e.id === id);
-  if (a) a.status = status;
-  localStorage.setItem("pisco-agents", JSON.stringify(agents));
-  render();
-}
+  <div class="section">
+    <div class="section-title">🇧🇪 Belgium (7)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">Philip Huys</div><div class="title">Independent Sales Consultant</div></div><span class="flag">🇧🇪</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+        <a href="https://be.linkedin.com/in/philiphuys" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Marleen Coppens</div><div class="title">Freelance HR Consultant</div></div><span class="flag">🇧🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-bluecollar">blue collar</span></div>
+        <a href="https://be.linkedin.com/in/marleencoppens" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Philippe F. Durieux</div><div class="title">Independent Consultant — Sales/Marketing</div></div><span class="flag">🇧🇪</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Mieke De Saedeleer</div><div class="title">Independent Consultant — Sales/Marketing</div></div><span class="flag">🇧🇪</span></div>
+        <div class="tag-row"><span class="tag tag-b2b">B2B</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Giuliano Carli</div><div class="title">Procurement/Supply Chain — Independent</div></div><span class="flag">🇧🇪</span></div>
+        <div class="tag-row"><span class="tag tag-logistics">logistics</span><span class="tag tag-b2b">B2B</span></div>
+      </div>
+    </div>
+  </div>
 
-function saveNotes(id, notes) {
-  const a = agents.find(e => e.id === id);
-  if (a) a.notes = notes;
-  localStorage.setItem("pisco-agents", JSON.stringify(agents));
-}
+  <div class="section">
+    <div class="section-title">🇮🇪 Ireland (4)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">Steven Gleeson</div><div class="title">Headhunter @ PRC Headhunting</div></div><span class="flag">🇮🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+        <a href="https://ie.linkedin.com/in/stevengleeson" target="_blank" class="linkedin">View LinkedIn →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Darragh Mac Gearailt</div><div class="title">Head of Sales @ Recruitment Agency</div></div><span class="flag">🇮🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-b2b">B2B</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Henar Cabrera</div><div class="title">Senior Recruitment Consultant</div></div><span class="flag">🇮🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Alan Osborne</div><div class="title">Recruiter — Independent</div></div><span class="flag">🇮🇪</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-b2b">B2B</span></div>
+      </div>
+    </div>
+  </div>
 
-function exportCSV() {
-  const rows = [["Name","Title","Company","Country","Sector","Tags","LinkedIn","Notes","Status"]];
-  agents.forEach(e => {
-    rows.push([e.name, e.title, e.company, e.country, e.sector, e.tags.join(";"), e.linkedin, e.notes || "", e.status]);
-  });
-  const csv = rows.map(r => r.map(c => `"${(c||"").replace(/"/g,'""')}"`).join(",")).join("
-");
-  const blob = new Blob([csv], { type: "text/csv" });
-  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
-  a.download = "pisco-sales-agents.csv"; a.click();
-}
+  <div class="section">
+    <div class="section-title">🇱🇹 Lithuania (3)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">Voodoo Sales</div><div class="title">Headhunting Agency — voodoosales.lt</div></div><span class="flag">🇱🇹</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-bluecollar">blue collar</span></div>
+        <a href="https://voodoosales.lt/en/" target="_blank" class="linkedin">View Website →</a>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Valentis</div><div class="title">Actively Hiring Freelance Sales Agents</div></div><span class="flag">🇱🇹</span></div>
+        <div class="tag-row"><span class="tag tag-commission">commission</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">Enlito</div><div class="title">International Recruitment Agency</div></div><span class="flag">🇱🇹</span></div>
+        <div class="tag-row"><span class="tag tag-hr">HR</span><span class="tag tag-bluecollar">blue collar</span></div>
+      </div>
+    </div>
+  </div>
 
-// Load saved state
-const saved = localStorage.getItem("pisco-agents");
-if (saved) {
-  const savedAgents = JSON.parse(saved);
-  savedAgents.forEach(sa => { const a = agents.find(e => e.id === sa.id); if (a) Object.assign(a, sa); });
-}
+  <div class="section">
+    <div class="section-title">🇭🇷 Croatia (2)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div><div class="name">TalentWorldGroup</div><div class="title">Croatian Pre-Sales Rep — Freelance</div></div><span class="flag">🇭🇷</span></div>
+        <div class="tag-row"><span class="tag tag-commission">commission</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top"><div><div class="name">EURES / European Job Days</div><div class="title">Freelance Sales Agents Program — EU-wide</div></div><span class="flag">🇭🇷</span></div>
+        <div class="tag-row"><span class="tag tag-commission">commission</span></div>
+      </div>
+    </div>
+  </div>
 
-render();
-</script>
+  <div class="section">
+    <div class="section-title">🔗 Platforms to Find More Agents</div>
+    <div class="grid">
+      <div class="card">
+        <div class="name">CommissionCrowd</div>
+        <div class="title">commissioncrowd.com — Commission-only sales agents</div>
+      </div>
+      <div class="card">
+        <div class="name">SalesAgents.International</div>
+        <div class="title">salesagents.international — Commercial agents across Europe</div>
+      </div>
+      <div class="card">
+        <div class="name">Agents24.com</div>
+        <div class="title">agents24.com — Sales agents directory</div>
+      </div>
+      <div class="card">
+        <div class="name">Jobgether</div>
+        <div class="title">jobgether.com — Remote freelance positions</div>
+      </div>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
