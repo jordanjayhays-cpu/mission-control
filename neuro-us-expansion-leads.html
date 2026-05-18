@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurotech US Expansion Intelligence — Jordan Hays</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --card: #141420;
+      --border: #1e1e2e;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --accent: #06b6d4;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding-top: 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .companies {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .companies-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .company {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .company:last-child { border-bottom: none; }
+
+    .flag {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .company-info { flex: 1; }
+
+    .company-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .company-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tag {
+      flex-shrink: 0;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: center;
+    }
+
+    .what-you-get {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .item svg { flex-shrink: 0; color: var(--green); }
+
+    .price-box {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .price-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: block;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      display: block;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 10px;
+    }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <span class="badge">2026 Data · Updated May 2026</span>
+
+    <h1>10 Neurotech Companies <span class="highlight">Entering the US Market</span> — With Contacts</h1>
+
+    <p class="sub">Non-US neuro companies that just raised funding and are actively hiring US partners, distributors, and sales reps right now. CEO names, direct emails, phone numbers included.</p>
+
+    <div class="companies">
+      <div class="companies-title">Companies included</div>
+
+      <div class="company">
+        <span class="flag">🇳🇱🇩🇪</span>
+        <div class="company-info">
+          <div class="company-name">Zander Labs</div>
+          <div class="company-meta">Germany/Netherlands · pBCI · CEO Jonathan Zwaan seeking Bay Area partners NOW</div>
+        </div>
+        <span class="tag">🔥 Hot</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇰🇷</span>
+        <div class="company-info">
+          <div class="company-name">Neurophet</div>
+          <div class="company-meta">South Korea · $20M+ raised · FDA 510(k) cleared · US office setup</div>
+        </div>
+        <span class="tag">FDA Clear</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇨🇳</span>
+        <div class="company-info">
+          <div class="company-name">BrainCo</div>
+          <div class="company-meta">China · $280M raised · FDA 510(k) cleared · Multi-center trial running</div>
+        </div>
+        <span class="tag">$280M</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇪🇸</span>
+        <div class="company-info">
+          <div class="company-name">INBRAIN Neuroelectronics</div>
+          <div class="company-meta">Spain · $50M Series B · Graphene BCI · US market is primary target</div>
+        </div>
+        <span class="tag">$50M</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇫🇷</span>
+        <div class="company-info">
+          <div class="company-name">Hilo</div>
+          <div class="company-meta">France · $42M Series B · Consumer neuro intelligence · US expansion mode</div>
+        </div>
+        <span class="tag">$42M</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇸🇬</span>
+        <div class="company-info">
+          <div class="company-name">SynPhNe</div>
+          <div class="company-meta">Singapore · Actively raising US-focused Series A · CEO on record</div>
+        </div>
+        <span class="tag">🔥 Hot</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇬🇧</span>
+        <div class="company-info">
+          <div class="company-name">Neurable</div>
+          <div class="company-meta">UK · $35M Series A (Dec 2025) · Won $8.9M US DoD contract</div>
+        </div>
+        <span class="tag">$35M</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇬🇧</span>
+        <div class="company-info">
+          <div class="company-name">Brainomix</div>
+          <div class="company-meta">UK (Oxford) · $25.4M Series C · FDA cleared · Chicago office open</div>
+        </div>
+        <span class="tag">US Office</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇪🇸</span>
+        <div class="company-info">
+          <div class="company-name">Bitbrain</div>
+          <div class="company-meta">Spain · $18.8M raised · EEG headsets · Actively positioning for US</div>
+        </div>
+        <span class="tag">$18.8M</span>
+      </div>
+
+      <div class="company">
+        <span class="flag">🇮🇱</span>
+        <div class="company-info">
+          <div class="company-name">GrayMatters Health</div>
+          <div class="company-meta">Israel · ~$10M · EEG-based PTSD treatment · US expansion signals</div>
+        </div>
+        <span class="tag">Clinical</span>
+      </div>
+
+    </div>
+
+    <div class="what-you-get">
+      <div class="section-title">What you get</div>
+
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Company name, country, funding amount, product description
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        CEO/founder name and title
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Direct email address
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Phone number (for most companies)
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        LinkedIn profile URL
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        The specific US entry signal (what they said, what they're doing)
+      </div>
+      <div class="item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Fit assessment — why each one needs someone like you
+      </div>
+    </div>
+
+    <div class="price-box">
+      <div class="price">$97</div>
+      <div class="price-note">one-time · instant delivery · email delivery</div>
+    </div>
+
+    <!-- REPLACE THE HREF BELOW WITH YOUR GUMROAD/Lemon Squeezy LINK -->
+    <a href="https://gumroad.com/l/PLACEHOLDER" class="btn">Buy Now — Get the List</a>
+    <a href="mailto:jordan@jordanjayhays.com" class="btn-secondary">Questions? Email me</a>
+
+    <p class="disclaimer">
+      Delivered as a clean PDF. Email address required at checkout.<br>
+      Due to the nature of this product, all sales are final.
+    </p>
+
+  </div>
+</body>
+</html>
