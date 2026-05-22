@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Deal Machine — Neurotech Lead Intelligence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0f;
+            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #1e1e2e;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #06b6d4;
+            margin-bottom: 10px;
+        }
+        .subtitle { color: #64748b; font-size: 1.1em; }
+        .date-badge {
+            display: inline-block;
+            background: #1e1e2e;
+            color: #a855f7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            border: 1px solid #6366f1;
+        }
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            background: #141420;
+            border: 2px solid #1e1e2e;
+            border-radius: 12px;
+            color: #e2e8f0;
+            font-size: 1em;
+            margin-bottom: 30px;
+            transition: border-color 0.2s;
+        }
+        .search-box:focus { outline: none; border-color: #6366f1; }
+        .search-box::placeholder { color: #64748b; }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background: #141420;
+            border: 1px solid #1e1e2e;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .metric-value { font-size: 1.8em; font-weight: 700; color: #06b6d4; }
+        .metric-label { font-size: 0.8em; color: #64748b; text-transform: uppercase; }
+        table { width: 100%; border-collapse: collapse; background: #141420; border-radius: 12px; overflow: hidden; }
+        th {
+            background: #1e1e2e;
+            color: #06b6d4;
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #6366f1;
+        }
+        td { padding: 20px 12px; border-bottom: 1px solid #1e1e2e; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #1a1a24; }
+        .company-cell { font-weight: 600; color: #e2e8f0; font-size: 1.05em; }
+        .country { display: inline-block; font-size: 1.2em; margin-right: 6px; }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-right: 4px;
+        }
+        .tag-bci { background: #06b6d4; color: #0a0a0f; }
+        .tag-neuro { background: #a855f7; color: #0a0a0f; }
+        .tag-ai { background: #6366f1; color: #fff; }
+        .tag-clinical { background: #ef4444; color: #fff; }
+        .tag-partnership { background: #22c55e; color: #0a0a0f; }
+        .tag-regulatory { background: #38bdf8; color: #0a0a0f; }
+        .tag-new { background: #f59e0b; color: #0a0a0f; }
+        .tag-funding { background: #ec4899; color: #fff; }
+        .funding { color: #22c55e; font-weight: 600; }
+        .signal { color: #f59e0b; }
+        .product { color: #94a3b8; font-size: 0.9em; max-width: 200px; }
+        .buyer { color: #e2e8f0; font-size: 0.9em; }
+        .jordan-angle { color: #a855f7; font-size: 0.85em; font-style: italic; }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #1e1e2e;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9em;
+        }
+        footer a { color: #06b6d4; text-decoration: none; }
+        .deal-card {
+            background: linear-gradient(135deg, #1e1e2e 0%, #141420 100%);
+            border: 1px solid #6366f1;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .deal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .deal-title { font-size: 1.4em; font-weight: 700; color: #06b6d4; }
+        .deal-amount { font-size: 1.5em; font-weight: 700; color: #22c55e; }
+        .deal-meta { color: #64748b; font-size: 0.9em; margin-top: 5px; }
+        .deal-body { color: #e2e8f0; line-height: 1.7; }
+        .deal-tags { margin-top: 15px; }
+        @media (max-width: 768px) {
+            th, td { padding: 12px 8px; font-size: 0.85em; }
+            h1 { font-size: 1.8em; }
+            .deal-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Daily Deal Machine</h1>
+            <p class="subtitle">Neurotech Lead Intelligence — Non-US Companies Entering US Market</p>
+            <span class="date-badge" id="date-badge">Loading...</span>
+        </header>
+
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value" id="metric-companies">—</div>
+                <div class="metric-label">Companies</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="metric-countries">—</div>
+                <div class="metric-label">Countries</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="metric-raised">—</div>
+                <div class="metric-label">Total Raised</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="metric-fda">—</div>
+                <div class="metric-label">FDA Signals</div>
+            </div>
+        </div>
+
+        <input type="text" class="search-box" id="search-box" placeholder="Search companies, countries, products, signals..." onkeyup="filterTable(this.value)">
+
+        <table id="leads-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Product</th>
+                    <th>Funding</th>
+                    <th>US Signal</th>
+                    <th>Buyer Persona</th>
+                    <th>Jordan Angle</th>
+                </tr>
+            </thead>
+            <tbody id="leads-body">
+                <!-- Dynamic content loaded via cron job -->
+            </tbody>
+        </table>
+
+        <footer>
+            <p><strong>Jordan Hays</strong> | Niah | <a href="mailto:jordan@niah.io">jordan@niah.io</a></p>
+            <p style="margin-top: 8px; color: #475569;">Non-US neurotech companies with explicit US market entry signals</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterTable(query) {
+            const rows = document.querySelectorAll('#leads-body tr');
+            const lowerQuery = query.toLowerCase();
+            rows.forEach(row => {
+                const searchText = row.getAttribute('data-search') || '';
+                row.style.display = searchText.includes(lowerQuery) || lowerQuery === '' ? '' : 'none';
+            });
+        }
+        
+        // Auto-update date
+        document.getElementById('date-badge').textContent = new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', month: 'long', day: 'numeric' 
+        });
+    </script>
+</body>
+</html>
