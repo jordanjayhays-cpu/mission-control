@@ -89,7 +89,7 @@ def criticize(state):
 def decide(state):
     print("\n=== DECIDER ===")
     
-    all_companies = ["INBRAIN", "BrainQ", "Saluda Medical", "Theranica", "Neuroelectrics", "SetPoint Medical"]
+    all_companies = ["INBRAIN", "BrainQ", "Saluda Medical", "Theranica", "Neuroelectrics", "SetPoint Medical", "Phantom Neuro", "brain.space", "Sychedelic", "Connectome Health"]
     called = state.get("called_companies", [])
     remaining = [c for c in all_companies if c not in called]
     
@@ -158,6 +158,38 @@ def build(state):
             "why_now": "Positive Phase 3 data — preparing for commercial launch, needs US sales infrastructure",
             "opener": "SetPoint's RA Phase 3 came back positive — you're heading to commercial launch. Building a US sales team from scratch takes time. I know the immunology sales landscape. 15 minutes?",
             "close": "Want me to identify the US rheumatology key opinion leaders who will drive adoption?"
+        },
+        "Phantom Neuro": {
+            "country": "Germany/USA", "funding": "$19M Series A",
+            "product": "Neural interface for prosthetics and robotics",
+            "contact": "Ottobock partnership (US office)", "ceo": "(verify)",
+            "why_now": "$19M Series A led by Ottobock — German ortho giant has US hospital + VA network. Phantom entering US prosthetics market via Ottobock channel.",
+            "opener": "Phantom Neuro just raised $19M backed by Ottobock — that's a US distribution channel built in. You're entering the US prosthetics market. I place people who know US VA and hospital systems. 15 minutes?",
+            "close": "Should I send you a list of US VA prosthetics centers actively adopting new technology?"
+        },
+        "brain.space": {
+            "country": "Israel", "funding": "$11M Series A",
+            "product": "Brain data platform for AI mental modeling",
+            "contact": "(verify via website)", "ceo": "(verify)",
+            "why_now": "Raised $11M Series A March 2025 to build brain data AI models. AI companies need brain data — US is the target market.",
+            "opener": "brain.space raised $11M to build brain data AI models — that's a US market signal. AI companies are your potential partners. I'm helping Israeli neuro companies find US channel partners. 15 minutes?",
+            "close": "Want me to map US AI companies that could use brain data as an AI input?"
+        },
+        "Sychedelic": {
+            "country": "India", "funding": "$3.5M Seed",
+            "product": "AI-powered neurotech wearable for mental wellness",
+            "contact": "(verify via website)", "ceo": "(verify)",
+            "why_now": "Raised $3.5M seed to scale neurotech wearables globally. US mental wellness market is 10x larger than India.",
+            "opener": "Sychedelic just raised $3.5M to scale neurotech wearables globally. US mental wellness market is the prize. I help Indian companies find US distribution. 15 minutes?",
+            "close": "Want me to send you US wellness retailers and digital health channels looking for neurotech products?"
+        },
+        "Connectome Health": {
+            "country": "Switzerland", "funding": "$2M Pre-Seed",
+            "product": "Real-time brain change tracking",
+            "contact": "(verify via website)", "ceo": "(verify)",
+            "why_now": "Zurich ETH spinout backed by Redstone VC. Early stage — track for Series A.",
+            "opener": "Connectome Health raised $2M pre-seed from Redstone in Zurich. Real-time brain tracking — early stage but strong science. I help Swiss neuro companies find US academic partnerships. 15 minutes?",
+            "close": "Want me to identify US universities doing active real-time brain mapping research?"
         }
     }.get(company, {})
 
