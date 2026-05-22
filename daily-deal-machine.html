@@ -1,207 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Deal Machine — Neurotech Lead Intelligence</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #0a0a0f;
-            color: #e2e8f0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #1e1e2e;
-        }
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #06b6d4;
-            margin-bottom: 10px;
-        }
-        .subtitle { color: #64748b; font-size: 1.1em; }
-        .date-badge {
-            display: inline-block;
-            background: #1e1e2e;
-            color: #a855f7;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-top: 15px;
-            border: 1px solid #6366f1;
-        }
-        .search-box {
-            width: 100%;
-            padding: 15px 20px;
-            background: #141420;
-            border: 2px solid #1e1e2e;
-            border-radius: 12px;
-            color: #e2e8f0;
-            font-size: 1em;
-            margin-bottom: 30px;
-            transition: border-color 0.2s;
-        }
-        .search-box:focus { outline: none; border-color: #6366f1; }
-        .search-box::placeholder { color: #64748b; }
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .metric-card {
-            background: #141420;
-            border: 1px solid #1e1e2e;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-        .metric-value { font-size: 1.8em; font-weight: 700; color: #06b6d4; }
-        .metric-label { font-size: 0.8em; color: #64748b; text-transform: uppercase; }
-        table { width: 100%; border-collapse: collapse; background: #141420; border-radius: 12px; overflow: hidden; }
-        th {
-            background: #1e1e2e;
-            color: #06b6d4;
-            padding: 16px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #6366f1;
-        }
-        td { padding: 20px 12px; border-bottom: 1px solid #1e1e2e; vertical-align: top; }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: #1a1a24; }
-        .company-cell { font-weight: 600; color: #e2e8f0; font-size: 1.05em; }
-        .country { display: inline-block; font-size: 1.2em; margin-right: 6px; }
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-right: 4px;
-        }
-        .tag-bci { background: #06b6d4; color: #0a0a0f; }
-        .tag-neuro { background: #a855f7; color: #0a0a0f; }
-        .tag-ai { background: #6366f1; color: #fff; }
-        .tag-clinical { background: #ef4444; color: #fff; }
-        .tag-partnership { background: #22c55e; color: #0a0a0f; }
-        .tag-regulatory { background: #38bdf8; color: #0a0a0f; }
-        .tag-new { background: #f59e0b; color: #0a0a0f; }
-        .tag-funding { background: #ec4899; color: #fff; }
-        .funding { color: #22c55e; font-weight: 600; }
-        .signal { color: #f59e0b; }
-        .product { color: #94a3b8; font-size: 0.9em; max-width: 200px; }
-        .buyer { color: #e2e8f0; font-size: 0.9em; }
-        .jordan-angle { color: #a855f7; font-size: 0.85em; font-style: italic; }
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #1e1e2e;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.9em;
-        }
-        footer a { color: #06b6d4; text-decoration: none; }
-        .deal-card {
-            background: linear-gradient(135deg, #1e1e2e 0%, #141420 100%);
-            border: 1px solid #6366f1;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-        .deal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        .deal-title { font-size: 1.4em; font-weight: 700; color: #06b6d4; }
-        .deal-amount { font-size: 1.5em; font-weight: 700; color: #22c55e; }
-        .deal-meta { color: #64748b; font-size: 0.9em; margin-top: 5px; }
-        .deal-body { color: #e2e8f0; line-height: 1.7; }
-        .deal-tags { margin-top: 15px; }
-        @media (max-width: 768px) {
-            th, td { padding: 12px 8px; font-size: 0.85em; }
-            h1 { font-size: 1.8em; }
-            .deal-header { flex-direction: column; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Deal Machine — Neurotech Lead Intelligence</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0a0f;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.header { text-align: center; margin-bottom: 30px; }
+.header .date { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+.header h1 { font-size: 28px; color: #06b6d4; font-weight: 800; }
+.header .tagline { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+.card {
+  background: #141420;
+  border: 1px solid #1e1e2e;
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 520px;
+  width: 100%;
+  border-top: 4px solid #06b6d4;
+}
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+.company-name { font-size: 22px; font-weight: 800; color: #f0f6fc; }
+.funding { background: #06b6d4; color: #0a0a0f; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; }
+.product { font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; }
+.signal {
+  font-size: 12px; color: #22c55e; background: #22c55e15;
+  border-left: 3px solid #22c55e; padding: 10px 14px;
+  border-radius: 0 8px 8px 0; margin-bottom: 24px; line-height: 1.5;
+}
+.section-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+.ceo-name { font-size: 16px; font-weight: 700; color: #f0f6fc; margin-bottom: 2px; }
+.ceo-title { font-size: 12px; color: #64748b; margin-bottom: 16px; }
+.opener { background: #1e1e2e; border-radius: 12px; padding: 16px; margin: 20px 0; border-left: 3px solid #a855f7; }
+.opener-label { font-size: 10px; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.opener-text { font-size: 13px; color: #e2e8f0; line-height: 1.6; font-style: italic; }
+
+.call-btn {
+  display: block; width: 100%; background: #22c55e; color: #0a0a0f;
+  text-align: center; padding: 18px; border-radius: 12px; font-size: 18px;
+  font-weight: 800; text-decoration: none; margin: 16px 0 10px;
+}
+.call-btn:hover { transform: scale(1.02); }
+.email-btn {
+  display: block; width: 100%; background: #1e1e2e; color: #06b6d4;
+  text-align: center; padding: 14px; border-radius: 12px; font-size: 14px;
+  font-weight: 600; text-decoration: none; margin-bottom: 10px;
+}
+.email-btn:hover { background: #2a2a3e; }
+
+.close-q { background: #1e1e2e; border-radius: 10px; padding: 14px; margin-top: 16px; }
+.close-q .label { font-size: 10px; color: #f59e0b; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.close-q .text { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+.why { background: #0a0a0f; border-radius: 10px; padding: 14px; margin-top: 16px; font-size: 12px; color: #64748b; line-height: 1.5; }
+.why strong { color: #22c55e; }
+
+.status-bar { margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.status-item { text-align: center; }
+.status-item .num { font-size: 20px; font-weight: 800; color: #06b6d4; }
+.status-item .label { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+.next-up { margin-top: 24px; padding-top: 20px; border-top: 1px solid #1e1e2e; width: 100%; max-width: 520px; }
+.next-up .label { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.next-name { font-size: 14px; color: #e2e8f0; font-weight: 600; }
+.next-meta { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+@media (max-width: 540px) {
+  .card { padding: 20px; }
+  .company-name { font-size: 18px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🧠 Daily Deal Machine</h1>
-            <p class="subtitle">Neurotech Lead Intelligence — Non-US Companies Entering US Market</p>
-            <span class="date-badge" id="date-badge">Loading...</span>
-        </header>
 
-        <div class="metrics">
-            <div class="metric-card">
-                <div class="metric-value" id="metric-companies">—</div>
-                <div class="metric-label">Companies</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" id="metric-countries">—</div>
-                <div class="metric-label">Countries</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" id="metric-raised">—</div>
-                <div class="metric-label">Total Raised</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" id="metric-fda">—</div>
-                <div class="metric-label">FDA Signals</div>
-            </div>
-        </div>
+<div class="header">
+  <div class="date">Thursday, May 21</div>
+  <h1>ONE CALL. EVERY MORNING.</h1>
+  <div class="tagline">The machine runs. You just show up.</div>
+</div>
 
-        <input type="text" class="search-box" id="search-box" placeholder="Search companies, countries, products, signals..." onkeyup="filterTable(this.value)">
+<div class="card">
+  <div class="card-top">
+    <div class="company-name">🧠 INBRAIN Neuroelectronics</div>
+    <span class="funding">$50M Series B + €4M Grant</span>
+  </div>
+  <p class="product">Graphene-based BCI — next-gen neural interfaces. Samsung-backed. Study enrollment complete, pre-commercial.</p>
+  <div class="signal">🎯 US SIGNAL: CEO on record seeking US partners. Just completed study enrollment — commercial phase next.</div>
 
-        <table id="leads-table">
-            <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>Product</th>
-                    <th>Funding</th>
-                    <th>US Signal</th>
-                    <th>Buyer Persona</th>
-                    <th>Jordan Angle</th>
-                </tr>
-            </thead>
-            <tbody id="leads-body">
-                <!-- Dynamic content loaded via cron job -->
-            </tbody>
-        </table>
+  <div class="section-label">CEO — Decision Maker</div>
+  <p class="ceo-name">Carolina (Carola) Aguilar</p>
+  <p class="ceo-title">🇪🇸 Barcelona, Spain</p>
 
-        <footer>
-            <p><strong>Jordan Hays</strong> | Niah | <a href="mailto:jordan@niah.io">jordan@niah.io</a></p>
-            <p style="margin-top: 8px; color: #475569;">Non-US neurotech companies with explicit US market entry signals</p>
-        </footer>
-    </div>
+  <a class="call-btn" href="tel:+34625411406">📞 CALL NOW — +34 625 411 406</a>
+  <a class="email-btn" href="mailto:carola@inbrainneuro.com">📧 Send Email Instead</a>
 
-    <script>
-        function filterTable(query) {
-            const rows = document.querySelectorAll('#leads-body tr');
-            const lowerQuery = query.toLowerCase();
-            rows.forEach(row => {
-                const searchText = row.getAttribute('data-search') || '';
-                row.style.display = searchText.includes(lowerQuery) || lowerQuery === '' ? '' : 'none';
-            });
-        }
-        
-        // Auto-update date
-        document.getElementById('date-badge').textContent = new Date().toLocaleDateString('en-US', { 
-            year: 'numeric', month: 'long', day: 'numeric' 
-        });
-    </script>
+  <div class="opener">
+    <div class="opener-label">The Opener — Say This First</div>
+    <div class="opener-text">"Congratulations on the $50M — graphene BCI at commercial scale is category-defining. I help European neuro companies navigate the FDA and build US clinical networks. You are specifically looking for US partners and I am exactly that."</div>
+  </div>
+
+  <div class="close-q">
+    <div class="label">Close the Call — Ask This</div>
+    <div class="text">"Would it make sense to schedule a 30-minute call next week where I walk you through exactly how I would structure your US commercial build — given what I know about the FDA pathway and the neurosurgery networks you'd need?"</div>
+  </div>
+
+  <div class="why">
+    <strong>→ Why Jordan fits:</strong> Highest funding on the list, explicit US partner search, Barcelona connection.<br>
+    <strong>Pain point:</strong> FDA regulatory pathway + neurosurgery network in US
+  </div>
+</div>
+
+<div class="status-bar">
+  <div class="status-item"><div class="num">6</div><div class="label">Companies in rotation</div></div>
+  <div class="status-item"><div class="num">$337M+</div><div class="label">Total capital tracked</div></div>
+  <div class="status-item"><div class="num">1</div><div class="label">Call per day target</div></div>
+</div>
+
+<div class="next-up">
+  <div class="label">Next up — tomorrow</div>
+  <div class="next-name">🧠 BrainQ — $48.8M Series B</div>
+  <div class="next-meta">🇮🇱 Jerusalem · AI stroke rehab · US roadshow done 2023</div>
+</div>
+
 </body>
 </html>
