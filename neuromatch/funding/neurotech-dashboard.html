@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurotech Intelligence Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 24px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        h1 { font-size: 1.6rem; background: linear-gradient(135deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .badge { background: rgba(99,102,241,0.2); color: #818cf8; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+        .date { color: #64748b; font-size: 0.85rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: #1e293b; border-radius: 14px; padding: 20px; border: 1px solid #334155; }
+        .stat-card h3 { color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+        .stat-card .sub { color: #475569; font-size: 0.8rem; }
+        .green { color: #22c55e; }
+        .yellow { color: #f59e0b; }
+        .red { color: #ef4444; }
+        .blue { color: #3b82f6; }
+
+        .section { background: #1e293b; border-radius: 14px; padding: 20px; border: 1px solid #334155; margin-bottom: 16px; }
+        .section h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+        .row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1e293b; }
+        .row:last-child { border-bottom: none; }
+        .row .name { color: #e2e8f0; font-size: 0.9rem; }
+        .row .meta { color: #475569; font-size: 0.8rem; }
+        .tag { padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; }
+        .tag-new { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .tag-clinical { background: rgba(59,130,246,0.15); color: #3b82f6; }
+        .tag-partnership { background: rgba(168,85,247,0.15); color: #a855f7; }
+        .tag-acquisition { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .tag-hiring { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+        .hiring-row { padding: 12px 0; border-bottom: 1px solid #1e293b; }
+        .hiring-row:last-child { border-bottom: none; }
+        .hiring-row .title { color: #e2e8f0; font-size: 0.9rem; font-weight: 500; }
+        .hiring-row .company { color: #818cf8; font-size: 0.8rem; margin-top: 2px; }
+        .hiring-row .link { color: #22c55e; font-size: 0.8rem; text-decoration: none; }
+        .hiring-row .link:hover { text-decoration: underline; }
+        .hot { color: #ef4444; font-weight: 700; }
+
+        .company-card { background: #1e293b; border-radius: 10px; padding: 14px; border: 1px solid #334155; margin-bottom: 10px; }
+        .company-card .name { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .company-card .desc { font-size: 0.8rem; color: #475569; }
+        .company-card .value { font-size: 0.75rem; color: #64748b; margin-top: 6px; }
+
+        .footer { text-align: center; color: #334155; font-size: 0.75rem; margin-top: 24px; }
+        .alert { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); border-radius: 8px; padding: 12px; color: #f59e0b; font-size: 0.85rem; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <h1>🧠 Neurotech Intelligence</h1>
+        <div class="badge">Funding · Hiring · Milestones</div>
+    </div>
+    <div>
+        <span class="date" id="updated">August 06, 2026 08:00 AM</span>
+    </div>
+</div>
+
+<!-- Alert for data source status -->
+<div class="alert" id="alert">
+    📡 Aug 5, 2026 — Morning scan complete. Substack #59 (Aug 3) current. No new deals found. Last full scan: Aug 3 (Notables #59), 2026.
+</div>
+
+<!-- Quick Stats -->
+<div class="grid">
+    <div class="stat-card">
+        <h3>Tracked Companies</h3>
+        <div class="value blue" id="company-count">—</div>
+        <div class="sub">BCI, neuromodulation, neuro-AI</div>
+    </div>
+    <div class="stat-card">
+        <h3>Active Hiring</h3>
+        <div class="value yellow" id="hiring-count">—</div>
+        <div class="sub">sales/marketing/ops priority</div>
+    </div>
+    <div class="stat-card">
+        <h3>Recent Deals</h3>
+        <div class="value green" id="deals-count">—</div>
+        <div class="sub">2026 funding rounds</div>
+    </div>
+</div>
+
+<!-- Hiring Section -->
+<div class="section">
+    <h2>💼 Open Roles (Priority: Sales > Marketing > Ops)</h2>
+    <div id="hiring-list"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- Top Valued Companies -->
+<div class="section">
+    <h2>🏆 Top Valued Neurotech Companies</h2>
+    <div id="top-companies"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- Recent Deals -->
+<div class="section">
+    <h2>💰 Recent Funding Rounds</h2>
+    <div id="recent-deals"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- New Entrants -->
+<div class="section">
+    <h2>🆕 New Market Entrants</h2>
+    <div id="new-entrants"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- Clinical & Regulatory -->
+<div class="section">
+    <h2>🔬 Clinical Trials & Regulatory</h2>
+    <div id="clinical"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- Partnerships -->
+<div class="section">
+    <h2>🤝 Notable Partnerships</h2>
+    <div id="partnerships"><div class="loading">Loading...</div></div>
+</div>
+
+<div class="footer">
+    Neurotech Intelligence · Automated daily brief for Jordan Hays
+</div>
+
+<script>
+function render(data) {
+    document.getElementById('updated').textContent = 'Last updated: ' + new Date().toLocaleString();
+
+    if (data.alert) {
+        document.getElementById('alert').textContent = '⚠️ ' + data.alert;
+        document.getElementById('alert').style.display = 'block';
+    } else {
+        document.getElementById('alert').style.display = 'none';
+    }
+
+    document.getElementById('company-count').textContent = data.companies?.length || 0;
+    document.getElementById('hiring-count').textContent = data.hiring?.length || 0;
+    document.getElementById('deals-count').textContent = data.deals?.length || 0;
+
+    // Hiring list
+    const hiring = data.hiring || [];
+    document.getElementById('hiring-list').innerHTML = hiring.length
+        ? hiring.map(h => `
+            <div class="hiring-row">
+                <div class="title">${h.title} <span class="${h.signal === 'HOT' ? 'hot' : ''}">[${h.signal}]</span></div>
+                <div class="company">${h.company} — ${h.type}</div>
+                <a class="link" href="${h.link}" target="_blank">View Posting →</a>
+            </div>
+        `).join('')
+        : '<div class="row"><div class="name" style="color:#475569">No active postings found today</div></div>';
+
+    // Top companies
+    const companies = data.companies || [];
+    document.getElementById('top-companies').innerHTML = companies.slice(0, 8).map(c => `
+        <div class="company-card">
+            <div class="name">${c.name} <span class="tag tag-${c.tag || 'new'}">${c.tag || ''}</span></div>
+            <div class="desc">${c.description}</div>
+            <div class="value">${c.valuation || '—'}</div>
+        </div>
+    `).join('') || '<div class="row"><div class="name" style="color:#475569">No data available</div></div>';
+
+    // Recent deals
+    const deals = data.deals || [];
+    document.getElementById('recent-deals').innerHTML = deals.length
+        ? deals.map(d => `<div class="row"><div><div class="name">${d.company}</div><div class="meta">${d.round} · ${d.amount}</div></div></div>`).join('')
+        : '<div class="row"><div class="name" style="color:#475569">No new deals today</div></div>';
+
+    // New entrants
+    const entrants = data.newEntrants || [];
+    document.getElementById('new-entrants').innerHTML = entrants.length
+        ? entrants.map(e => `<div class="row"><div><div class="name">${e.name}</div><div class="meta">${e.focus}</div></div><span class="tag tag-new">New</span></div>`).join('')
+        : '<div class="row"><div class="name" style="color:#475569">No new entrants today</div></div>';
+
+    // Clinical
+    const clinical = data.clinical || [];
+    document.getElementById('clinical').innerHTML = clinical.length
+        ? clinical.map(c => `<div class="row"><div><div class="name">${c.name}</div><div class="meta">${c.milestone}</div></div><span class="tag tag-clinical">${c.status}</span></div>`).join('')
+        : '<div class="row"><div class="name" style="color:#475569">No clinical updates today</div></div>';
+
+    // Partnerships
+    const partnerships = data.partnerships || [];
+    document.getElementById('partnerships').innerHTML = partnerships.length
+        ? partnerships.map(p => `<div class="row"><div><div class="name">${p.parties}</div><div class="meta">${p.focus}</div></div><span class="tag tag-partnership">Partnership</span></div>`).join('')
+        : '<div class="row"><div class="name" style="color:#475569">No new partnerships today</div></div>';
+}
+
+// Updated data — 2026-08-06 08:00 AM — Morning scan: Gestala $21M (China), $1.2B+ neurotech 2026 confirmed
+const defaultData = {
+    alert: "Aug 6, 2026 — Morning scan: Gestala (China) $21M ultrasound BCI; $1.2B+ neurotech funding confirmed in 2026 (Merge $250M+, BrainCo $280M, Science Corp $230M, Cognito $105M, Beacon $97M, Axoft $55M, Nervonik $52.5M). BCI funding tracking $1.75B/12mo.",
+    companies: [
+        {name: "Flourish", description: "NeuroAI company; CTRL-labs founder Thomas Reardon; $500M Bezos at $2.5B valuation", valuation: "$2.5B (Jun 2026)", tag: "new"},
+        {name: "Merge Labs", description: "Sam Altman's BCI startup; $252M seed led by OpenAI — largest single seed in neurotech history", valuation: "$252M seed (Jan 2026)", tag: "new"},
+        {name: "Salma Health", description: "Brain health centers of excellence; $80M Series A; rapid-acting TMS/SAINT/Spravato", valuation: "$80M Series A", tag: "new"},
+        {name: "Pharaoh Neuro", description: "$20M raised; former Medtronic exec Amara Reitmeier named CEO", valuation: "$20M Series A", tag: "new"},
+        {name: "Echo Neurotechnologies", description: "Stealth BCI startup led by Edward Chang; Intel strategic partnership for brain-inspired AI chips", valuation: "Stealth", tag: "new"},
+        {name: "ReVision Implant", description: "Neurotech implant startup; €4M funding (May 2026); focus on implantable neuro devices", valuation: "€4M (May 2026)", tag: "new"},
+        {name: "Connectome", description: "Personalised brain health insights and early cognitive change detection; €1.7M (Apr 2026)", valuation: "€1.7M (Apr 2026)", tag: "new"},
+        {name: "Neurable", description: "Everyday BCI wearables; $35M Series A (Dec 2025); HyperX gaming headset OEM; scaling global OEM integration 2026", valuation: "$35M Series A", tag: "clinical"},
+        {name: "Science Corp", description: "Brain implant; $230M to fast-track launch (Mar 2026); Neurosoft Bioelectronics partnership", valuation: "$230M (Mar 2026)", tag: "clinical"},
+        {name: "Cognito Therapeutics", description: "Alzheimer's neurotechnology platform; $105M (Mar 2026); non-invasive neuromodulation for cognitive decline", valuation: "$105M (Mar 2026)", tag: "clinical"},
+        {name: "Neuralink", description: "Samsung R&D contract for 4th-gen chips; production scheduled 2027; 26th patient enrolled Jun 22, 2026", valuation: "Series C ($9B reported)", tag: "clinical"},
+        {name: "Motif Neurotech", description: "Psychiatric BCI for treatment-resistant depression; FDA-approved RESONATE trial; MintNeuro chip partnership", valuation: "$55M raised + ARPA-H/ARIA grants", tag: "clinical"},
+        {name: "Paradromics", description: "High-density intraneural BCI; FDA Connexus study approved; FIH announced Jun 2026", valuation: "Series A", tag: "clinical"},
+        {name: "Synchron", description: "Stentrode endovascular BCI; $200M Series D; San Diego move", valuation: "$200M Series D (~$1B)", tag: "clinical"},
+        {name: "Blackrock Neurotech", description: "Utah Array commercial leader; 45+ patients with implants; new ops roles open", valuation: "$150M raised", tag: "clinical"},
+        {name: "ABILITY Neurotech", description: "BCI for ALS patients; IMDD FDA approval May 2026 for human trial", valuation: "Series A (est.)", tag: "clinical"},
+        {name: "Neurovalens", description: "Non-invasive neuromodulation; 4x FDA approvals (PTSD, Essential Tremor); Keegoo device", valuation: "Public (NVLS)", tag: "clinical"},
+        {name: "Neurosoft Bioelectronics", description: "Stretchable BCI electrodes; $7.5M seed; Science Corp partnership; NYC office", valuation: "$7.5M seed", tag: "clinical"},
+        {name: "GT Medical Technologies", description: "GammaTile brain tumor radiation; $100M Series E oversubscribed", valuation: "$100M Series E", tag: "clinical"},
+        {name: "Nyxoah", description: "Implantable neuromodulation for OSA; $95M IPO priced Jun 2026", valuation: "$95M IPO", tag: "clinical"}
+        {name: "Mobia", description: "19-year $165M IPO journey (Jun 2026); neurotechnology health monitoring platform", valuation: "$165M raised", tag: "new"},
+        {name: "CereVasc", description: "eShunt for hydrocephalus; $85M Series C oversubscribed", valuation: "$85M Series C", tag: "clinical"}
+    ],
+    hiring: [
+        // NEW — Jul 16, 2026 — Notables #57 + confirmed job boards
+        {company: "Motif Neurotech", title: "Director of Clinical Science and Applied Research", signal: "OK", type: "ops", link: "https://job-boards.greenhouse.io/motifneurotech/jobs/5346662008"},
+        {company: "Motif Neurotech", title: "Director of Manufacturing Operations (Medical Device)", signal: "OK", type: "ops", link: "https://job-boards.greenhouse.io/motifneurotech/jobs/5345158008"},
+        {company: "Synchron", title: "Field BCI Specialist — Indiana", signal: "OK", type: "ops", link: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=d290c04e-0230-4cd9-8bf0-f116bfab1405&ccId=19000101_000003&lang=en_US&jobId=9201609769879_1"},
+        {company: "Synchron", title: "Field BCI Specialist — Orlando, FL", signal: "OK", type: "ops", link: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=d290c04e-0230-4cd9-8bf0-f116bfab1405&ccId=19000101_000003&lang=en_US&jobId=9201602197710_1"},
+        {company: "Synchron", title: "Field BCI Specialist — Buffalo, NY", signal: "OK", type: "ops", link: "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=d290c04e-0230-4cd9-8bf0-f116bfab1405&ccId=19000101_000003&lang=en_US&jobId=9201609762270_1"},
+        {company: "Synchron", title: "Senior Director, Regulatory Affairs", signal: "OK", type: "ops", link: "https://www.synchron.com/careers"},
+        // Notables #57 — Neurotechjobs.io new roles (confirmed Jul 1, 2026)
+        {company: "Neurobionics", title: "Open Roles (check site)", signal: "OK", type: "ops", link: "https://jobs.polymer.co/neurobionics"},
+        {company: "Nudge", title: "Open Roles (check site)", signal: "OK", type: "ops", link: "https://neurotechjobs.io"},
+        {company: "Blackrock Neurotech", title: "Open Roles", signal: "OK", type: "ops", link: "https://www.blackrockneurotech.com/careers"},
+        {company: "Beacon Biosignals", title: "Business Development Manager", signal: "HOT", type: "sales", link: "https://www.linkedin.com/jobs/view/business-development-manager-at-beacon-biosignals"},
+        // From Jun 25
+        {company: "Neurotech Pharmaceuticals", title: "Senior Director National Accounts", signal: "HOT", type: "sales", link: "https://www.linkedin.com/jobs/view/senior-director-national-accounts-at-neurotech-pharmaceuticals"},
+        {company: "Neurotech Pharmaceuticals", title: "Director of National Accounts", signal: "HOT", type: "sales", link: "https://www.linkedin.com/jobs/view/director-of-national-accounts-at-neurotech-pharmaceuticals"},
+        // From Jun 15
+        {company: "Neurotech Pharmaceuticals", title: "Senior Director of Marketing", signal: "OK", type: "marketing", link: "https://www.linkedin.com/jobs/view/senior-director-of-marketing-at-neurotech-pharmaceuticals"},
+        {company: "Neurotech Pharmaceuticals", title: "Senior Director, Access Strategy & Operations", signal: "OK", type: "ops", link: "https://www.linkedin.com/jobs/view/senior-director-access-strategy-operations-at-neurotech-pharmaceuticals"},
+        // Existing
+        {company: "NeuroBionics", title: "Strategic Marketing Lead (Upstream)", signal: "OK", type: "marketing", link: "https://jobs.polymer.co/neurobionics/38344"},
+        {company: "NeuroBionics", title: "Operations Manager", signal: "OK", type: "ops", link: "https://jobs.polymer.co/neurobionics/38341"},
+        {company: "NeuroBionics", title: "Program Manager", signal: "OK", type: "ops", link: "https://jobs.polymer.co/neurobionics/38340"},
+        {company: "Precision Neuroscience", title: "Business Dev / Clinical roles", signal: "OK", type: "business", link: "https://www.precisionneuro.io/careers"}
+    ],
+    deals: [
+        // Aug 6, 2026 — Morning scan — $1.2B in 4mo confirmed (Aspire Life Sciences)
+        {company: "BrainCo Inc", round: "Funding", amount: "$280M — non-invasive BCI/EEG (2026)"},
+        {company: "Axoft", round: "Series A", amount: "$55M — neural interfaces (2026)"},
+        {company: "Nervonik", round: "Series B", amount: "$52.5M — neurotech platform (2026)"},
+        {company: "Gestala", round: "Seed", amount: "$21M — China ultrasound BCI (Apr 2026)"},
+        // Updated Jul 6, 2026 — Google News RSS scan — NEW ADDITIONS
+        {company: "Science Corp", round: "Funding", amount: "$230M — brain implant launch (Mar 5, 2026)"},
+        {company: "Cognito Therapeutics", round: "Funding", amount: "$105M — Alzheimer's neurotechnology platform (Mar 5, 2026)"},
+        {company: "Beacon Biosignals", round: "Series B (upsized)", amount: "$97M — neurodiagnostic data (Apr 6, 2026)"},
+        // Existing data from Notables #57 (Jun 15-30)
+        {company: "WISE", round: "Series D (oversubscribed)", amount: "€30M — ENEA Tech and Biomedical new investors"},
+        {company: "HistoSonics", round: "Financing", amount: "Yosemite among strategic investors"},
+        {company: "NeuroBell", round: "Seed", amount: "$5.5M — AI-powered neonatal brain monitor"},
+        {company: "Valence AI", round: "Seed", amount: "$5M + 2 US patents"},
+        {company: "NeuroLife", round: "Seed", amount: "$2.9M — non-invasive stroke/SCI (Jun 2026)"},
+        {company: "CraniUS Therapeutics", round: "NIH Award", amount: "Up to $4M — skull-embedded BBB bypass platform"},
+        {company: "Flourish", round: "Seed", amount: "$500M (Bezos led) at $2.5B valuation"},
+        {company: "Merge Labs", round: "Seed (OpenAI led)", amount: "$252M — Sam Altman's BCI startup (Jan 2026)"},
+        {company: "GT Medical Technologies", round: "Series E (oversubscribed)", amount: "$100M"},
+        {company: "CereVasc", round: "Series C (oversubscribed)", amount: "$85M"},
+        {company: "Salma Health", round: "Series A", amount: "$80M"},
+        {company: "Nyxoah", round: "IPO", amount: "$95M"},
+        {company: "Envoy Medical", round: "Public Offering (upsized)", amount: "up to $78M"},
+        {company: "Neurent Medical", round: "Series C (oversubscribed)", amount: "€62.5M"},
+        {company: "Temple", round: "Series B", amount: "$54M at $190M valuation"},
+        {company: "Pharaoh Neuro", round: "Series A", amount: "$20M"},
+        {company: "BrainCheck", round: "Series", amount: "$13M"},
+        {company: "EnSpire DBS", round: "Series B1", amount: "$10.3M"},
+        {company: "ReVision Implant", round: "Funding", amount: "€4M (May 2026)"},
+        {company: "Connectome", round: "Funding", amount: "€1.7M (Apr 2026)"},
+        {company: "Motif Neurotech", round: "Grants", amount: "ARPA-H EVIDENT + UK ARIA awards"},
+        {company: "Medtronic", round: "Acquisition", amount: "$650M (SPR)"}
+    ],
+    newEntrants: [
+        // Aug 6, 2026 — Morning scan
+        {name: "Gestala", focus: "China ultrasound BCI startup; $21M raised just 2 months after launching; mental health, PTSD, stroke rehab; also targeting Alzheimer's, Parkinson's (Apr 2026)"},
+        // Updated Jul 16, 2026 — Notables #57 (Jun 15-30)
+        {name: "Aleph Neuro", focus: "New ultrasound neuromodulation program (Jun 2026); non-invasive brain stimulation via focused ultrasound"},
+        {name: "Lotus Neuro", focus: "Focused ultrasound for GBM/DIPG brain cancer; funded research teams opportunity for clinical centers (Jun 2026)"},
+        {name: "NeuroLife", focus: "Non-invasive tech for stroke/SCI; $2.9M seed (Jun 2026); restoring hand and arm movement"},
+        {name: "NeuroBell", focus: "AI-powered neonatal brain monitor; $5.5M seed (Jun 2026)"},
+        {name: "Valence AI", focus: "Neurotech AI; $5M seed + 2 US patents (Jun 2026)"},
+        {name: "Wise", focus: "Neurotech company; €30M Series D oversubscribed (Jun 2026); ENEA Tech and Biomedical investors"},
+        {name: "Flourish", focus: "NeuroAI; CTRL-labs founder Thomas Reardon; $500M Bezos at $2.5B valuation — building algorithms/chips for faster learning"},
+        {name: "Merge Labs", focus: "Sam Altman's BCI startup; $252M seed led by OpenAI (Jan 2026) — largest seed in neurotech history; Altman positioning as the \"iPhone moment\" for BCI"},
+        {name: "Echo Neurotechnologies", focus: "Stealth BCI startup led by Edward Chang; Intel strategic partnership for brain-trained algorithms + energy-efficient computing"},
+        {name: "Salma Health", focus: "Brain health centers of excellence; $80M Series A; TMS/SAINT/Spravato stack; backed by Steadview, Peak XV, Info Edge"},
+        {name: "Pharaoh Neuro", focus: "$20M Series A; former Medtronic exec Amara Reitmeier as CEO; neuro device company"},
+        {name: "ReVision Implant", focus: "Neurotech implant startup; €4M funding (May 2026); implantable neuro device focus"},
+        {name: "Connectome", focus: "Personalised brain health insights; €1.7M (Apr 2026); early cognitive change detection"}
+    ],
+    clinical: [
+        // Updated Jul 16, 2026 — Notables #57 (Jun 15-30)
+        {name: "Coherence", milestone: "First-in-human: 3 implants — cancer-treating BCI crosses barrier (Jun 2026)", status: "Clinical"},
+        {name: "Nanochap (China)", milestone: "Vision BCI achieves 'functional restoration' — successful in humans (Jun 2026)", status: "Clinical"},
+        {name: "Aleph Neuro", milestone: "New ultrasound neuromodulation program announced (Jun 2026)", status: "New"},
+        {name: "Lotus Neuro", milestone: "Focused ultrasound for GBM/DIPG brain cancer; funded opportunity for clinical centers (Jun 2026)", status: "New"},
+        {name: "Aurenar", milestone: "FDA breakthrough nod for noninvasive neuromod tech (Jun 2026)", status: "Breakthrough"},
+        {name: "Bioness", milestone: "510k clearance for PONS portable neurostimulator for stroke recovery (Jun 2026)", status: "Approved"},
+        {name: "Saluda Medical", milestone: "FDA approval for CAP24 surgical paddle lead (Jun 2026)", status: "Approved"},
+        // Pre-existing
+        {name: "Neuralink", milestone: "26th patient enrolled — ongoing trials accelerate (Jun 22, 2026)", status: "Clinical"},
+        {name: "BrainGate/Stanford", milestone: "First BCI to restore fluent everyday speech — ALS patient speaks in own voice after years of silence (Jun 19, 2026)", status: "Clinical"},
+        {name: "MIT Tech Review", milestone: "\"BCI trials are taking off\" — Jun 19 feature; 2026 marks critical turning point for BCI technology (BioWorld)", status: "Clinical"},
+        {name: "Synchron", milestone: "Targets 2026 pivotal trial for first FDA-approved BCI — Tech Times (Jun 6, 2026)", status: "Clinical"},
+        {name: "Paradromics", milestone: "First-in-human (FIH) announced Jun 2026 — FDA Connexus study for intraneural BCI", status: "Clinical"},
+        {name: "Nature/UC Davis", milestone: "Long-term independent BCI use: speech + cursor control — Nature paper (Jun 21, 2026)", status: "Clinical"},
+        {name: "ALS/BCI", milestone: "ALS patient uses BCI to work full-time job — The Register (Jun 17, 2026)", status: "Clinical"},
+        {name: "Neuronoff", milestone: "First patient enrolled in DOD trial for intraneural BCI (Jun 2026)", status: "Clinical"},
+        {name: "Shiratronics", milestone: "Completed pivotal enrollment for Chronic Migraine (RELIEV-CM2); 5 new Category III CPT codes accepted", status: "Clinical"},
+        {name: "Wave", milestone: "FDA clearance for PTSD TMS protocol — major commercial milestone", status: "Approved"},
+        {name: "Nexalin", milestone: "HALO Clarity pivotal trial to support De Novo FDA submission for insomnia", status: "Clinical"},
+        {name: "EpiWatch", milestone: "Phase III trial ongoing", status: "Phase III"},
+        {name: "Motif Neurotech", milestone: "FDA-approved RESONATE trial for treatment-resistant depression BCI", status: "Clinical"},
+        {name: "Encora Therapeutics", milestone: "FDA 510(k) clearance for Encora X1 wearable for Essential Tremor", status: "Approved"},
+        {name: "Sonorous", milestone: "FDA breakthrough designation for BosSTENT (pulsatile tinnitus)", status: "Breakthrough"},
+        {name: "Salma Health", milestone: "$80M Series A to scale brain health centers with TMS/SAINT/Spravato", status: "Scaling"},
+        {name: "ABILITY Neurotech", milestone: "IMDD approval for chronic ALS BCI trial (Jun 2026)", status: "Clinical"}
+    ],
+    partnerships: [
+        // Updated Jul 16, 2026 — Notables #57 (Jun 15-30)
+        {parties: "Butterfly Network + MidJourney Medical", focus: "Full-body ultrasound scanner — Butterfly provides commentary; new commercial program"},
+        {parties: "Vermont", focus: "New neural data law puts neurotech on notice — Cooley analysis (Jun 2026)"},
+        {parties: "FDA", focus: "Pilot program to speed up early-stage clinical trials (Jun 2026) — accelerated pathway"},
+        {parties: "Intel + Echo Neurotechnologies", focus: "Strategic partnership: Edward Chang's stealth BCI startup to develop brain-trained algorithms and energy-efficient computing platforms"},
+        {parties: "Samsung + Neuralink", focus: "Samsung R&D contract for Neuralink 4th-gen chips; first test chips shipped; full production 2027"},
+        {parties: "Science Corp + Neurosoft Bioelectronics", focus: "Electrode + backend electronics partnership for BCI platforms"},
+        {parties: "Allen Institute", focus: "Launches $200M Brain Health Accelerator to turn brain atlas research into medicines"},
+        {parties: "ARPA-H REST Program", focus: "Restorative & health-Enhancing Sleep Time (REST) program — redefine sleep as measurable, controllable health driver"},
+        {parties: "ARPA-H BRAINS", focus: "Exploratory topic: Regrowing damaged brain regions to restore lost function — register by July 9"},
+        {parties: "HyperX + Neurable", focus: "Neurotechnology-powered gaming wearable headset (Jan 2026); OEM integration strategy scaling in 2026"}
+    ]
+};
+
+render(defaultData);
+</script>
+</body>
+</html>
