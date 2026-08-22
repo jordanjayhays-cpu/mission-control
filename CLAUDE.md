@@ -10,9 +10,10 @@ master-overview repo. If this file disagrees with the live board, the board wins
 |---|---|
 | Agent board + PISCO outreach DB | Supabase `neurodashboards` — `dprdnrgjkzgfgtcsguuq` |
 | Massage Club DB (separate, keep it that way) | Supabase `jglftdstrowwckwqmpue` |
-| Agent Command Center (live dashboard) | Lovable project `d9cccd2d-c8f9-408f-91da-5ff739da5efd` → syncs to **Niahconnect/niah-matchmaker-pro** (private, other org) |
+| Agent Command Center (live dashboard) | Lovable `d9cccd2d-c8f9-408f-91da-5ff739da5efd` ↔ repo `neurodash-agent-dashboard`, live at neurodash-agent-dashboard.lovable.app (verified 2026-08-22 via commit sync) |
+| Niah live app | syncs to **Niahconnect/niah-matchmaker-pro** (private, other org). Its Lovable project id is UNSURE — verify in Lovable before any edit; do NOT assume it is d9cccd2d (an old docs error said so; it is not) |
 | Hermes runtime | Railway "Hermes 007" — OpenClaw gateway; its crons live on the box, not in git |
-| Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard` |
+| Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard`, `neurodash-agent-dashboard`, `jordan-projects` (deliverables drop) |
 
 Key tables on `neurodashboards`: `pisco_prospects` (outreach CRM), `agent_tasks` (Jordan's to-dos),
 `hermes_entries` (activity feed), `agent_prompts` (agent-to-agent bus), `app_secrets` (SMTP/API keys).
