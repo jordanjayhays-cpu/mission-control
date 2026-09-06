@@ -33,7 +33,7 @@ Status key: **LIVE** = something real is running · **BUILT** = exists, not in u
 | **Niah** | `niah-dashboard`, app in Niahconnect org, `niah_prospects` 893 rows | BUILT | 6 personalised drafts ready (IFEMA, CREA, CloserStill) and no send recorded. South Summit June 2026 has passed; that proposal is closed. Password-reset in review since 07-17. 7 one-shot event Routines queued Sep–Oct. | 1 organiser trials the matchmaker at a live event |
 | **Vaya News / Vaya Manila** | `Vaya` | BUILT (today) | Site written. Needs GitHub Pages toggle + 5 DNS records at Squarespace. Manila pilot shoot on board. | vayanews.com resolves over HTTPS |
 | **Agent Command Center** | `neurodash-agent-dashboard`, Lovable `d9cccd2d` | LIVE | Internal tool, works. Last 15 commits all grind the same Niah password-reset flow. neurodashboards.com domain unverified. | Domain live; stop the password-reset loop |
-| **Sauce Match** | `sauchematch`, sauchematch.lovable.app | BUILT | Demo store, checkout charges nothing, catalog is static. Stalled 08-16 in a design revert loop. Its analytics write into the **agent board DB** with a hardcoded key. | Decide real store or demo. Recommend: park. |
+| **Sauce Match** | `sauchematch`, sauchematch.lovable.app | FOCUS (2026-09-07) | Jordan: launch it. Model = quiz + affiliate, no stock. Plan: `jordan-projects/sauce-match/LAUNCH-PLAN.md`. Step 1 (strip fake commerce, disclosure, analytics) running in its own session. | One paying customer who is not a friend: first affiliate commission or first maker paying for a featured slot |
 | **Family Business Flourish** | `clever-family-coach` | BUILT | 2-page consulting site, dormant since 08-10. Per `GROUP-STRUCTURE.md` this IS the BD agency under its old name. Intake form writes to Supabase with no notification (UNSURE if any leads are sitting unread). | Fold into the Kinsol site; check the intake table once |
 | **Neurotech tracker** | `neurotech-dashboard` | PARKED | Correctly parked in writing. Leave alone. | n/a |
 
@@ -77,7 +77,7 @@ Criteria: closest to money, uses your actual role (Director of BD), and has mome
 - **Puhunan**: one loan, when you are next in the Philippines or by video with family.
 
 **Park (close the board items, keep the docs)**
-Sauce Match, Family Business Flourish site (folded into Kinsol), Nomin, New Bali, AI Caller, Neurotech tracker, Lettuce Wraps, Manila food tour, "Snyk for vibe coders". Parking is reversible; a 62-item queue is not survivable.
+Family Business Flourish site (folded into Amigo Sales), New Bali, AI Caller, "Snyk for vibe coders". (Updated 2026-09-07: Sauce Match promoted to Focus; Neurotech promoted to Amigo Sales BD line; Nomin active; Lettuce Wraps and food tour live under Vaya.)
 
 ---
 
