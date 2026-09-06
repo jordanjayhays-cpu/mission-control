@@ -13,7 +13,7 @@ master-overview repo. If this file disagrees with the live board, the board wins
 | Agent Command Center (live dashboard) | Lovable `d9cccd2d-c8f9-408f-91da-5ff739da5efd` ↔ repo `neurodash-agent-dashboard`, live at neurodash-agent-dashboard.lovable.app (verified 2026-08-22 via commit sync) |
 | Niah live app | syncs to **Niahconnect/niah-matchmaker-pro** (private, other org). Its Lovable project id is UNSURE — verify in Lovable before any edit; do NOT assume it is d9cccd2d (an old docs error said so; it is not) |
 | Hermes runtime | Railway "Hermes 007" — OpenClaw gateway; its crons live on the box, not in git |
-| Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard`, `neurodash-agent-dashboard`, `jordan-projects` (deliverables drop) |
+| Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard`, `neurodash-agent-dashboard`, `jordan-projects` (deliverables drop), `Philosophical-King` (PK design system + music docs, created 2026-09-07), `Vaya`, `pk-render-worker` |
 | Kinsol contracts (Placewell referral + Amigo Sales billing, drafts v1) | Notion: https://app.notion.com/p/3d3efcda373d81e9a1e5c148c4eb4173 ; Word + md in `jordan-projects/kinsol/contracts/` |
 
 Key tables on `neurodashboards`: `pisco_prospects` (outreach CRM), `agent_tasks` (Jordan's to-dos),
