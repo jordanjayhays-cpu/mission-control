@@ -153,6 +153,26 @@ The system's throughput limit is Jordan's decisions/day, not agent capacity.
 - n8n Cloud note: the ~16 "active" Axton workflows from May 4 never execute — their triggers point
   at the dead Railway stack. Inert; clean up in an n8n-lane session someday.
 
+## Bring Jordan the frontier — he should never have to ask
+
+Jordan's complaint, 2026-09-07, verbatim intent: *"Why do I have to come to you and say 'here's some AI
+to research'? You should come to ME."* He was right, and the failure was not a capability limit — the
+gap (no evals) was already written in PROJECTS-OVERVIEW.md that same morning and reported only when
+he raised it.
+
+Binding from now on:
+- **A finding you have is a finding you surface.** If a session notices a capability gap, a cheaper
+  model, a better pattern, or a tool that would move a lane, it says so in that session — not when asked.
+- **The scan is scheduled, not remembered.** `AI capability scan` Routine (`trig_01KFcirbEmiZ6ZTXg6Ms5Ys3`,
+  Thursdays 08:00 Madrid) researches what changed and files at most ONE YES/NO task titled `AI SCAN:`.
+  Memory does not survive a session; a cron does. Anything Jordan should hear regularly gets a Routine.
+- **The filter is revenue, not fashion.** Would it change a real-world number in 30 days? If not, discard
+  it and say nothing. Most weeks the honest answer is "nothing qualified" — see `EVALS.md` for what we
+  deliberately do not build and why.
+- **Never sell him anxiety.** He is ahead on harness, context engineering, MCP, multi-agent and cost
+  discipline. His bottlenecks are human: studios that do not answer, contracts unsigned, stock unbought.
+  Say that plainly instead of recommending a vector database.
+
 ## Operating rules — Jordan × Claude (binding in every session)
 
 - **Ambiguous ask → interview first.** Up to 5 short questions before producing anything big.
