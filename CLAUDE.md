@@ -11,6 +11,7 @@ master-overview repo. If this file disagrees with the live board, the board wins
 | Agent board + PISCO outreach DB | Supabase `neurodashboards` — `dprdnrgjkzgfgtcsguuq` |
 | Massage Club DB (separate, keep it that way) | Supabase `jglftdstrowwckwqmpue` |
 | Agent Command Center (live dashboard) | Lovable `d9cccd2d-c8f9-408f-91da-5ff739da5efd` ↔ repo `neurodash-agent-dashboard`, live at neurodash-agent-dashboard.lovable.app (verified 2026-08-22 via commit sync) |
+| Sauce Match (Lovable) | Lovable `dc87991c-5132-40e3-a8b0-3626e286f082` ↔ repo `sauchematch`, live at sauchematch.lovable.app. Lovable syncs the repo's **main** branch only; a feature branch is invisible to Lovable until merged. Git pushes cost no credits; Lovable edits do. |
 | Niah live app | syncs to **Niahconnect/niah-matchmaker-pro** (private, other org). Its Lovable project id is UNSURE — verify in Lovable before any edit; do NOT assume it is d9cccd2d (an old docs error said so; it is not) |
 | Hermes runtime | Railway "Hermes 007" — OpenClaw gateway; its crons live on the box, not in git |
 | Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard`, `neurodash-agent-dashboard`, `jordan-projects` (deliverables drop), `Philosophical-King` (PK design system + music docs, created 2026-09-07), `Vaya`, `pk-render-worker` |
