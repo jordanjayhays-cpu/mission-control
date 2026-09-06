@@ -95,3 +95,57 @@ Z9. Massage Club canonical URL, if not book.massageclub.io.
 Z10. Manila food-tour local host: pick from your candidates.
 Z11. Sauce Match brand voice: 3 example captions.
 Z12. Baan Bua note + Achicka decision (personal).
+
+---
+
+## Answers log (2026-09-07, one at a time, priority first)
+
+| Q | Answer | Result |
+|---|---|---|
+| 1 | NO | Credentials not rotated; exposure stays (task 6cb64408 stays urgent) |
+| 7 | Clarified | Amigo Sales = agency brand; Kinsol = legal entity that invoices |
+| 2 | Done (read-back) | 4 deletions confirmed; Hermes container still on and billing, low task with the exact click path |
+| 16 | Redirected | CZ campaign (53 sent) is the play; agents research the next market (task a52333a5) |
+| 16b | Not sure | 5 Placewell terms tasks stay |
+| 38 | YES | Vaya go-live stays high |
+| 32 | Already live | Meta token task closed as stale |
+| 44/45 | Sent already / YES | 35 Niah sends confirmed; value-prop line approved; 3 pitches task e7bcdb03 |
+| 24 | Redirected | Friends task closed; booking bot funnel is the bottleneck (urgent task 6a65e649); members hub design task 508c5707 |
+| 52 | YES | Puhunan deal #1 prep task 025d1df7 |
+| 63 | Not sure | No board cut; continue one by one |
+| 9 | YES | Kinsol LLC steps this month |
+| 8 + Z3 | YES | 7 clients described (Techanzo IT/Canada; Turkey recycled + bananas to Europe; Mining consulting; India packaging; India garments; pharma raw materials; Colombian part TBD) |
+| 11 | Not yet | COMARE parked until pricing requested |
+| 13 | YES, names later | Amigo re-engagement this week |
+| 39 | NO | Manila shoot not before 31 Oct; 3 tasks low |
+| 53 / Z11 | NO park / agents propose 3 | Sauce Match active; caption voices task |
+| 55 | NO | 3 AI Caller tasks cancelled (note: Twilio creds already in app_secrets) |
+| 58 / 58a | Assess each / NO | Google Maps stays an idea; verdicts in chat |
+| 51 / 51a | Very important / BD service | Neurotech BD line task 00a4a5a1 (Amigo Sales) |
+| 47 | Not sure | Closed by Claude (agent-internal) |
+| 62 | NO | CPA cleanup low |
+| 10 | YES | Fold Family Business Flourish into Amigo Sales (task 66942f59) |
+| 12 | YES | Nomin: Dr. Bronner's lead brand |
+| 49 | YES | Niah go/no-go 15 Oct (Routine trig_01GaAtnkQkp2uzxW3S6rFKjH, task 8e40f808) |
+| 34 | Verified dead | render-worker crash loop, no SUPABASE_SERVICE_KEY, buckets empty; parked (record c09cc031) |
+| 33 | Checked | Claude has push on all 14 repos; repo creation 403, needs Jordan (task c833c3df) |
+| 17/18 | Under Amigo Sales | Two PISCO tasks relabelled |
+| 21 | Live | book.massageclub.io 200; 2 stale docs fixed and pushed |
+| 22 | YES | Search Console not connected; steps on task e75ae1c0 |
+| 41 | Later | City quiz kept for Vaya |
+| 42/43 | YES both | Food tour = first Vaya Experience; Lettuce Wraps demand test (own project) |
+| 3/4 | One shared brain | mission-control is the main; extraction task a45b3dc2 |
+| 48 | Not sure | Niah Supabase org parked to 15 Oct |
+| 19 | Agent work | PISCO reply tracking task 1290a1c1 |
+| 50 / 50a / 50b | Live / venture board / YES | neurodashboards.com home = Venture Board (task c2dfa9e2, Lovable build waits for OK) |
+| 56/57 | Needs to read them | 2 Niah LinkedIn drafts go to the brief in full |
+| 27/28/29 | YES all | MC growth items stay |
+| Z12 | Reach out to Achicka | Task b141cd46 reassigned to claude to draft |
+| 46 | Instantly now | Niah outreach runs on Instantly; call tasks normal |
+| 35 | YES | PK piece #2 this week, weekly cadence |
+| Z2 | EUR 20/month starter | Agreement template updated; per-intro fee negotiated per client |
+| 31/37 | Keep all | Routines unchanged |
+| 20/59/60/61 | All stay | No change |
+| 6 | YES | CommitmentClock + duplicate city-quiz copies deleted |
+
+Still open for Jordan: Z4 (3 dormant client names), Z8 (one target employer, optional while CZ runs), Z10 (Manila host, parked), Q1 rotation (declined for now).

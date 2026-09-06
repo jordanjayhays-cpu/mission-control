@@ -56,7 +56,6 @@
 |------|-----|---------|
 | `overnight-builds/leadpulse.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/leadpulse.html) | Lead generation tool |
 | `overnight-builds/analytics.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/analytics.html) | Analytics dashboard |
-| `overnight-builds/commitment-clock.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/commitment-clock.html) | Commitment tracking |
 | `overnight-builds/massage-pass-landing.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/massage-pass-landing.html) | Massage Pass landing page |
 | `overnight-builds/pisco-hotel-pitch.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/overnight-builds/pisco-hotel-pitch.html) | Hotel pitch deck |
 
