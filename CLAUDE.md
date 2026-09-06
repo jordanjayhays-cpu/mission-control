@@ -14,6 +14,7 @@ master-overview repo. If this file disagrees with the live board, the board wins
 | Niah live app | syncs to **Niahconnect/niah-matchmaker-pro** (private, other org). Its Lovable project id is UNSURE — verify in Lovable before any edit; do NOT assume it is d9cccd2d (an old docs error said so; it is not) |
 | Hermes runtime | Railway "Hermes 007" — OpenClaw gateway; its crons live on the box, not in git |
 | Repos in use | `your-massage-pass`, `007-Axton`, `mission-control`, `niah-dashboard`, `neurotech-dashboard`, `neurodash-agent-dashboard`, `jordan-projects` (deliverables drop) |
+| Kinsol contracts (Placewell referral + Amigo Sales billing, drafts v1) | Notion: https://app.notion.com/p/3d3efcda373d81e9a1e5c148c4eb4173 ; Word + md in `jordan-projects/kinsol/contracts/` |
 
 Key tables on `neurodashboards`: `pisco_prospects` (outreach CRM), `agent_tasks` (Jordan's to-dos),
 `hermes_entries` (activity feed), `agent_prompts` (agent-to-agent bus), `app_secrets` (SMTP/API keys).
