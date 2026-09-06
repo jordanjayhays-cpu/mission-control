@@ -34,11 +34,9 @@
 | `niah-dashboard.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/niah-dashboard.html) | Niah main dashboard |
 | `niah/dashboards/niah-dashboard.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/niah/dashboards/niah-dashboard.html) | Niah B2B event networking product |
 
-### Harvard / MBA Prep
+### MBA Prep
 | File | URL | Purpose |
 |------|-----|---------|
-| `harvard-simulation-full.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-full.html) | Full Harvard case simulation |
-| `harvard-simulation-quiz.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/harvard-simulation-quiz.html) | Practice quiz for Harvard cases |
 | `city-quiz/city-match-quiz-v2.html` | [link](https://jordanjayhays-cpu.github.io/mission-control/city-quiz/city-match-quiz-v2.html) | City decision quiz |
 
 ### Hermes Agent

@@ -155,69 +155,96 @@ Oct 15 Niah gate.
 
 ---
 
-## Appendix: every project ever proposed (exhaustive, 2026-09-06)
+## Appendix: every project ever proposed (exhaustive, regrouped 2026-09-07 per Jordan)
 
 Sources: 14 repos, `agent_tasks`, `agency_clients`, 007-Axton `PROJECTS/`, `downloads/`, `parking-lot.md`,
 `ideas-queue.md`, the May Trello export, mission-control `overnight-builds/` and `neuromatch/`.
-Note: **Amigo Sales = the BD agency = Family Business Flourish = Kinsol.** One business, four names.
+Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation files were deleted from mission-control.
 
-### A. Own products (software)
-1. Massage Club / Massage Pass (Madrid studio marketplace; earlier: subscription "Massage Pass") — LIVE
-2. Philosophical King / PK Music (philosophy music + Shorts pipeline + design system) — BUILT
-3. Niah (B2B event matchmaking, Madrid; South Summit proposal) — BUILT
-4. Vaya News + Vaya Manila (site, Manila films) — BUILT today
-5. Agent Command Center / Neurodash (internal dashboard) — LIVE
-6. Sauce Match (hot-sauce quiz store) — BUILT, stalled
-7. Neurotech Funding Tracker (page) — PARKED
-8. AI Caller (Twilio + OpenAI realtime phone agent) — BLOCKED
-9. Lead scraper → call queue pipeline (Firecrawl + AI Caller) — BLOCKED
-10. City Match Quiz (relocation quiz, 3 versions) — BUILT, orphan
-11. Harvard case simulation + quiz (MBA prep tool) — BUILT, orphan
-12. LeadPulse (warm outreach tracker) — overnight build
-13. CommitmentClock — overnight build
-14. "Jordan's Business Dashboard" analytics page — overnight build
-15. Meaning Crisis Toolkit (personal page) — overnight build
-16. The Passage (UNSURE what it is; a page exists in two places)
-17. Daily insight dashboard / Idea scorer / Trend alert bot (INTEL ideas-queue) — IDEA only
-18. "Snyk for vibe coders" (security for vibe-coded apps) — IDEA, 09-03
+### 1. Massage Club (own product) — LIVE
+- Massage Club / Massage Pass (Madrid studio marketplace; earlier: subscription "Massage Pass")
+- Massage Pass landing (overnight build) — superseded
 
-### B. Business lines (services, you are the product)
-19. Placewell / PISCO (EU employer staffing outreach; hotel pitch; Bulgaria bulk hiring; Lithuania logistics; EU sales agents) — LIVE
-20. BD / representation agency = Amigo Sales = Family Business Flourish = Kinsol (appointed reps + HeyReach) — IDEA→intake
-21. COMARE (Mexico B2B maintenance client; gyms ICP; pharmacy outreach; Farmacias Similares list) — intake
-22. Nomin / Mongolia import (US staples sourcing agent) — research done
-23. Techanzo, Turkey project, Mining project, Box/packaging maker, Textile/uniforms, Pharmacy project, Colombian hardware — 7 agency clients at "idea", each missing one sentence from you
-24. Puhunan (Philippines micro-investment / incubator) — IDEA, docs complete
-25. New Bali (Philippines nomad coliving, Bantayan; content-first) — IDEA
-26. Manila TV / Manila pilot (on-camera hosts, shoot) — IDEA
-27. Manila food tour (pick local host) — IDEA
-28. Lettuce Wraps (Manila food test; validate before hiring cook) — IDEA
-29. Property / coliving (the "third thing" in GROUP-STRUCTURE) — later
-30. Neurotech consulting / Neuro US Expansion partner program (bridge for non-US neuro cos entering US) — research + outreach done, no replies tracked
-31. Neurotech content channel (10 scripted video titles, ego-death speech, trailer) — scripts only
-32. Dealsmap 2.0 / ProfileStack (LinkedIn "profile partner" rental; Upwork post; $20/month) — kit written
-33. Google Maps influencer aggregation (creators → local business marketing) — 100-PROJECTS category only
-34. Dental no-show prevention, LatAm (AI reminders) — one doc
-35. The Ego Death Pod / Consciousness Pod (Telegram community + launch kit) — kit written, Trello board existed
-36. Skills marketplace, AI tool curation newsletter, problem-first startup course — INTEL ideas-queue, never started
-37. Podcast, crypto thing (Jake), hire a VA, video editing agency — parking-lot.md, parked Mar 2026
-38. ORION Lighting FCF model — MBA coursework, not a venture
+### 2. Philosophical King / PK Music (own product) — BUILT
+- PK music catalog, Shorts pipeline (pk-render-worker), design system, PK Routines
+- The Passage (page in overnight-builds and neuromatch) — PK Music, per Jordan
+- Philosophical Songhooks page (neuromatch)
+- Ego Death Pod / Consciousness Pod (Telegram community, launch kit) — UNSURE whether PK or standalone; Jordan to confirm
 
-### C. Infrastructure / agent projects
-39. Hermes / OpenClaw (007-Axton) + Hermes Factory self-improvement — DECOMMISSIONED
-40. Nanobot (Agent 006, Telegram) — orphan fork; live service deploys elsewhere
-41. hermes-memory (memory sync) — dead
-42. open-swarm-outputs / multi-agent swarm — never started
-43. pk-render-worker (Whisper + ffmpeg Shorts renderer) — keep, fix
-44. n8n Cloud Axton workflows (~16 "active", inert) — clean up someday
-45. Postiz social scheduler — 2 board items, key rotation cancelled
-46. Railway email cron (Gmail sender) — in mission-control
-47. Chinese AI models research (Kimi/DeepSeek/Qwen) to cut cost — in review
-48. "100 Projects" playbook, 100x experiments, evolver — Hermes-era exhaust, no owner
+### 3. Vaya (own product) — BUILT today
+- Vaya News (vayanews.com) + Vaya Manila (films, ecosystem map, Starter Kit)
+- City Match Quiz (3 versions, mission-control/city-quiz + neuromatch/city-quiz) — now part of Vaya
+- Manila TV / Manila pilot (hosts + shoot) — now Vaya
+- Manila food tour — now **Vaya Experiences**
+- Lettuce Wraps (Manila food test) — UNSURE if Vaya Experiences or separate; Jordan to confirm
+- New Bali (Bantayan coliving, content-first) — UNSURE if Vaya or the separate property lane; Jordan to confirm
 
-### D. Personal / MBA (dated, real)
-49. IE IMBA: ISA Data Fluency midterm Sep 17, China in the World deadlines, Power & Influence canvas
-50. Auto class notes Granola → Notion (Routine)
-51. 30-day ladder + Friday check-in (ends Sep 26)
-52. CPA cleanup (~$10k LLC income, FEIE), Kinsol LLC EIN/bank
-53. Baan Bua / Achicka note (personal, urgent on board)
+### 4. Niah (own product) — BUILT
+- Niah B2B event matchmaking (Madrid), organizer dashboard, South Summit proposal (closed), event Routines, password-reset flow
+
+### 5. Amigo Sales (the BD / representation agency; = Family Business Flourish = Kinsol) — intake
+- Kinsol landing draft, agency name decision, Kinsol LLC (EIN, bank, Meta verify)
+- Family Business Flourish site (clever-family-coach) — old brand, fold in
+- Dealsmap 2.0 / ProfileStack (LinkedIn profile-partner + BD-rep recruiting kit) — now Amigo Sales, per Jordan
+- COMARE (Mexico B2B maintenance; gyms ICP; pharmacy outreach) — client, intake
+- Nomin / Mongolia import (US staples sourcing agent) — client, intake
+- Seven clients at "idea", each missing one sentence from Jordan: Techanzo, Turkey project, Mining project, Box/packaging maker, Textile/uniforms, Pharmacy project, Colombian hardware
+- Re-engagement of dormant clients, one signed retainer (board)
+
+### 6. Placewell / PISCO (Jordan's BD role) — LIVE
+- PISCO EU employer staffing outreach (385 prospects, 161 verified, 75 sent)
+- Hotel staffing pitch, Bulgaria bulk-hiring dashboard, Lithuania logistics leads, EU freelance sales agents list
+- Placement SKU, fee/timeline/guarantee terms (board)
+
+### 7. Puhunan (own venture, Philippines) — docs complete, zero loans
+- Micro-investment / incubator: agreement, borrower screen, landing, meeting sheet
+
+### 8. Property / coliving — later (the "third thing" in GROUP-STRUCTURE)
+
+### 9. Neurotech (all grouped)
+- Neurotech Funding Tracker page (neurotech-dashboard repo) — PARKED
+- Neurotech intelligence / job-market dashboard, daily lead pages (mission-control/neurotech, neuromatch/funding) — May 2026, idle
+- Neuro US Expansion partner program / neurotech consulting (non-US neuro cos entering US; 6 alumni contacted, no replies tracked)
+- Neurotech content channel (10 scripted video titles, ego-death speech, trailer script) — scripts only
+- Neurotech video 1 script, content strategy (007-Axton downloads)
+- Non-US neuro leads page (broken URL)
+
+### 10. Agent Command Center / Neurodash (internal) — LIVE
+- Dashboard, board, AI Caller service (BLOCKED on Twilio), lead scraper to call queue (BLOCKED)
+
+### 11. Standalone ideas, never started (keep or kill)
+- Sauce Match (hot-sauce quiz store) — BUILT, stalled
+- "Snyk for vibe coders" (security for vibe-coded apps) — idea, 09-03
+- Google Maps influencer aggregation — category in the 100-Projects doc only
+- Dental no-show prevention, LatAm — one doc
+- Skills marketplace, AI tool curation newsletter, problem-first startup course — ideas-queue
+- Daily insight dashboard, Idea scorer, Trend alert bot — ideas-queue
+- Podcast, crypto thing (Jake), hire a VA, video editing agency — parking-lot, Mar 2026
+
+### 12. Overnight builds (single-file browser pages, no backend)
+- **LeadPulse** — a warm-outreach CRM in one HTML file: add a lead (name, company, email, source, notes), track stage. Data lives only in that browser. Superseded by `pisco_prospects`. Recommend delete.
+- **CommitmentClock** — a daily-commitment and streak tracker in one HTML file (streak badges, dark UI). Data lives only in that browser. Recommend delete unless you use it.
+- "Jordan's Business Dashboard" analytics page, Meaning Crisis Toolkit (personal), Neuro Intelligence outreach page, PISCO hotel pitch — one-offs
+
+### 13. Infrastructure / agents
+- Hermes / OpenClaw (007-Axton) + Hermes Factory — DECOMMISSIONED
+- Nanobot (Agent 006) — orphan fork; live service deploys elsewhere
+- hermes-memory — dead, holds secrets (rotate)
+- open-swarm-outputs — never started, delete
+- pk-render-worker — keep, fix (under PK)
+- n8n Cloud Axton workflows (~16 "active", inert) — clean up someday
+- Postiz social scheduler — 2 board items
+- Railway email cron (Gmail sender)
+- Chinese AI models cost research — in review
+- 100-Projects playbook, 100x experiments, evolver — Hermes-era exhaust
+
+### 14. Personal / MBA (dated, real)
+- IE IMBA: ISA Data Fluency midterm Sep 17, China in the World deadlines, Power & Influence canvas
+- ORION Lighting FCF model — coursework
+- Granola to Notion class notes Routine; 30-day ladder + Friday check-in (ends Sep 26)
+- CPA cleanup (~$10k LLC income, FEIE)
+- Baan Bua / Achicka note (urgent on board)
+
+### Deleted 2026-09-07 (Jordan's call)
+- Harvard case simulation + quiz: `harvard-simulation-practice.py`, `harvard-simulation-prep-guide.md`,
+  `mba/harvard-simulation-full.html`, `mba/harvard-simulation-quiz.html` removed from mission-control; rows dropped from PROJECT-INDEX.md.
