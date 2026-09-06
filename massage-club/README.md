@@ -38,7 +38,7 @@ Subscription massage booking platform for Madrid. Massages booked through a web 
 ---
 
 ## Tech Stack
-- **Frontend:** Vercel (`https://your-massage-pass-2rmjyzjtr-jordanjayhays-cpus-projects.vercel.app`)
+- **Frontend:** Vercel, live at `https://book.massageclub.io` (verified 2026-09-07)
 - **Backend:** Supabase (project: `jglftdstrowwckwqmpue`)
 - **Code:** Lovable (`https://lovable.dev/projects/13ab3b1d-1034-4ac7-b40c-8e51807e553c`)
 - **Repo:** `jordanjayhays-cpu/your-massage-pass`
