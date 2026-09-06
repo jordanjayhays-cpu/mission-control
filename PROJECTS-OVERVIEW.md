@@ -169,15 +169,12 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - PK music catalog, Shorts pipeline (pk-render-worker), design system, PK Routines
 - The Passage (page in overnight-builds and neuromatch) — PK Music, per Jordan
 - Philosophical Songhooks page (neuromatch)
-- Ego Death Pod / Consciousness Pod (Telegram community, launch kit) — UNSURE whether PK or standalone; Jordan to confirm
 
 ### 3. Vaya (own product) — BUILT today
 - Vaya News (vayanews.com) + Vaya Manila (films, ecosystem map, Starter Kit)
 - City Match Quiz (3 versions, mission-control/city-quiz + neuromatch/city-quiz) — now part of Vaya
 - Manila TV / Manila pilot (hosts + shoot) — now Vaya
 - Manila food tour — now **Vaya Experiences**
-- Lettuce Wraps (Manila food test) — UNSURE if Vaya Experiences or separate; Jordan to confirm
-- New Bali (Bantayan coliving, content-first) — UNSURE if Vaya or the separate property lane; Jordan to confirm
 
 ### 4. Niah (own product) — BUILT
 - Niah B2B event matchmaking (Madrid), organizer dashboard, South Summit proposal (closed), event Routines, password-reset flow
@@ -190,6 +187,7 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - Nomin / Mongolia import (US staples sourcing agent) — client, intake
 - Seven clients at "idea", each missing one sentence from Jordan: Techanzo, Turkey project, Mining project, Box/packaging maker, Textile/uniforms, Pharmacy project, Colombian hardware
 - Re-engagement of dormant clients, one signed retainer (board)
+- LeadPulse (one-file warm-outreach CRM, overnight build) — Amigo Sales, per Jordan; superseded by `pisco_prospects`
 
 ### 6. Placewell / PISCO (Jordan's BD role) — LIVE
 - PISCO EU employer staffing outreach (385 prospects, 161 verified, 75 sent)
@@ -199,9 +197,15 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 ### 7. Puhunan (own venture, Philippines) — docs complete, zero loans
 - Micro-investment / incubator: agreement, borrower screen, landing, meeting sheet
 
-### 8. Property / coliving — later (the "third thing" in GROUP-STRUCTURE)
+### 8. Lettuce Wraps (Manila food test) — its own project, per Jordan
+- Validate demand before hiring the cook (board)
 
-### 9. Neurotech (all grouped)
+### 9. Parked long-term (Jordan's call, 2026-09-07)
+- New Bali (Bantayan coliving, content-first) — longer-term, parked
+- Property / coliving (the "third thing" in GROUP-STRUCTURE) — later
+- Ego Death Pod / Consciousness Pod — "if I have a billion dollars"; moonshot, parked
+
+### 10. Neurotech (all grouped)
 - Neurotech Funding Tracker page (neurotech-dashboard repo) — PARKED
 - Neurotech intelligence / job-market dashboard, daily lead pages (mission-control/neurotech, neuromatch/funding) — May 2026, idle
 - Neuro US Expansion partner program / neurotech consulting (non-US neuro cos entering US; 6 alumni contacted, no replies tracked)
@@ -209,10 +213,10 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - Neurotech video 1 script, content strategy (007-Axton downloads)
 - Non-US neuro leads page (broken URL)
 
-### 10. Agent Command Center / Neurodash (internal) — LIVE
+### 11. Agent Command Center / Neurodash (internal) — LIVE
 - Dashboard, board, AI Caller service (BLOCKED on Twilio), lead scraper to call queue (BLOCKED)
 
-### 11. Standalone ideas, never started (keep or kill)
+### 12. Standalone ideas, never started (keep or kill)
 - Sauce Match (hot-sauce quiz store) — BUILT, stalled
 - "Snyk for vibe coders" (security for vibe-coded apps) — idea, 09-03
 - Google Maps influencer aggregation — category in the 100-Projects doc only
@@ -221,12 +225,11 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - Daily insight dashboard, Idea scorer, Trend alert bot — ideas-queue
 - Podcast, crypto thing (Jake), hire a VA, video editing agency — parking-lot, Mar 2026
 
-### 12. Overnight builds (single-file browser pages, no backend)
-- **LeadPulse** — a warm-outreach CRM in one HTML file: add a lead (name, company, email, source, notes), track stage. Data lives only in that browser. Superseded by `pisco_prospects`. Recommend delete.
-- **CommitmentClock** — a daily-commitment and streak tracker in one HTML file (streak badges, dark UI). Data lives only in that browser. Recommend delete unless you use it.
+### 13. Overnight builds (single-file browser pages, no backend)
+- **CommitmentClock** — a personal daily to-do list: type a commitment for today, tick it done, it auto-tags it work/health/project/personal by keyword and shows day streak, week streak, win rate and missed count. Empty, never used. The 30-day ladder and 09:00 brief now do this job. Recommend delete.
 - "Jordan's Business Dashboard" analytics page, Meaning Crisis Toolkit (personal), Neuro Intelligence outreach page, PISCO hotel pitch — one-offs
 
-### 13. Infrastructure / agents
+### 14. Infrastructure / agents
 - Hermes / OpenClaw (007-Axton) + Hermes Factory — DECOMMISSIONED
 - Nanobot (Agent 006) — orphan fork; live service deploys elsewhere
 - hermes-memory — dead, holds secrets (rotate)
@@ -238,7 +241,7 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - Chinese AI models cost research — in review
 - 100-Projects playbook, 100x experiments, evolver — Hermes-era exhaust
 
-### 14. Personal / MBA (dated, real)
+### 15. Personal / MBA (dated, real)
 - IE IMBA: ISA Data Fluency midterm Sep 17, China in the World deadlines, Power & Influence canvas
 - ORION Lighting FCF model — coursework
 - Granola to Notion class notes Routine; 30-day ladder + Friday check-in (ends Sep 26)
