@@ -37,6 +37,12 @@ Status key: **LIVE** = something real is running · **BUILT** = exists, not in u
 | **Family Business Flourish** | `clever-family-coach` | BUILT | 2-page consulting site, dormant since 08-10. Per `GROUP-STRUCTURE.md` this IS the BD agency under its old name. Intake form writes to Supabase with no notification (UNSURE if any leads are sitting unread). | Fold into the Kinsol site; check the intake table once |
 | **Neurotech tracker** | `neurotech-dashboard` | PARKED | Correctly parked in writing. Leave alone. | n/a |
 
+### Personal / relocation
+
+| Project | Where | Status | Reality check (verified) | Single "done" |
+|---|---|---|---|---|
+| **Manila housing** (Jan–Jun 2027) | `manila_housing` table on neurodashboards | ACTIVE (2026-09-13) | Furnished studio/1BR near Legazpi Active Park, Makati. Target under USD 500 all-in, ceiling 700. 21 properties tracked. **10 emailed** 2026-09-13 from jordan@placewell.io (7 addresses, some cover 2–3 properties). **10 have no published email** and need Jordan to phone. 1 dead (Residences Olympia, domain does not resolve). Replies land in jordan@placewell.io. | Signed 6-month or 3+3 rate-locked contract under USD 700/month, move-in first week of Jan 2027 |
+
 ### Business lines (you are the product)
 | Project | Home | Status | Reality check | Single "done" |
 |---|---|---|---|---|
