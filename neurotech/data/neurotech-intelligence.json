@@ -1,0 +1,1616 @@
+{
+  "top_valued": [
+    {
+      "name": "Neuralink",
+      "description": "Brain-computer interface · Elon Musk",
+      "round": "Series E · $650M",
+      "valuation": "$9B",
+      "tag": "BCI"
+    },
+    {
+      "name": "Precision Neuroscience",
+      "description": "Minimally invasive BCI · Layer 7 cortical implant",
+      "round": "Total Raised",
+      "valuation": "$543M",
+      "tag": "BCI"
+    },
+    {
+      "name": "Paradromics",
+      "description": "High-bandwidth BCI · First human implant done",
+      "round": "Total Raised",
+      "valuation": "$500M",
+      "tag": "BCI"
+    },
+    {
+      "name": "Blackrock Neurotech",
+      "description": "Utah Array · longest human BCI dataset",
+      "round": "Total Raised",
+      "valuation": "$350M",
+      "tag": "BCI"
+    },
+    {
+      "name": "Science Corp",
+      "description": "Full-stack neural engineering · restoring/extending life",
+      "round": "Series C · Mar 2026",
+      "valuation": "$230M",
+      "tag": "BCI"
+    },
+    {
+      "name": "Cognito Therapeutics",
+      "description": "Spectris platform · Alzheimer's / optical neurostimulation",
+      "round": "Series raise",
+      "valuation": "$105M",
+      "tag": "Clinical"
+    }
+  ],
+  "new_entrants": [
+    {
+      "name": "Atlas (Cambridge)",
+      "what": "Multi-modal brain-sensing wearable — emerged from stealth May 8, 2026 with $14M Series A to launch EEG wearable next year",
+      "meta": "New Entrant BCI $14M Series A · May 2026 · Cambridge, MA · Hiring"
+    },
+    {
+      "name": "Kordata (BIOS Health US Spinoff)",
+      "what": "AI-powered NeuroTune platform for optimizing treatment dosages in Alzheimer's, Parkinson's, epilepsy — spinoff of UK-based BIOS Health, launching in Bakersfield CA",
+      "meta": "New Entrant NeuroAI Pre-seed · Kern Venture Group + MAVRK · May 2026 · Bakersfield CA · Hiring 11 locals"
+    },
+    {
+      "name": "Epia Neuro",
+      "what": "Therapeutic BCI for stroke recovery — founded by Michel Maharbiz (neural dust) + Gil Mandelbaum",
+      "meta": "New Entrant BCI Founded 2026 · SF"
+    },
+    {
+      "name": "The Biological Computing Company",
+      "what": "Biological computing platform for neural applications",
+      "meta": "New Entrant BCI Raised $25M Seed · Feb 2026"
+    },
+    {
+      "name": "Phantom Neuro",
+      "what": "Neuromuscular BCI for prosthetic control",
+      "meta": "BCI Actively recruiting · Texas-based"
+    },
+    {
+      "name": "NeuroBionics",
+      "what": "Peripheral nerve interface for restoration",
+      "meta": "BCI Emerging player"
+    },
+    {
+      "name": "Bliss",
+      "what": "Culturally adaptive AI therapy chatbot",
+      "meta": "AI Therapy Raised €233K angel · Apr 2026"
+    },
+    {
+      "name": "Sabi",
+      "what": "EEG beanie with 70,000–100,000 sensors translating thought to text — consumer BCI for mass adoption",
+      "meta": "New Entrant Wearable BCI Backed by Khosla Ventures · Emerged stealth May 2026 · Silicon Valley"
+    },
+    {
+      "name": "Cambridge NeuroWorks",
+      "what": "Breakthrough neurotechnology platform — named \"Tech for Good\" winner for advancing neurotech innovation",
+      "meta": "New Entrant BCI Cambridge, UK · Awarded May 8, 2026"
+    },
+    {
+      "name": "NeuCyber",
+      "what": "Beijing-backed BCI — 7 successful human implantations with Beinao-1 semi-invasive device, comparing to Neuralink",
+      "meta": "New Entrant BCI Beijing, China · Active 2026"
+    },
+    {
+      "name": "Constellix",
+      "what": "Neuromodulation platform (undisclosed details)",
+      "meta": "Neuromodulation Jan–Feb 2026 activity"
+    },
+    {
+      "name": "Forest Neurotech",
+      "what": "Non-invasive ultrasound BCI — Sam Altman-backed. Pioneering non-invasive neural interfaces using ultrasound. Merge Labs parent org.",
+      "meta": "New Entrant BCI Spin-out Jan 2026 · Palo Alto, CA · Actively Hiring"
+    },
+    {
+      "name": "Connectome Health",
+      "what": "Cognitive intelligence platform quantifying brain activity over time — $2M pre-seed, Redstone-led",
+      "meta": "New Entrant NeuroAI Founded 2026 · Zurich, Switzerland 🇨🇭"
+    },
+    {
+      "name": "PL Neuro (Protocol Labs)",
+      "what": "Protocol Labs project — breaking bottlenecks in neural augmentation, biologically-inspired intelligence, and whole organism emulation.",
+      "meta": "New Entrant NeuroAI Launched May 2026 · Protocol Labs / Silicon Valley"
+    }
+  ],
+  "deals": [
+    {
+      "name": "Omniscient Neurotechnology",
+      "amount": "$27.2M · Series D",
+      "detail": "Omniscient Neurotechnology $27.2M · Series D New BCI Connectomics-driven clinical + BCI applications · Sydney · May 28, 2026"
+    },
+    {
+      "name": "Sound Wave",
+      "amount": "~$17M · Round",
+      "detail": "Sound Wave ~$17M · Round New Clinical Japanese Alzheimer's startup · WSJ reported · May 2026"
+    },
+    {
+      "name": "Psilera",
+      "amount": "$8.8M · Seed",
+      "detail": "Psilera $8.8M · Seed New Neuroplastogen PSIL-006 for clinical psilocybin · May 2026"
+    },
+    {
+      "name": "ReVision",
+      "amount": "€4M · Round",
+      "detail": "ReVision €4M · Round New Neuromodulation Oversubscribed European round · May 2026"
+    },
+    {
+      "name": "Medtronic → SPR Therapeutics",
+      "amount": "$650M · Acquisition",
+      "detail": "Medtronic → SPR Therapeutics $650M · Acquisition Acquisition Regulatory Chronic pain BCI/neuromodulation · MedTech giant expands · May 2026"
+    },
+    {
+      "name": "Nexalin",
+      "amount": "Platform Acquisition",
+      "detail": "Nexalin Platform Acquisition Acquisition Neuromodulation HALO™ Clarity + Nexalin NeuroCare™ AI platform · FDA pivotal trial planned · May 2026"
+    },
+    {
+      "name": "Neurosoft Bioelectronics",
+      "amount": "$7.5M · Seed",
+      "detail": "Neurosoft Bioelectronics $7.5M · Seed New BCI Soft/stretchable cortical BCI · Swiss/US · May 20, 2026"
+    },
+    {
+      "name": "Atlas",
+      "amount": "$14M · Series A",
+      "detail": "Atlas $14M · Series A New BCI Brain-sensing EEG wearable · Cambridge, MA · May 2026"
+    },
+    {
+      "name": "ResMed → Noctrix",
+      "amount": "$360M · Acquisition",
+      "detail": "ResMed → Noctrix $360M · Acquisition Acquisition Restless leg syndrome device maker · ~$24M ARR · Apr 2026"
+    },
+    {
+      "name": "Science Corp",
+      "amount": "$230M · Series C",
+      "detail": "Science Corp $230M · Series C BCI Full-stack neural engineering · Alameda, CA · Mar 2026"
+    },
+    {
+      "name": "Mobia Medical",
+      "amount": "$150M · IPO",
+      "detail": "Mobia Medical $150M · IPO New BCI Listed May 2026 · Oman Investment Authority backs Neuralink"
+    },
+    {
+      "name": "BlueWind Medical",
+      "amount": "$47.8M · Growth",
+      "detail": "BlueWind Medical $47.8M · Growth Neuromodulation Revi® bladder system · Commercialization push · May 2026"
+    },
+    {
+      "name": "SonoMind",
+      "amount": "€20M · Series A",
+      "detail": "SonoMind €20M · Series A New Neuromodulation Non-invasive treatment-resistant depression therapy · May 2026"
+    },
+    {
+      "name": "Ampa",
+      "amount": "~$17M · Round",
+      "detail": "Ampa ~$17M · Round New Neuromodulation Portable TMS depression platform · Tim Ferriss backed · May 2026"
+    },
+    {
+      "name": "EBT Medical + NinaMED",
+      "amount": "$13.75M",
+      "detail": "EBT Medical + NinaMED $13.75M Neuromodulation NiNA System® overactive bladder · May 2026"
+    },
+    {
+      "name": "Nexstim Plc",
+      "amount": "€5M · Investment",
+      "detail": "Nexstim Plc €5M · Investment FDA Eiffel + Brainlab investment · May 2026"
+    },
+    {
+      "name": "Connectome Health",
+      "amount": "$2M · Pre-Seed",
+      "detail": "Connectome Health $2M · Pre-Seed New NeuroAI Cognitive intelligence platform · Redstone · Zurich · Apr 2026"
+    },
+    {
+      "name": "Coherence Neuro",
+      "amount": "$10M · Seed",
+      "detail": "Coherence Neuro $10M · Seed New BCI SOMA-1 closed-loop neuro for cancer treatment · SF · Mar 2026"
+    },
+    {
+      "name": "Axoft",
+      "amount": "$55M · Series A",
+      "detail": "Axoft $55M · Series A New BCI Bio-inspired implantable BCI · Testing in China"
+    },
+    {
+      "name": "Nervonik",
+      "amount": "$52.5M · Series B",
+      "detail": "Nervonik $52.5M · Series B Neuromodulation Peripheral nerve stimulation · Amzak Health led"
+    },
+    {
+      "name": "Cala Health",
+      "amount": "$50M · Growth",
+      "detail": "Cala Health $50M · Growth Neuromodulation Wearable tremor therapy · Trinity Capital"
+    },
+    {
+      "name": "ANEUVO",
+      "amount": "$22M · Series C",
+      "detail": "ANEUVO $22M · Series C FDA Cleared ExaStim spinal cord stimulation · May 2026"
+    },
+    {
+      "name": "Beacon Biosignals",
+      "amount": "$97M · Series B ext.",
+      "detail": "Beacon Biosignals $97M · Series B ext. NeuroAI EEG analytics platform · Apr 2026"
+    },
+    {
+      "name": "neuroClues",
+      "amount": "€10M · Series A",
+      "detail": "neuroClues €10M · Series A New BCI Teampact.ventures + EIC Fund · Apr 2026"
+    },
+    {
+      "name": "StairMed",
+      "amount": "$75M",
+      "detail": "StairMed $75M BCI Alibaba-led round · Mar 2026"
+    },
+    {
+      "name": "WHOOP",
+      "amount": "$575M · Jumbo",
+      "detail": "WHOOP $575M · Jumbo Wearable $10.1B valuation · Mar 2026"
+    },
+    {
+      "name": "The Biological Computing Company",
+      "amount": "$25M Seed",
+      "detail": "The Biological Computing Company $25M Seed New Primary VC · Feb 2026"
+    },
+    {
+      "name": "Bliss (AI Therapy)",
+      "amount": "€233K Angel",
+      "detail": "Bliss (AI Therapy) €233K Angel AI Therapy Culturally adaptive · Apr 2026"
+    },
+    {
+      "name": "Cerca Magnetics",
+      "amount": "£3.8M · Series A",
+      "detail": "Cerca Magnetics £3.8M · Series A New Quantum BCI Quantum brain scanners · UK · Apr 2026"
+    },
+    {
+      "name": "Sinaptica",
+      "amount": "$9M · Funding",
+      "detail": "Sinaptica $9M · Funding Neuromodulation Precision neuromodulation in Alzheimer's · Apr 2026"
+    },
+    {
+      "name": "Neurava",
+      "amount": "$4M · NIH Grant",
+      "detail": "Neurava $4M · NIH Grant NeuroAI SUDEP risk algorithms for epilepsy · Apr 2026"
+    },
+    {
+      "name": "Bioness → PoNS System",
+      "amount": "Acquisition",
+      "detail": "Bioness → PoNS System Acquisition Acquisition Portable Neuromodulation Stimulator acquired by Bioness · Apr 2026"
+    }
+  ],
+  "milestones": [
+    {
+      "type": "🔴 Shutdown",
+      "detail": "Galvani Bioelectronics — Preparing for orderly shutdown. Major exit in the bioelectronic medicine space. GSK + Verily joint venture dissolving.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "📋 Regulatory",
+      "detail": "FDA Leadership — Makary stepped down; Diamantas named acting commissioner. Leadership change may affect device approval timelines.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🚀 Product Launch",
+      "detail": "Prophetic Dream Enhancement — Launched two products: Dual ($449, Q4 2026) and Phase ($1,299, Q3 2027). Consumer lucid dreaming BCI.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🏥 FDA Trial Approval",
+      "detail": "Motif Neurotech — FDA IDE approval for therapeutic BCI (DOT device, blueberry-sized) targeting treatment-resistant depression. ARPA-H EVIDENT program participant. Rice University spinout founded 2022.",
+      "source": "Rice News · Apr 28, 2026"
+    },
+    {
+      "type": "🤝 Acquisition",
+      "detail": "ResMed acquires Noctrix — $360M deal for restless leg syndrome device maker (~$24M ARR). ResMed betting on sleep/neuro overlap.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🔬 Clinical Trial",
+      "detail": "INBRAIN Neuroelectronics — Completed enrollment for world's first-in-human study of graphene neural interfaces. Barcelona-based.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "📋 FDA TAP / Breakthrough",
+      "detail": "CorTec Brain Interchange — Accepted into FDA TAP Program. Third patient successfully implanted. First BCI worldwide designated for stroke motor rehab.",
+      "source": "Neurotech Notables #52-53 · Apr 2026"
+    },
+    {
+      "type": "🏥 First Human Implants",
+      "detail": "NeuCyber (China) — 7 successful human implantations with Beinao-1 semi-invasive BCI. Beijing-backed company positioning against Neuralink.",
+      "source": "Digital Health News · May 2026"
+    },
+    {
+      "type": "🏆 Tech for Good",
+      "detail": "Cambridge NeuroWorks — Named \"Tech for Good\" winner for advancing breakthrough neurotechnology. Awarded May 8, 2026.",
+      "source": "Cambridge NeuroWorks · May 8, 2026"
+    },
+    {
+      "type": "🤝 Partnership",
+      "detail": "MintNeuro + Motif Neurotech — Partnership to advance miniature BCI therapy for mental health. Precision Neuroscience + UChicago Medicine — BCI research collaboration.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🔬 Clinical Trial",
+      "detail": "Synchron INTENT trial — FDA-permitted third clinical trial of Stentrode BCI started. SetPoint Medical enrolled first MS patients in neuroimmune modulation study.",
+      "source": "Neurotech Notables #52 · Apr 2026"
+    },
+    {
+      "type": "🏥 First Human Implant",
+      "detail": "Paradromics completes first human BCI implant — actively collecting patient data for Connexus speech BCI.",
+      "source": "CNBC · June 2025"
+    },
+    {
+      "type": "📋 Regulatory",
+      "detail": "RAPID Coverage Pathway — New joint CMS + FDA initiative to accelerate patient access to \"life-changing\" medical devices. Over 115 devices now enrolled in FDA TAP program.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🔬 Research Breakthrough",
+      "detail": "Columbia Engineering BISC — Flexible BCI chip with 65,536 electrodes unveiled. World's highest-density flexible neural interface.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🏥 Clinical Enrollment",
+      "detail": "ONWARD Medical — First participant enrolled in global study for blood pressure instability after spinal cord injury.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "📍 Upcoming Event",
+      "detail": "Neurolief at APA Annual Meeting (May 16–20, SF) — Showcase of Proliv®Rx FDA-approved at-home brain stimulation for MDD. KOL panel May 18. 31.7% remission rate at 16 weeks in MOOD pivotal trial.",
+      "source": "PR Newswire · May 2026"
+    },
+    {
+      "type": "💼 Hiring Surge",
+      "detail": "Cala Health (9 roles incl. Director of Marketing $XXXK — HOT), Nervonik (20+ roles across R&D/Clinical/Reg — growing fast post $52.5M Series B), Science Corp (Digital Marketing $150K–$220K), Merge Labs (\"Neuron Whisperer\" $165K–$215K SF), LivaNova (Dir Neuromodulation $215K–$250K Austin), huMannity Medtec (Dir PM $192K–$230K Santa Clara), Synchron (Field BCI Specialist $90K–$120K Buffalo), Paradromics (VP Marketing), Beacon Biosignals (BD Manager Boston/Remote 🔥).",
+      "source": "Greenhouse/LinkedIn/Careers pages · May 17, 2026"
+    },
+    {
+      "type": "🚀 Product Launch",
+      "detail": "Zeto NeuroNotis™ — AI-enabled EEG report with human review. FDA 510(k) also secured for Zeto New Wave™ outpatient EEG.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🔄 Strategic Pivot",
+      "detail": "Neurable → OEM — Shifting from own-brand smart headphones to global OEM BCI integration. Also building attention-tracking AI for Apple Vision Pro.",
+      "source": "Neurotech Notables #53 · Apr 2026"
+    },
+    {
+      "type": "🤝 Acquisition",
+      "detail": "Bioness acquires PoNS System — Portable Neuromodulation Stimulator changes hands. Neuromodulation market consolidation continues.",
+      "source": "Signals 06 · May 15, 2026"
+    },
+    {
+      "type": "💰 Payer Coverage",
+      "detail": "NeurAxis — Expands payer coverage with four new medical policies. Neuromodulation reimbursement landscape improving.",
+      "source": "Signals 06 · May 15, 2026"
+    },
+    {
+      "type": "📋 FDA Clearance",
+      "detail": "Epineuron — Received FDA 510(k) clearance for Evala® Nerve Stimulator. Non-invasive neurostimulation for pain management.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🇪🇺 EU MDR Approval",
+      "detail": "PlatoCare — Achieved EU MDR approval for first wireless tDCS depression treatment. Major regulatory milestone for non-invasive brain stimulation.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🏥 Executive",
+      "detail": "Leadership Moves — Spark Biomedical appointed Anja Krammer as CEO. NeuWire Medical named Ramin Mousavi Executive Chairman. Control Bionics added Nicholas Opie to board.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🔬 Research",
+      "detail": "Psilocybin, Sleep & Parkinson's — Nature: single psilocybin use causes human brain changes. Sleep chart study links sleep duration to biological aging. MYNDspan: MEG scan can classify Parkinson's non-invasively.",
+      "source": "Neurotech Notables #54 · May 2026"
+    },
+    {
+      "type": "🏥 Clinical Expansion",
+      "detail": "Paradromics — Adds third clinical site for Connexus® BCI trial at University of Michigan. Study advancing toward pivotal trial.",
+      "source": "Paradromics.com · May 2026"
+    },
+    {
+      "type": "🏥 FDA Trial Approval",
+      "detail": "ABILITY Neurotech — IMDD Approval to start clinical trial for chronic implantation of brain-computer interface in ALS patients.",
+      "source": "Neurotech Notables #55 · Jun 2026"
+    },
+    {
+      "type": "📋 Regulatory",
+      "detail": "MagVenture / MagStim — FDA 510(k) clearance for accelerated TMS protocols, expanding flexibility for clinics and patients.",
+      "source": "Neurotech Notables #55 · Jun 2026"
+    },
+    {
+      "type": "📋 Regulatory",
+      "detail": "Neuropace — New FDA-approved AI application for RNS® System, designed to streamline iEEG review in PDMS.",
+      "source": "Neurotech Notables #55 · Jun 2026"
+    }
+  ],
+  "us_entry_targets": [
+    {
+      "name": "🇳🇱🇩🇪 Zander Labs (Netherlands / Germany)",
+      "amount": "€30M contract"
+    },
+    {
+      "name": "🇧🇪 Nobi (Belgium)",
+      "amount": "€35M ($37M) Series B"
+    },
+    {
+      "name": "🇫🇷 Hilo (France)",
+      "amount": "$100M+ total · $42M Series B"
+    },
+    {
+      "name": "🇸🇬 SynPhNe — RAISING US 🔥",
+      "amount": "$5M Series A (Part 1 done)"
+    },
+    {
+      "name": "🇪🇸 INBRAIN Neuroelectronics (Spain — Barcelona)",
+      "amount": "$50M Series B"
+    },
+    {
+      "name": "🇦🇺 Emotiv (Australia)",
+      "amount": "Institutional"
+    },
+    {
+      "name": "🇬🇧 Cerca Magnetics (UK)",
+      "amount": "€4.3M Seed (2025)"
+    },
+    {
+      "name": "🇱🇻 Qualia Therapeutics (Latvia — Riga)",
+      "amount": "Undisclosed"
+    },
+    {
+      "name": "SynPhNe — ACTIVE US RAISE NOW 🔥",
+      "amount": "$5M Series A (Part 1 done)"
+    },
+    {
+      "name": "Intellect — Asia's best-funded mental health startup",
+      "amount": "$20M+ Series A"
+    },
+    {
+      "name": "NeuroDrive — Early Stage, Hot Signal",
+      "amount": "~$120K Raised"
+    },
+    {
+      "name": "Neeuro",
+      "amount": "A*STAR Backed"
+    },
+    {
+      "name": "Neurowyzr",
+      "amount": "$2.1M+ Seed"
+    }
+  ],
+  "directory": [
+    {
+      "name": "Neuralink",
+      "url": "https://neuralink.com",
+      "funding": "$964.2M",
+      "focus": "BCI · Paralysis/blindness tech · Elon Musk",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Synchron",
+      "url": "https://synchron.com",
+      "funding": "$325.0M",
+      "focus": "Endovascular BCI · No open-brain surgery",
+      "location": "SF & Brooklyn, NY",
+      "hiring": true
+    },
+    {
+      "name": "SetPoint Medical",
+      "url": "https://www.setpointmedical.com",
+      "funding": "$200.6M",
+      "focus": "Implantable · Chronic inflammatory diseases",
+      "location": "Valencia, CA",
+      "hiring": false
+    },
+    {
+      "name": "AstronauTx",
+      "url": "https://astronautx.com",
+      "funding": "$195.8M",
+      "focus": "Biotech · Neurodegenerative disease treatments",
+      "location": "London, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "BioSerenity",
+      "url": "https://www.bioserenity.com",
+      "funding": "$189.7M",
+      "focus": "Epilepsy diagnosis · Health monitoring · Pierre Frouin",
+      "location": "Paris, France 🇫🇷",
+      "hiring": true
+    },
+    {
+      "name": "Mindstrong Health",
+      "url": "https://mindstrong.com",
+      "funding": "$160.0M",
+      "focus": "Neuroscience precision therapy · Paul Dagum",
+      "location": "Menlo Park, CA",
+      "hiring": false
+    },
+    {
+      "name": "Cala Health",
+      "url": "https://www.calahealth.com",
+      "funding": "$145.0M",
+      "focus": "Bioelectronic medicines · Wearable neurotherapeutics · Kate Rosenbluth",
+      "location": "Burlingame, CA",
+      "hiring": true
+    },
+    {
+      "name": "MindMaze SA",
+      "url": "https://www.mindmaze.com",
+      "funding": "$100.0M",
+      "focus": "VR medical · Neural recovery stimulation",
+      "location": "Lausanne, Switzerland 🇨🇭",
+      "hiring": true
+    },
+    {
+      "name": "Saluda Medical",
+      "url": "https://www.saludamedical.com",
+      "funding": "$140.0M",
+      "focus": "Devices · Chronic neurological conditions",
+      "location": "Sydney, Australia 🇦🇺",
+      "hiring": false
+    },
+    {
+      "name": "Verge Genomics",
+      "url": "https://www.vergegenomics.com",
+      "funding": "$134.1M",
+      "focus": "ML for drug discovery · Neurodegenerative diseases",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Inbrain Neuroelectronics",
+      "url": "https://inbrain-neuroelectronics.com",
+      "funding": "$89.6M",
+      "focus": "Graphene-based high-res neural systems",
+      "location": "Barcelona, Spain 🇪🇸",
+      "hiring": false
+    },
+    {
+      "name": "Ceribell",
+      "url": "https://www.ceribell.com",
+      "funding": "$88.0M",
+      "focus": "Accessible EEG · Emergency and ICU patients",
+      "location": "Sunnyvale, CA",
+      "hiring": true
+    },
+    {
+      "name": "Theranica",
+      "url": "https://theranica.com",
+      "funding": "$86.0M",
+      "focus": "Wireless devices · Migraine & pain management",
+      "location": "Netanya, Israel 🇮🇱",
+      "hiring": false
+    },
+    {
+      "name": "Axoft",
+      "url": "https://www.axoft.com",
+      "funding": "$55M · Series A",
+      "focus": "Bio-inspired implantable BCI · Testing in China",
+      "location": "US / China",
+      "hiring": false
+    },
+    {
+      "name": "Nervonik",
+      "url": "https://www.nervonik.com",
+      "funding": "$69.9M · Series B",
+      "focus": "Peripheral nerve stimulation therapy",
+      "location": "US",
+      "hiring": false
+    },
+    {
+      "name": "Science Corp",
+      "url": "https://www.science.com",
+      "funding": "$66.0M",
+      "focus": "Therapeutic BCI · First human implant imminent",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Ekso Bionics",
+      "url": "https://eksobionics.com",
+      "funding": "$70.9M",
+      "focus": "Powered exoskeletons · Physical rehabilitation",
+      "location": "Richmond, CA",
+      "hiring": true
+    },
+    {
+      "name": "CoMind",
+      "url": "https://www.comind.io",
+      "funding": "$60.0M",
+      "focus": "Non-invasive neural hardware and software",
+      "location": "Cambridge, MA",
+      "hiring": false
+    },
+    {
+      "name": "BrainQ",
+      "url": "https://www.brainq.tech",
+      "funding": "$48.8M",
+      "focus": "AI-powered · Neuro-disorder treatment",
+      "location": "Jerusalem, Israel 🇮🇱",
+      "hiring": false
+    },
+    {
+      "name": "BrainCheck",
+      "url": "https://www.braincheck.com",
+      "funding": "$43.9M",
+      "focus": "Neurocognitive assessments · Cognitive care solutions",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Paradromics",
+      "url": "https://www.paradromics.com",
+      "funding": "$34.0M",
+      "focus": "High-volume bidirectional BCI data streaming",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Neurofenix",
+      "url": "https://www.neurofenix.com",
+      "funding": "$14.0M",
+      "focus": "NeuroBall · Stroke rehab through gaming",
+      "location": "London, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "Cumulus Neurosciences",
+      "url": "https://www.cumulusneurosciences.com",
+      "funding": "$12.7M",
+      "focus": "AI platform · Physiological & digital biomarkers",
+      "location": "Dublin, Ireland 🇮🇪",
+      "hiring": false
+    },
+    {
+      "name": "NextMind",
+      "url": "https://www.nextmind.com",
+      "funding": "$9.2M",
+      "focus": "Non-invasive EEG-based BCI · Mass market",
+      "location": "Paris, France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "neuroClues",
+      "url": "https://www.neuroclues.com",
+      "funding": "€10M · Series A",
+      "focus": "BCI · Teampact.ventures + EIC Fund",
+      "location": "Europe",
+      "hiring": false
+    },
+    {
+      "name": "Sinaptica",
+      "url": "https://www.sinaptica.com",
+      "funding": "$9M",
+      "focus": "Precision neuromodulation in Alzheimer's",
+      "location": "US",
+      "hiring": false
+    },
+    {
+      "name": "Winterlight Labs",
+      "url": "https://www.winterlightlabs.com",
+      "funding": "$4.2M",
+      "focus": "Voice recognition · Cognitive decline detection",
+      "location": "Toronto, Canada 🇨🇦",
+      "hiring": false
+    },
+    {
+      "name": "OpenBCI",
+      "url": "https://openbci.com",
+      "funding": "$4.0M",
+      "focus": "Open-source BCI platform · Biosensing",
+      "location": "New York, NY",
+      "hiring": true
+    },
+    {
+      "name": "Koniku",
+      "url": "https://koniku.io",
+      "funding": "—",
+      "focus": "Microprocessors using wetware biological neurons",
+      "location": "San Francisco, CA",
+      "hiring": false
+    },
+    {
+      "name": "Humm",
+      "url": "https://www.humm.co",
+      "funding": "—",
+      "focus": "Wearable patch · Working memory improvement",
+      "location": "San Francisco, CA",
+      "hiring": false
+    },
+    {
+      "name": "Q30 Innovations",
+      "url": "https://www.q30innovations.com",
+      "funding": "—",
+      "focus": "Q-Collar · Brain protection from head injuries",
+      "location": "Boston, MA",
+      "hiring": false
+    },
+    {
+      "name": "WiBotic",
+      "url": "https://www.wibotic.com",
+      "funding": "—",
+      "focus": "Wireless charging · Medical/robotic devices",
+      "location": "Seattle, WA",
+      "hiring": false
+    },
+    {
+      "name": "Ceryx Medical",
+      "url": "https://www.ceryxmedical.com",
+      "funding": "$19.9M",
+      "focus": "Bioelectronic therapies · Heart failure",
+      "location": "London, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "Motif Neurotech",
+      "url": "https://www.motifneuro.tech",
+      "funding": "ARPA-H + DARPA",
+      "focus": "Therapeutic BCI · Treatment-resistant depression · DOT device",
+      "location": "Houston, TX",
+      "hiring": false
+    },
+    {
+      "name": "CorTec",
+      "url": "https://www.corTec.de",
+      "funding": "—",
+      "focus": "Brain Interchange System · FDA TAP · Stroke rehab BCI",
+      "location": "Germany 🇩🇪",
+      "hiring": false
+    },
+    {
+      "name": "Epia Neuro",
+      "url": "https://www.epianeuro.com",
+      "funding": "—",
+      "focus": "Therapeutic BCI for stroke · Maharbiz + Mandelbaum",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Forest Neurotech",
+      "url": "https://forestneurotech.com",
+      "funding": "—",
+      "focus": "Non-invasive ultrasound BCI · Merge Labs parent · Sam Altman",
+      "location": "Palo Alto, CA",
+      "hiring": true
+    },
+    {
+      "name": "Connectome Health",
+      "url": "https://connectome.health",
+      "funding": "$2M Pre-Seed",
+      "focus": "Cognitive intelligence platform · Brain health tracking",
+      "location": "Zurich, Switzerland 🇨🇭",
+      "hiring": false
+    },
+    {
+      "name": "Akili Interactive",
+      "url": "https://www.akiliinteractive.com",
+      "funding": "$239.9M",
+      "focus": "Digital therapeutics · Cognitive deficiency · FDA-approved ADHD game",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "Empatica",
+      "url": "https://www.empatica.com",
+      "funding": "—",
+      "focus": "AI smartwatch · Seizure detection · FDA-cleared",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "NeuroPace",
+      "url": "https://www.neuropace.com",
+      "funding": "—",
+      "focus": "Closed-loop stimulation · Epilepsy · RNS System",
+      "location": "Mountain View, CA",
+      "hiring": false
+    },
+    {
+      "name": "MicroTransponder",
+      "url": "https://www.microtransponder.com",
+      "funding": "—",
+      "focus": "Vagus nerve stimulation · Stroke rehab · Vivona",
+      "location": "Dallas, TX",
+      "hiring": false
+    },
+    {
+      "name": "BrainsWay",
+      "url": "https://www.brainsway.com",
+      "funding": "—",
+      "focus": "Deep TMS · Depression · FDA-cleared",
+      "location": "Jerusalem, Israel 🇮🇱",
+      "hiring": true
+    },
+    {
+      "name": "Helius Medical",
+      "url": "https://www.heliusmedical.com",
+      "funding": "—",
+      "focus": "PONS device · Tongue neurostimulation · MS · FDA-approved",
+      "location": "Needham, MA",
+      "hiring": false
+    },
+    {
+      "name": "Advanced Bionics",
+      "url": "https://www.advancedbionics.com",
+      "funding": "—",
+      "focus": "Cochlear implants · Sonova subsidiary",
+      "location": "Valencia, CA",
+      "hiring": true
+    },
+    {
+      "name": "Inspire Medical Systems",
+      "url": "https://www.inspiresleep.com",
+      "funding": "—",
+      "focus": "Hypoglossal nerve stimulation · Sleep apnea · FDA-approved",
+      "location": "Minneapolis, MN",
+      "hiring": true
+    },
+    {
+      "name": "Nevro Corp",
+      "url": "https://www.nevrocorp.com",
+      "funding": "—",
+      "focus": "Spinal cord stimulation · Chronic pain · Senza system",
+      "location": "Redwood City, CA",
+      "hiring": false
+    },
+    {
+      "name": "Neuroelectrics",
+      "url": "https://www.neuracle-ic.com",
+      "funding": "$35.9M",
+      "focus": "StarStim wireless tDCS/tACS · Barcelona-based",
+      "location": "Barcelona, Spain 🇪🇸",
+      "hiring": true
+    },
+    {
+      "name": "Neuros Medical",
+      "url": "https://www.neurosmedical.com",
+      "funding": "$64.0M",
+      "focus": "Neurostimulation · Chronic pain · ALTERNATIVE study",
+      "location": "Cleveland, OH",
+      "hiring": false
+    },
+    {
+      "name": "InteraXon (Muse)",
+      "url": "https://www.interaxton.com",
+      "funding": "$28.8M",
+      "focus": "Consumer EEG headband · Meditation · Focus",
+      "location": "Toronto, Canada 🇨🇦",
+      "hiring": true
+    },
+    {
+      "name": "NeoSensory",
+      "url": "https://www.neosensory.com",
+      "funding": "$14.2M",
+      "focus": "Haptic vests/wristbands · Sound-to-touch · Hearing impaired",
+      "location": "San Francisco, CA",
+      "hiring": false
+    },
+    {
+      "name": "Pison",
+      "url": "https://www.pison.com",
+      "funding": "$8.4M",
+      "focus": "Gesture control · Neural signals · Military + enterprise",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "Cognito Therapeutics",
+      "url": "https://www.cognitotx.com",
+      "funding": "$105M",
+      "focus": "Spectris platform · Alzheimer's · Optical neurostimulation",
+      "location": "Cambridge, MA",
+      "hiring": true
+    },
+    {
+      "name": "GenSight Biologics",
+      "url": "https://www.gensight.com",
+      "funding": "—",
+      "focus": "Optogenetics · Vision restoration · Lumecct",
+      "location": "Paris, France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "Nia Therapeutics",
+      "url": "https://www.niatherapeutics.com",
+      "funding": "—",
+      "focus": "Closed-loop neurostimulation · Memory loss · DARPA RAM",
+      "location": "Philadelphia, PA",
+      "hiring": false
+    },
+    {
+      "name": "BitBrain",
+      "url": "https://www.bitbrain.com",
+      "funding": "—",
+      "focus": "High-tech BCI equipment · Research EEG/EPsolutions",
+      "location": "Zaragoza, Spain 🇪🇸",
+      "hiring": true
+    },
+    {
+      "name": "RapidAI",
+      "url": "https://www.rapidai.com",
+      "funding": "—",
+      "focus": "Stroke + aneurysm imaging · Angio Suite",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "PSYONIC",
+      "url": "https://www.psyonic.co",
+      "funding": "—",
+      "focus": "Bionic limbs · Haptic feedback · Able Squad",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Insightec",
+      "url": "https://www.insightec.com",
+      "funding": "—",
+      "focus": "Focused ultrasound neural stimulation · Exablate",
+      "location": "Haifa, Israel 🇮🇱",
+      "hiring": false
+    },
+    {
+      "name": "NeurTX",
+      "url": "https://neurxtech.com",
+      "funding": "—",
+      "focus": "MRI-guided TMS · Addiction + mental health · 2024 founded",
+      "location": "USA",
+      "hiring": false
+    },
+    {
+      "name": "Neurovia Bioelectronics",
+      "url": "https://www.neurovia.com",
+      "funding": "—",
+      "focus": "Transvascular neuromodulation · Endovascular implants · 2024",
+      "location": "Geneva, Switzerland 🇨🇭",
+      "hiring": false
+    },
+    {
+      "name": "Argus AI",
+      "url": "https://www.argusai.com",
+      "funding": "—",
+      "focus": "AR neuro-navigation · 3D surgical guidance · Estonia · 2024",
+      "location": "Tallinn, Estonia 🇪🇪",
+      "hiring": false
+    },
+    {
+      "name": "Optohive",
+      "url": "https://www.optohive.com",
+      "funding": "—",
+      "focus": "Wearable fNIRS brain imaging · Modular hardware · 2024",
+      "location": "Oxford, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "Spryte Medical",
+      "url": "https://sprytemedical.com",
+      "funding": "—",
+      "focus": "Neuro OCT · 10x imaging resolution · 2023",
+      "location": "USA",
+      "hiring": false
+    },
+    {
+      "name": "Hird",
+      "url": "https://www.hird.tech",
+      "funding": "—",
+      "focus": "In-ear EEG headphones · Workplace wellness · Denmark · 2023",
+      "location": "Copenhagen, Denmark 🇩🇰",
+      "hiring": true
+    },
+    {
+      "name": "NeuroX",
+      "url": "https://www.neurox.io",
+      "funding": "—",
+      "focus": "Flexible wearable EEG · MCI detection · UK · 2024",
+      "location": "London, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "NeuFit ANZ",
+      "url": "https://neufit.com",
+      "funding": "—",
+      "focus": "DC therapy device · Neural pattern mapping · 2023",
+      "location": "USA / Australia 🇦🇺",
+      "hiring": true
+    },
+    {
+      "name": "Flow Neuroscience",
+      "url": "https://www.flowneuro.com",
+      "funding": "—",
+      "focus": "Medication-free depression · Headset + app · UK",
+      "location": "London, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "Neurable",
+      "url": "https://www.neurable.com",
+      "funding": "$46.0M",
+      "focus": "EEG for AR/VR · Emotion/intent recognition · Boston",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "ONWARD Medical",
+      "url": "https://www.onwardmedical.com",
+      "funding": "—",
+      "focus": "ARC Therapy · Spinal cord injury · Blood pressure study",
+      "location": "Eindhoven, Netherlands 🇳🇱",
+      "hiring": true
+    },
+    {
+      "name": "Healint",
+      "url": "https://www.healint.com",
+      "funding": "—",
+      "focus": "Migraine tracking · Virtual reality rehab · Singapore",
+      "location": "Singapore 🇸🇬",
+      "hiring": false
+    },
+    {
+      "name": "NeurOne",
+      "url": "https://www.neurone-solutions.com",
+      "funding": "—",
+      "focus": "EEG-based adaptive stimulation · Finland",
+      "location": "Helsinki, Finland 🇫🇮",
+      "hiring": false
+    },
+    {
+      "name": "Dreem (Moonbird)",
+      "url": "https://www.mindmaze.com",
+      "funding": "$57.0M",
+      "focus": "Sleep science · Bio-monitoring headband",
+      "location": "Paris, France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "XRHealth",
+      "url": "https://www.xrhealth.com",
+      "funding": "—",
+      "focus": "VR telehealth · Physical + cognitive therapy",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "Open Water",
+      "url": "https://www.openwater.com",
+      "funding": "—",
+      "focus": "Non-invasive BCI · Optical neural imaging",
+      "location": "San Francisco, CA",
+      "hiring": false
+    },
+    {
+      "name": "TRIPP",
+      "url": "https://www.tripp.com",
+      "funding": "—",
+      "focus": "VR meditation · Digital wellness · LA",
+      "location": "Los Angeles, CA",
+      "hiring": true
+    },
+    {
+      "name": "HypnoVR",
+      "url": "https://www.hypnovr.com",
+      "funding": "—",
+      "focus": "VR anesthesia alternative · Pain relief",
+      "location": "France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "Thync",
+      "url": "https://www.thync.com",
+      "funding": "—",
+      "focus": "Neurostimulation wearables · Stress + sleep",
+      "location": "San Francisco, CA",
+      "hiring": false
+    },
+    {
+      "name": "PlatoScience",
+      "url": "https://www.platoscience.com",
+      "funding": "—",
+      "focus": "PlatoWork consumer headset · Cognition boost",
+      "location": "USA",
+      "hiring": false
+    },
+    {
+      "name": "CarThera",
+      "url": "https://www.carthera.com",
+      "funding": "—",
+      "focus": "Ultrasound brain implant · Alzheimer · France",
+      "location": "Paris, France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "Neurable",
+      "url": "https://www.neurable.com",
+      "funding": "$46.0M",
+      "focus": "EEG for AR/VR · Emotion/intent recognition · Boston",
+      "location": "Boston, MA",
+      "hiring": true
+    },
+    {
+      "name": "Halo Neuroscience",
+      "url": "https://haloneuro.com",
+      "funding": "$13.0M",
+      "focus": "Neurostimulation wearables · Athletic performance · US Army research",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Kinova",
+      "url": "https://www.kinovarobotics.com",
+      "funding": "$25.0M",
+      "focus": "Assistive robotics · Healthcare robots",
+      "location": "Boisbriand, Canada 🇨🇦",
+      "hiring": true
+    },
+    {
+      "name": "BrainCo",
+      "url": "https://www.brainco.tech",
+      "funding": "$7.6M · Series A",
+      "focus": "BCI for education · Focus + meditation wearables",
+      "location": "Somerville, MA",
+      "hiring": true
+    },
+    {
+      "name": "SEVARO",
+      "url": "https://sevaro.com",
+      "funding": "$40.1M · Series B",
+      "focus": "Teleneurology · Stroke care on-demand",
+      "location": "New York, NY",
+      "hiring": false
+    },
+    {
+      "name": "Neurovalens",
+      "url": "https://www.neurovalens.com",
+      "funding": "$27.8M",
+      "focus": "Non-invasive wearables · Sleep + anxiety + metabolism",
+      "location": "Belfast, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "Altoida",
+      "url": "https://www.altoida.com",
+      "funding": "$26.3M",
+      "focus": "AR + AI · Brain health · Alzheimer's prediction",
+      "location": "Washington, D.C.",
+      "hiring": true
+    },
+    {
+      "name": "Cumulus Neuro",
+      "url": "https://cumulusneuro.com",
+      "funding": "$19.6M · Series A",
+      "focus": "AI cloud platform · Brain physiology · Clinical trials",
+      "location": "Belfast, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "Resolve BioSciences",
+      "url": "https://www.resolvebio.com",
+      "funding": "€95M",
+      "focus": "Molecular cartography · Neural tissue mapping",
+      "location": "Germany 🇩🇪",
+      "hiring": false
+    },
+    {
+      "name": "Omniscient Neuro",
+      "url": "https://www.omniscientneuro.com",
+      "funding": "A$60M",
+      "focus": "Brain mapping · Connectomics · AI neural analysis",
+      "location": "Sydney, Australia 🇦🇺",
+      "hiring": false
+    },
+    {
+      "name": "Newronika",
+      "url": "https://www.newronika.com",
+      "funding": "€26.2M",
+      "focus": "Deep brain stimulation · Adaptive neuromodulation",
+      "location": "Milan, Italy 🇮🇹",
+      "hiring": false
+    },
+    {
+      "name": "Neurolief",
+      "url": "https://www.neurolief.com",
+      "funding": "$25M",
+      "focus": "ProlivRx · At-home brain stimulation · MDD",
+      "location": "Tel Aviv, Israel 🇮🇱",
+      "hiring": true
+    },
+    {
+      "name": "Aiforia",
+      "url": "https://www.aiforia.com",
+      "funding": "€21.2M",
+      "focus": "AI image analysis · Pathology · Brain tissue",
+      "location": "Helsinki, Finland 🇫🇮",
+      "hiring": true
+    },
+    {
+      "name": "Cortical Labs",
+      "url": "https://www.corticallabs.com",
+      "funding": "$11M",
+      "focus": "Biological computing · DishBrain · Neurons on chips",
+      "location": "Melbourne, Australia 🇦🇺",
+      "hiring": true
+    },
+    {
+      "name": "Arctic Shores",
+      "url": "https://arcticshores.com",
+      "funding": "$14.6M",
+      "focus": "AI psychometric tests · Cognitive screening",
+      "location": "Manchester, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "NRG Therapeutics",
+      "url": "https://www.nrgtherapeutics.com",
+      "funding": "$97M · Series B",
+      "focus": "Mitochondrial drugs · Parkinson's + ALS",
+      "location": "Cambridge, UK 🇬🇧",
+      "hiring": false
+    },
+    {
+      "name": "Psilera",
+      "url": "https://www.psilera.com",
+      "funding": "$7.6M · Grant",
+      "focus": "Psychedelic compounds · Non-hallucinogenic mental health",
+      "location": "Tampa, FL",
+      "hiring": false
+    },
+    {
+      "name": "Viz.ai",
+      "url": "https://www.viz.ai",
+      "funding": "$249.5M",
+      "focus": "AI stroke detection · Medical imaging",
+      "location": "Tel Aviv, Israel 🇮🇱",
+      "hiring": true
+    },
+    {
+      "name": "Huma",
+      "url": "https://www.huma.com",
+      "funding": "$155.0M",
+      "focus": "Digital health platform · Predictive care",
+      "location": "London, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "Cerecin",
+      "url": "https://www.cerecin.com",
+      "funding": "$189.5M",
+      "focus": "Alzheimer's drugs · Neurodegeneration",
+      "location": "St. Louis, MO",
+      "hiring": false
+    },
+    {
+      "name": "Kernel",
+      "url": "https://www.kernel.com",
+      "funding": "$160.0M",
+      "focus": "Non-invasive neuroprosthetics · Human augmentation",
+      "location": "Los Angeles, CA",
+      "hiring": false
+    },
+    {
+      "name": "Medtronic DBS",
+      "url": "https://www.medtronic.com",
+      "funding": "Public",
+      "focus": "Deep brain stimulation · Parkinson's",
+      "location": "Minneapolis, MN",
+      "hiring": true
+    },
+    {
+      "name": "Abbott Neuromodulation",
+      "url": "https://www.abbott.com",
+      "funding": "Public",
+      "focus": "Vagus nerve stimulation · Tremor + Parkinson's",
+      "location": "Chicago, IL",
+      "hiring": true
+    },
+    {
+      "name": "Boston Scientific NEURO",
+      "url": "https://www.bostonscientific.com",
+      "funding": "Public",
+      "focus": "Spinal cord + vagus stimulation",
+      "location": "Marlborough, MA",
+      "hiring": true
+    },
+    {
+      "name": "XP Health",
+      "url": "https://www.xp.health",
+      "funding": "—",
+      "focus": "Digital neuro biomarkers · Stanford spinout",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Rune Labs",
+      "url": "https://www.runelabs.io",
+      "funding": "—",
+      "focus": "Parkinson's monitoring · Apple Watch + BCI",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Piramidal",
+      "url": "https://www.piramidal.ai",
+      "funding": "—",
+      "focus": "NeuroAI · Open-source brain data + AI models",
+      "location": "Remote",
+      "hiring": true
+    },
+    {
+      "name": "MintNeuro",
+      "url": "https://www.mintneuro.com",
+      "funding": "—",
+      "focus": "Miniature neural interfaces · Mental health BCI",
+      "location": "London, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "Blackrock Neurotech",
+      "url": "https://www.blackrockneurotech.com",
+      "funding": "$350M",
+      "focus": "Utah Array · Longest human BCI dataset",
+      "location": "Salt Lake City, UT",
+      "hiring": false
+    },
+    {
+      "name": "Nia Therapeutics",
+      "url": "https://www.niatherapeutics.com",
+      "funding": "—",
+      "focus": "Closed-loop neurostimulation · Memory loss",
+      "location": "Philadelphia, PA",
+      "hiring": false
+    },
+    {
+      "name": "StairMed",
+      "url": "https://www.stairmed.com",
+      "funding": "$75M",
+      "focus": "BCI · Alibaba-led round",
+      "location": "USA",
+      "hiring": false
+    },
+    {
+      "name": "MicroTransponder",
+      "url": "https://www.microtransponder.com",
+      "funding": "—",
+      "focus": "VNS Vivona · Stroke rehab · Paired VNS",
+      "location": "Dallas, TX",
+      "hiring": false
+    },
+    {
+      "name": "Nevro Corp",
+      "url": "https://www.nevrocorp.com",
+      "funding": "—",
+      "focus": "Senza system · Spinal cord stimulation",
+      "location": "Redwood City, CA",
+      "hiring": false
+    },
+    {
+      "name": "Insightec",
+      "url": "https://www.insightec.com",
+      "funding": "—",
+      "focus": "Focused ultrasound · Neuro ablation",
+      "location": "Haifa, Israel 🇮🇱",
+      "hiring": false
+    },
+    {
+      "name": "ONWARD Medical",
+      "url": "https://www.onwardmedical.com",
+      "funding": "—",
+      "focus": "ARC Therapy · Spinal cord injury",
+      "location": "Eindhoven, Netherlands 🇳🇱",
+      "hiring": true
+    },
+    {
+      "name": "LivaNova",
+      "url": "https://www.livanova.com",
+      "funding": "—",
+      "focus": "VNS therapy · Epilepsy + depression",
+      "location": "London, UK 🇬🇧",
+      "hiring": true
+    },
+    {
+      "name": "Neuroelectrics",
+      "url": "https://www.neuroelectrics.com",
+      "funding": "$35.9M",
+      "focus": "StarStim · Wireless tDCS/tACS · Barcelona",
+      "location": "Barcelona, Spain 🇪🇸",
+      "hiring": true
+    },
+    {
+      "name": "BitBrain",
+      "url": "https://www.bitbrain.com",
+      "funding": "—",
+      "focus": "BCI research equipment · EEG solutions",
+      "location": "Zaragoza, Spain 🇪🇸",
+      "hiring": true
+    },
+    {
+      "name": "RapidAI",
+      "url": "https://www.rapidai.com",
+      "funding": "—",
+      "focus": "Stroke + aneurysm imaging",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Neurotrack",
+      "url": "https://www.neurotrack.com",
+      "funding": "—",
+      "focus": "Cognitive assessment · Digital memory testing",
+      "location": "San Francisco, CA",
+      "hiring": true
+    },
+    {
+      "name": "Zander Labs 🌍 NL/DE",
+      "url": "https://www.zanderlabs.com",
+      "funding": "€30M contract",
+      "focus": "Passive BCI · Mental state detection · Neuroadaptive AI · Defense/Robotics",
+      "location": "Netherlands 🇳🇱 / Germany 🇩🇪",
+      "hiring": false
+    },
+    {
+      "name": "Nobi 🌍 BE",
+      "url": "https://nobi.life",
+      "funding": "€35M ($37M) Series B",
+      "focus": "AI smart lights · Fall detection · AgeTech · 51% fall reduction",
+      "location": "Belgium 🇧🇪 · US + UK offices",
+      "hiring": true
+    },
+    {
+      "name": "Hilo 🌍 FR",
+      "funding": "$100M+ total · $42M Series B",
+      "focus": "AI smart glasses · Cognitive performance · Memory/focus wearable",
+      "location": "France 🇫🇷",
+      "hiring": false
+    },
+    {
+      "name": "Intellect 🌍 SG",
+      "funding": "$20M+ Series A",
+      "focus": "Digital mental health · Coaching + therapy · B2B EAP",
+      "location": "Singapore 🇸🇬",
+      "hiring": true
+    },
+    {
+      "name": "NeuroDrive 🌍 SG",
+      "funding": "~$120K Raised",
+      "focus": "AI BCI for paralyzed patients · Communication via blinks · TechCrunch Top 200",
+      "location": "Singapore 🇸🇬",
+      "hiring": true
+    },
+    {
+      "name": "Neeuro 🌍 SG",
+      "funding": "A*STAR Backed",
+      "focus": "EEG cognitive monitoring platform · SenzeBand hardware · BCI healthcare (China MOU)",
+      "location": "Singapore 🇸🇬",
+      "hiring": false
+    },
+    {
+      "name": "SynPhNe 🌍 SG 🔥",
+      "funding": "$5M Series A",
+      "focus": "BCI wearable for stroke/TBI rehab · NTU spinoff · ACTIVE US RAISE · Indegene partner",
+      "location": "Singapore 🇸🇬",
+      "hiring": true
+    }
+  ],
+  "jobs": [
+    {
+      "company": "Paradromics",
+      "tag": "🔥 SALES",
+      "role": "VP of Marketing & Brand",
+      "salary": "$150K–$220K",
+      "detail": "VP of Marketing & Brand — $150K–$220K · Austin TX (on-site)",
+      "note": "Narrative + movement building + fundraising. Reports to CEO. Technical fluency required.",
+      "url": "https://www.linkedin.com/jobs/view/vp-of-marketing-brand-at-paradromics-4402611062",
+      "apply_via": "→ Apply on LinkedIn"
+    },
+    {
+      "company": "Ampa",
+      "tag": "🔥 SALES",
+      "role": "Sales Executive",
+      "salary": "$150K–$190K",
+      "detail": "Sales Executive — $150K–$190K · Remote",
+      "note": "Neurotech sales role. Territory management. Medical device or healthtech experience preferred.",
+      "url": "https://www.ziprecruiter.com/co/ampa/Jobs",
+      "apply_via": "→ Apply on ZipRecruiter"
+    },
+    {
+      "company": "Neuralink",
+      "tag": "OPS",
+      "role": "Product Operations",
+      "salary": "$68K–$114K",
+      "detail": "Product Operations — $68K–$114K · Fremont CA",
+      "note": "Non-technical ops role at the world's highest-profile BCI. Close to engineering and clinical teams.",
+      "url": "https://neuralink.com/careers/",
+      "apply_via": "→ neuralink.com/careers"
+    },
+    {
+      "company": "Theranica",
+      "tag": "OPS",
+      "role": "Director of Operations",
+      "salary": "",
+      "detail": "Director of Operations — Remote · US (neuromodulation therapeutics)",
+      "note": "Manages product delivery lifecycle. Neromodulation / medical device background preferred.",
+      "url": "https://neurotechjobs.io/",
+      "apply_via": "→ neurotechjobs.io"
+    },
+    {
+      "company": "LivaNova",
+      "tag": "OPS",
+      "role": "Director, Neuromodulation Project Head",
+      "salary": "$215K–$250K",
+      "detail": "Director, Neuromodulation Project Head — $215K–$250K · Austin TX",
+      "note": "P&L ownership for neuromodulation portfolio. Strategy + execution. 5+ years in medtech.",
+      "url": "https://neurotechjobs.io/",
+      "apply_via": "→ neurotechjobs.io"
+    },
+    {
+      "company": "Cala Health",
+      "tag": "OPS",
+      "role": "Controller",
+      "salary": "$190K–$240K",
+      "detail": "Controller — $190K–$240K · San Mateo CA",
+      "note": "CPA, GAAP, Big 4 experience. NetSuite + Medicare revenue cycle. VC-backed medtech scale.",
+      "url": "https://jobs.gv.com/jobs/cala-health",
+      "apply_via": "→ jobs.gv.com/jobs/cala-health"
+    },
+    {
+      "company": "Cala Health",
+      "tag": "OPS",
+      "role": "Manager, People Operations",
+      "salary": "$110K–$175K",
+      "detail": "Manager, People Operations — $110K–$175K · San Mateo CA",
+      "note": "Employee relations, change management, performance management. HR leadership at growth-stage medtech.",
+      "url": "https://jobs.gv.com/jobs/cala-health",
+      "apply_via": "→ jobs.gv.com/jobs/cala-health"
+    },
+    {
+      "company": "Cala Health",
+      "tag": "OPS",
+      "role": "Revenue Cycle Specialist",
+      "salary": "",
+      "detail": "Revenue Cycle Specialist — Remote",
+      "note": "Salesforce + Medicare revenue cycle for wearable neuro device. Medical device or healthtech billing experience.",
+      "url": "https://jobs.gv.com/jobs/cala-health",
+      "apply_via": "→ jobs.gv.com/jobs/cala-health"
+    },
+    {
+      "company": "Attune Neurosciences",
+      "tag": "OPS",
+      "role": "Clinical Research Manager",
+      "salary": "$120K–$130K",
+      "detail": "Clinical Research Manager — $120K–$130K · San Francisco CA",
+      "note": "Trial management for anesthesiology/neurosurgery BCI device. CRO or sponsor side experience.",
+      "url": "https://neurotechjobs.io/",
+      "apply_via": "→ neurotechjobs.io"
+    },
+    {
+      "company": "Science Corporation",
+      "tag": "MKTG",
+      "role": "Head of Demand Gen (Digital Marketing)",
+      "salary": "$150K–$220K",
+      "detail": "Head of Demand Gen (Digital Marketing) — $150K–$220K · Alameda CA",
+      "note": "PRIMA subretinal prosthesis — demand generation, campaigns, lifecycle marketing. Medtech or ophthalmology a plus.",
+      "url": "https://neurotechjobs.io/",
+      "apply_via": "→ neurotechjobs.io"
+    },
+    {
+      "company": "Cala Health",
+      "tag": "🔥 SALES",
+      "role": "Director, Marketing",
+      "salary": "$170K–$220K",
+      "detail": "Director, Marketing — $170K–$220K · San Mateo CA",
+      "note": "Commercialization lead for FDA-cleared wearable tremor therapy. Full-funnel marketing, diagnostics, regulated device experience required.",
+      "url": "https://jobs.gv.com/jobs/cala-health",
+      "apply_via": "→ jobs.gv.com/jobs/cala-health"
+    },
+    {
+      "company": "Attune Neurosciences",
+      "tag": "MKTG",
+      "role": "Trial Recruitment Specialist",
+      "salary": "$75K–$95K",
+      "detail": "Trial Recruitment Specialist — $75K–$95K · San Francisco CA",
+      "note": "Patient recruitment for anesthesiology/BCI trials. Community building, referral programs, site coordination.",
+      "url": "https://neurotechjobs.io/",
+      "apply_via": "→ neurotechjobs.io"
+    }
+  ]
+}
