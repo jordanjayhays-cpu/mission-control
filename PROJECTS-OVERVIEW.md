@@ -223,6 +223,7 @@ Jordan's grouping decisions of 2026-09-07 are applied below. Harvard simulation 
 - Dashboard, board, AI Caller service (BLOCKED on Twilio), lead scraper to call queue (BLOCKED)
 
 ### 12. Standalone ideas, never started (keep or kill)
+- **US Mayors interview series** — find interesting places in the US, interview their mayors: what policies they pass, what they actually do, why they became mayor. Idea, saved 2026-09-15. Full note: `ideas/us-mayors-interview-series.md`
 - Sauce Match (hot-sauce quiz store) — BUILT, stalled
 - "Snyk for vibe coders" (security for vibe-coded apps) — idea, 09-03
 - Google Maps influencer aggregation — category in the 100-Projects doc only
