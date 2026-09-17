@@ -1,98 +1,121 @@
-# Continuing education — Manila, Jan–Jun 2027
+# Continuing education — one in-person class, Manila, Jan–Jun 2027
 
-Captured 2026-09-16. Scoped 2026-09-16 after Jordan's answers. **Personal lane.**
+Captured 2026-09-16. Researched 2026-09-17. **Personal lane.**
 
 ## The brief
 
-> Continuing education research, I'll be in the Philippines. Make this a project.
+Jordan, scoping it himself:
+- **For him to study.** Not a business, not research feeding another lane.
+- **One in-person class**, ideally.
+- **Not Tagalog.** Ruled out 2026-09-17.
+- Target: AIM and the other top Philippine schools.
 
-Scoped by Jordan:
-- **For him to study**, not a business and not research feeding another lane.
-- **Ideally one in-person class**, if possible.
+## The structural finding
 
-So: find one recurring, in-person class in Metro Manila for the Jan–Jun 2027 stay. One. Not a
-programme, not a second degree.
+Philippine executive education comes in two shapes, and only one of them is a *class*.
 
-## What a class has to do to be worth it
+**Shape A — the Saturday series.** Six to twenty-one consecutive Saturdays, ₱15,000–38,000,
+face-to-face. Same room, same cohort, three to five months. UP ISSI runs on this model.
 
-Three different jobs, and they do not overlap much:
+**Shape B — the short intensive.** Two to six consecutive days, far more expensive, senior room.
+AIM and Ateneo CCE run on this model.
 
-1. **Credential** — something that goes on a CV.
-2. **Capability** — a skill he actually uses in Placewell, Vaya or Amigo Sales.
-3. **Anchor** — a standing reason to be in a room with people, weekly, in a city where he arrives
-   with almost no network.
+Jordan asked for one in-person class. **Shape A is literally that. Shape B is a burst**, and it does
+not produce the weekly anchor that makes a class worth more than its content to someone arriving in
+a city without a network.
 
-Jordan will be running his own ventures largely alone, remotely, for six months. The third job is
-worth more than it looks and is the one a class does better than any other purchase.
+## UP ISSI — UP Diliman, Quezon City
 
-The credential job is the weakest for him specifically: he is finishing an MBA. Another business
-certificate buys very little.
+The only school whose full calendar, formats and prices are published openly. Verified from the
+2026 training calendar.
 
-## Candidates — real institutions, schedules unverified
+| Course | Dates 2026 | Format | Fee |
+|---|---|---|---|
+| 132nd Managers Course | 14 Feb – 18 Jul | 21 Saturdays, face-to-face | ₱38,000 |
+| 72nd / 73rd Accounting for Non-Accountants | Feb–Mar / May–Jun | 6 Saturdays, face-to-face | ₱15,000 |
+| 82nd / 83rd Productivity through Effective Supervision | Feb–Mar / May–Jun | 6 Saturdays, face-to-face | ₱16,000 |
+| 12th Digital Marketing Course | 11 Apr – 16 May | 6 Saturdays, face-to-face | ₱15,000 |
+| 31st Creative and Effective Selling Techniques | 26 Sep – 31 Oct | 6 Saturdays, face-to-face | ₱16,000 |
+| 3rd Small Business Mentor's Course | 14–18 Sep | 5 days, face-to-face | ₱30,000 |
 
-### Language — Filipino / Tagalog
+**The Managers Course is the closest thing to what Jordan described.** 21 Saturdays running
+February to July — which maps almost exactly onto a January–June stay if the 2027 edition
+(presumably the 133rd) keeps the same pattern. ₱38,000 is roughly USD 600 at ~62.7 PHP/USD.
 
-| Provider | Where | Format |
-|---|---|---|
-| Philippine Italian Association (PIA) Language Center | Makati | 12 classes × 3 hours; weekday evenings or Saturday mornings/afternoons; min 5 students |
-| Eriza's Language School | BGC, Makati, Ortigas (in-person + outcall for groups of 4+) | group or private |
-| Academia Language and Review Center | Metro Manila | "Tagalog for Foreigners", onsite availability varies by demand |
+Contact: `training_issi.upd@up.edu.ph` · UP Diliman trunk 8981-8500 loc. 4054
 
-PIA has the best **shape**: a fixed cohort, a fixed evening, roughly three months. That is a class,
-not a series of tutorials.
+**Caveat that matters:** UP Diliman is in Quezon City, not Makati. Given the Makati housing search,
+that is a real Saturday commute across Metro Manila. Worth pricing in time, not just pesos.
 
-### Business / professional
+## AIM — 123 Paseo de Roxas, Makati
 
-| Provider | Where | Notes |
-|---|---|---|
-| Ateneo Center for Continuing Education (cce.ateneo.edu) | Rockwell, Makati | Publishes a yearly program calendar; short courses of a few days |
-| Asian Institute of Management — SEELL (aim.edu/executive-education) | Makati | Executive education, FT-ranked, open enrolment; expensive, short format |
+School of Executive Education and Lifelong Learning (SEELL). 50+ open enrolment programs. Verified
+program names include AI Business Practitioner, Basic Management Program, Business Analytics with
+Generative AI, Finance Manager Development, Leadership in Project Management, Lean Six Sigma Yellow
+Belt Certification, Finance for Non-Finance Managers, Enterprise Risk Management.
 
-### Cultural / physical
+**Dates, formats and fees are not published on the website.** They sit in a downloadable
+*SY2026-2027 SEELL Open Enrollment Program Calendar*, or come via inquiry.
 
-| Provider | Where | Notes |
-|---|---|---|
-| Elefant Kali | Legazpi Active Park, Makati | Arnis / Kali / Eskrima group classes, described as beginner-friendly |
+Contact: `admissions@aim.edu` · 02 8892 4011
 
-## The three real options
+The argument for AIM is not the syllabus. It is the room: open-enrolment cohorts of Philippine
+executives, who are Placewell and Amigo Sales prospects. That is a lead-generation spend wearing a
+tuition label.
 
-**SAFE — Tagalog at PIA Makati.**
-Cheap, in Makati where he is already looking for housing, a fixed cohort over three months, and it
-compounds with two ventures that are literally about Filipino people. Every business conversation
-in the country gets better.
-*Tradeoff:* no credential, and English is widely spoken in Manila business settings, so it is a
-relationship investment rather than a necessity.
+## Ateneo CCE — Rockwell, Makati
 
-**BOLD — an AIM executive education short course.**
-The content is not the product. The room is. AIM open-enrolment courses put Philippine executives
-in a classroom for several days, and those are Placewell and Amigo Sales prospects.
-*Tradeoff:* the most expensive option by a wide margin, and short-format, so it is a burst rather
-than a weekly anchor.
+Publishes a yearly calendar; 2026 offerings sit in a PDF rather than on the page. Short courses of a
+few days. Recent examples: Crisis Management, Business Writing Skills, Technical Writing Skills,
+Building Cyber-Resilient Organizations.
 
-**WEIRD — Arnis / Kali at Elefant Kali, Makati.**
-The national martial art, learned in the country it comes from, outdoors in a Makati park. A
-completely different room of people from anyone he would otherwise meet, and genuine content for
-Vaya and PK.
-*Tradeoff:* zero professional value on paper. Justified by the anchor job alone.
+Contact: `sales.cce@ateneo.edu` · +63 939 924 2799 · (02) 8830-2040
 
-## Verify before acting — nothing here is confirmed
+## UA&P — Pearl Drive, Ortigas Center, Pasig
 
-- **No 2027 schedule exists yet** for any of these. It is September 2026; these institutions
-  publish a year at a time. Everything above is a provider shortlist, not an enrolment plan.
-- **Prices unverified.** No figure is quoted here because none was confirmed.
-- **Foreigner eligibility and visa implications unchecked.** Enrolling in a course can interact
-  with visa status. Unverified.
-- Elefant Kali's Legazpi Park location, PIA's 12×3 format and Ateneo's Rockwell campus come from
-  provider and directory listings, not from contacting anyone.
+UA&P CORE (Continuing Real-World Education). Executive programs aimed at senior leaders, family
+business owners and corporate executives — the family-business angle is the distinctive one here.
+The non-degree page 404'd, so **nothing about their catalogue is verified.**
+
+Contact: `core@uap.asia` · +63 968 887 8806
+
+## DLSU — Taft, Manila
+
+School of Lifelong Learning. The only currently visible public offering is a CPD Seminar Series for
+Professional Accountants (Saturdays, face-to-face, Taft). Not a fit. Deprioritised.
+
+## Recommendation
+
+**UP ISSI Managers Course**, if the 2027 edition runs on the same Feb–Jul pattern. It is the only
+verified option that is actually a class rather than a workshop, the calendar fits the stay, and at
+roughly USD 600 it is cheap enough that the commute is the real cost, not the money.
+
+**AIM as the alternative**, if the goal is the room rather than the curriculum. Cannot be compared
+on price until the SEELL calendar is in hand — and that is one email.
+
+## Verify before acting
+
+- **No 2027 calendar exists for any of these.** Everything above is the 2026 cycle, read as a
+  pattern. The 2027 editions may shift dates, prices or run at all.
+- **AIM, Ateneo and UA&P prices are entirely unknown.** No figure is quoted here because none was
+  found. Do not assume AIM is comparable to UP ISSI; it is near-certainly far more expensive, but
+  that is an expectation, not a verified fact.
+- Most 2026 UP ISSI cohorts show as **Closed** — these fill.
+- Foreigner eligibility and any visa interaction from enrolling: **unchecked**.
 
 ## Next actions
 
-1. **Nov–Dec 2026:** check whether Jan–Jun 2027 schedules have been published. That is the only
-   thing that unblocks a real decision, and it cannot happen sooner.
-2. Pick one of the three directions before the schedules land, so the choice is made on what he
-   wants rather than on whatever happens to be running.
-3. Email PIA and Elefant Kali once he has arrival dates. Neither needs a decision now.
+1. **Email AIM and Ateneo now** for the SY2026-2027 calendar and fees. Costs nothing, arrives by
+   email, and makes the comparison real instead of assumed.
+2. **November 2026:** check whether UP ISSI has posted the 2027 calendar and whether the 133rd
+   Managers Course runs Feb–Jul.
+3. Decide on shape before shape decides for you: weekly cohort, or senior-room intensive.
 
 ## Status
 
-Scoped, not started. Blocked until 2027 schedules publish. Not on the board.
+Researched. Blocked on 2027 calendars. Not on the board.
+
+## Sources
+
+UP ISSI 2026 training calendar · AIM open enrolment programs page · Ateneo CCE 2026 program
+offerings · UA&P CORE · DLSU School of Lifelong Learning. All read 2026-09-17.
