@@ -111,9 +111,41 @@ on price until the SEELL calendar is in hand — and that is one email.
    Managers Course runs Feb–Jul.
 3. Decide on shape before shape decides for you: weekly cohort, or senior-room intensive.
 
+## Jan–Jun catalogue (added 2026-09-17)
+
+82 courses that run inside January–June, compiled from **both** editions of the Ateneo CCE 2026
+Program Offerings (the January edition and the May edition) plus the UP ISSI 2026 calendar.
+Machine-readable: `ideas/manila-courses-jan-jun.json`. Live page: the Manila Course Bulletin artifact.
+
+Days of the week are **derived from the published dates** — the schools print dates but never say
+which day. That derivation is what makes the Saturday-versus-weekday question answerable.
+
+**Six courses have confirmed 2027 dates:**
+
+| Course | When | Days | Fee |
+|---|---|---|---|
+| Strategic Purchasing | 13, 20 Mar, 3 Apr 2027 | Saturdays | ₱18,000 |
+| Customer Service and Logistics Operation | 10, 17, 24 Apr 2027 | Saturdays | ₱18,000 |
+| Setting up a PMO for "Always-On Transformation" | 5 Jan – 12 Feb 2027 | weekday | ₱16,000 |
+| Building a High-Performance Project Organization | 25 Nov 2026 – 5 Mar 2027 | multi-week | ₱64,000 |
+| 19th Exec Development Program, Supply Chain Mgmt | 3 Oct 2026 – 24 Apr 2027 | multi-week | ₱76,500 |
+| 15th Diploma in Applied Project Management | 6 Jul 2026 – 5 Mar 2027 | multi-week | ₱157,700 |
+
+**The repeat pattern is evidenced, not assumed.** Strategic Purchasing runs three Saturdays in March
+2026 and three Saturdays in March 2027. Customer Service and Logistics Operation runs Mar–Apr in
+both years. The Ateneo calendar repeats closely enough that the Jan–Jun 2026 listings are a sound
+guide to what Jan–Jun 2027 will hold.
+
+Split of the 82: **17 Saturday, 56 weekday, 14 explicitly marked in-person.** Ateneo CCE runs both
+shapes, from Rockwell in Makati — closer to a Makati flat than UP Diliman in Quezon City.
+
+Still unknown: AIM SEELL and UA&P CORE publish no dates or fees publicly. Both need an email before
+they can be compared on anything.
+
 ## Status
 
-Researched. Blocked on 2027 calendars. Not on the board.
+Researched and catalogued. Six 2027 dates confirmed; the rest await the 2027 calendars.
+Not on the board.
 
 ## Sources
 
