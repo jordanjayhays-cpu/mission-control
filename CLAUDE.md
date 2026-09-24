@@ -98,6 +98,11 @@ records; or the session is already long. Never delegate judgement or architectur
 
 ## House rules learned the hard way
 
+- **Outreach sequencing lives in Instantly, not on the board.** Jordan runs PISCO and Placewell
+  employer/role targeting there and already has multiple targets for both (confirmed 2026-09-13 and
+  2026-09-24). Do NOT create board tasks asking him to name a prospect, pick an employer, define a
+  role, or chase replies — that work is already done in a tool this session cannot see. Two separate
+  tasks were closed for exactly this. Ask what Instantly is showing before assuming a gap.
 - Cold outreach goes out **one at a time** and only to verified emails of real, named people.
 - Email format: greeting on its own line, one sentence per paragraph, no em dashes, rotating subject
   lines, signature = `Thank you, / Jordan / Director of Business Development / placewellinternational.net`.
