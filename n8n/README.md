@@ -1,6 +1,29 @@
 # n8n workflows
 
-Five importable workflows in `workflows/`. Import each in n8n: **Workflows → ⋯ → Import from File**.
+**All five are BUILT, ACTIVE and SMOKE-TESTED in the live instance as of 2026-09-25.**
+The JSON in `workflows/` is the source of record; the instance is already running it.
+
+| Workflow | n8n id | Production webhook |
+| --- | --- | --- |
+| Amigo Sales — send as jordan@amigosales.com | `7iQfAulBX58XtKXx` | `https://neuromatch.app.n8n.cloud/webhook/amigo-send` |
+| Massage Club — booking → calendar invite | `Slgm1R0GUOIUaZQz` | `.../webhook/mc-booking` |
+| Massage Club — warm requests going cold | `pKeG5ceHBacESt5k` | `.../webhook/mc-stall-digest` |
+| Massage Club — 24h reminder to customer | `o1C4kX0CftBBnxsY` | `.../webhook/mc-reminder` |
+| Board — urgent task landed | `mlF1kScQk5Be6yZf` | `.../webhook/board-urgent` |
+
+### Smoke test results, 2026-09-25
+
+- `board-urgent` → **Gmail returned a real message id** (`1a0d7d8c4af857df`, labels SENT/INBOX).
+  The full chain works: HTTP in, Google OAuth held by n8n, mail out.
+- `mc-stall-digest` with `count: 0` → HTTP 200, execution ran `Webhook → Any stalled?` and stopped.
+  **No email sent.**
+- `mc-reminder` with an empty `customer_email` → HTTP 200, ran `Webhook → Has email?` and stopped.
+  **No email sent.**
+
+The first version of both gated workflows returned **HTTP 500** on the quiet path — the IF node's
+false branch had nothing to return and `responseMode` was `lastNode`. Functionally it sent nothing,
+but a 500 would have made every caller think it had failed and retry. Both now use
+`responseMode: onReceived`, so a quiet day is a clean 200.
 
 ## The architecture, in one line
 
