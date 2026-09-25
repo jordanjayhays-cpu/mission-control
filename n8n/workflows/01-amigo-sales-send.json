@@ -1,0 +1,12 @@
+{
+  "name": "Amigo Sales — send as jordan@amigosales.com",
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"amigo-send","responseMode":"lastNode","options":{}},
+     "id":"a1","name":"Webhook","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"amigo-send"},
+    {"parameters":{"sendTo":"={{ $json.body.to }}","subject":"={{ $json.body.subject }}","emailType":"text","message":"={{ $json.body.text }}","options":{"senderName":"Jordan Hays","appendAttribution":false,"replyTo":"jordan@amigosales.com"}},
+     "id":"a2","name":"Gmail send","type":"n8n-nodes-base.gmail","typeVersion":2.1,"position":[260,0],
+     "credentials":{"gmailOAuth2":{"id":"1sXCvJvMZU4od12w","name":"Gmail OAuth2 API"}}}
+  ],
+  "connections":{"Webhook":{"main":[[{"node":"Gmail send","type":"main","index":0}]]}}
+}

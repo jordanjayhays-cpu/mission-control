@@ -1,0 +1,17 @@
+{
+  "name": "Massage Club — warm requests going cold (digest to Jordan)",
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"mc-stall-digest","responseMode":"lastNode","options":{}},
+     "id":"c1","name":"Webhook","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"mc-stall-digest"},
+    {"parameters":{"conditions":{"options":{"caseSensitive":true,"version":2},"conditions":[{"id":"c","leftValue":"={{ $json.body.count }}","rightValue":0,"operator":{"type":"number","operation":"gt"}}],"combinator":"and"},"options":{}},
+     "id":"c2","name":"Any stalled?","type":"n8n-nodes-base.if","typeVersion":2,"position":[260,0]},
+    {"parameters":{"sendTo":"jordan.hays@student.ie.edu","subject":"={{ $json.body.count }} Massage Club requests going cold","emailType":"text","message":"={{ $json.body.summary }}","options":{"appendAttribution":false}},
+     "id":"c3","name":"Email Jordan","type":"n8n-nodes-base.gmail","typeVersion":2.1,"position":[520,-90],
+     "credentials":{"gmailOAuth2":{"id":"1sXCvJvMZU4od12w","name":"Gmail OAuth2 API"}}}
+  ],
+  "connections":{
+    "Webhook":{"main":[[{"node":"Any stalled?","type":"main","index":0}]]},
+    "Any stalled?":{"main":[[{"node":"Email Jordan","type":"main","index":0}],[]]}
+  }
+}

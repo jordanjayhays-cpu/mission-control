@@ -1,0 +1,12 @@
+{
+  "name": "Board — urgent task landed → email Jordan",
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"board-urgent","responseMode":"lastNode","options":{}},
+     "id":"e1","name":"Webhook","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"board-urgent"},
+    {"parameters":{"sendTo":"jordan.hays@student.ie.edu","subject":"URGENT on the board: {{ $json.body.title }}","emailType":"text","message":"={{ $json.body.goal }}\n\nAcceptance: {{ $json.body.acceptance_criteria }}","options":{"appendAttribution":false}},
+     "id":"e2","name":"Email Jordan","type":"n8n-nodes-base.gmail","typeVersion":2.1,"position":[260,0],
+     "credentials":{"gmailOAuth2":{"id":"1sXCvJvMZU4od12w","name":"Gmail OAuth2 API"}}}
+  ],
+  "connections":{"Webhook":{"main":[[{"node":"Email Jordan","type":"main","index":0}]]}}
+}

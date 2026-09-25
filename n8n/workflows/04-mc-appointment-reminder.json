@@ -1,0 +1,17 @@
+{
+  "name": "Massage Club — 24h appointment reminder to customer",
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"mc-reminder","responseMode":"lastNode","options":{}},
+     "id":"d1","name":"Webhook","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"mc-reminder"},
+    {"parameters":{"conditions":{"options":{"caseSensitive":true,"version":2},"conditions":[{"id":"e","leftValue":"={{ $json.body.customer_email }}","rightValue":"","operator":{"type":"string","operation":"notEmpty"}}],"combinator":"and"},"options":{}},
+     "id":"d2","name":"Has email?","type":"n8n-nodes-base.if","typeVersion":2,"position":[260,0]},
+    {"parameters":{"sendTo":"={{ $json.body.customer_email }}","subject":"Your massage tomorrow at {{ $json.body.studio }}","emailType":"text","message":"={{ $json.body.text }}","options":{"senderName":"Massage Club","appendAttribution":false}},
+     "id":"d3","name":"Remind customer","type":"n8n-nodes-base.gmail","typeVersion":2.1,"position":[520,-90],
+     "credentials":{"gmailOAuth2":{"id":"1sXCvJvMZU4od12w","name":"Gmail OAuth2 API"}}}
+  ],
+  "connections":{
+    "Webhook":{"main":[[{"node":"Has email?","type":"main","index":0}]]},
+    "Has email?":{"main":[[{"node":"Remind customer","type":"main","index":0}],[]]}
+  }
+}

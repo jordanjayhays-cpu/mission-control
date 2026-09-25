@@ -1,0 +1,12 @@
+{
+  "name": "Massage Club — booking confirmed → calendar invite",
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"mc-booking","responseMode":"lastNode","options":{}},
+     "id":"b1","name":"Webhook","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[0,0],"webhookId":"mc-booking"},
+    {"parameters":{"calendar":{"__rl":true,"value":"primary","mode":"list","cachedResultName":"primary"},"start":"={{ $json.body.start }}","end":"={{ $json.body.end }}","additionalFields":{"summary":"={{ $json.body.summary || 'Massage Club booking' }}","location":"={{ $json.body.studio }}","description":"={{ $json.body.notes }}","attendees":["={{ $json.body.customer_email }}"],"sendUpdates":"all"}},
+     "id":"b2","name":"Create calendar event","type":"n8n-nodes-base.googleCalendar","typeVersion":1.3,"position":[260,0],
+     "credentials":{"googleCalendarOAuth2Api":{"id":"Kp7yvyM5o73bO9Tg","name":"Google Calendar OAuth2 API"}}}
+  ],
+  "connections":{"Webhook":{"main":[[{"node":"Create calendar event","type":"main","index":0}]]}}
+}
