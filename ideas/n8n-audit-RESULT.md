@@ -71,3 +71,42 @@ These three are the only substantial builds in the instance. Everything else is 
 ## Accept when
 
 The instance has zero workflows that are active but cannot run, and a yes/no on whether n8n stays.
+
+---
+
+## ACTIONED 2026-09-25
+
+**Jordan: "axton's telegram is ded."** The one live workflow was sending ~3 Telegram messages a day
+into a channel nobody reads, and had been for at least 30 days.
+
+**All 17 active workflows deactivated via the API.** Every call returned 200; a read-back confirms
+**61 workflows, 0 active.** The instance is now silent.
+
+Deactivated:
+
+| Workflow | ID |
+| --- | --- |
+| Axton Work Unit — Autonomous Task Runner *(the only one that ran)* | `YR9XOt3YLHTAZgH5` |
+| Idea Capture Bot (Telegram) | `24gRjyhfQFHQHusu` |
+| Axton — Query Hub v3 | `8Ncc34N0XvTXnTXR` |
+| Axton — Supabase Query Hub | `FcAGEm2gfPuRbYwc` |
+| Axton — Supabase Query Hub | `yOxOGBytJjnUQvbd` |
+| Axton — Query Hub Simple | `SKKLwLZUmZmFLT4y` |
+| Axton — Blackboard to Notion | `QPxx0ADty4SCwIMX` |
+| Axton — Blackboard to Notion | `UHND4T2NXRiVH34R` |
+| Axton — Blackboard to Notion | `hVnJCn3YC28Q8nZy` |
+| Axton — Daily Digest | `Son0qpyTolUbqEv3` |
+| Axton — Content Pipeline | `Z9kOwFm6Fa9b3zOU` |
+| Axton — Booking Dashboard | `dEI9XITRlt9hq2jH` |
+| Axton — Social Announcer | `qpdwe8u4J1PAalPe` |
+| Axton — Churn Risk | `tBPR5gEsdO6VqMTs` |
+| Axton — Partner Lead Gen | `yuf6So8SlV8TgCCQ` |
+| Massage Pass — New Partner Alert | `dMjvYUbrVIpdzSJy` |
+| Create Google Calendar Event v3 | `icBE9flyvtKtsnOY` |
+
+**Reversible.** `POST /api/v1/workflows/{id}/activate` with `X-N8N-API-KEY` turns any of them back on.
+Nothing was deleted.
+
+**Still to decide:** whether n8n stays at all. Export `Jarvis` (52 nodes),
+`Automated workflow backup` (38) and `Niah Afterparty — South Summit Matchmaking` (18) before
+cancelling — they are the only substantial builds in the instance.
