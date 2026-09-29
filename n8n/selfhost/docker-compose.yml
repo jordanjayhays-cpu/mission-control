@@ -1,0 +1,84 @@
+# n8n self-hosted — DigitalOcean droplet version
+# Adapted from Jorge-AI700/n8n-infra ("Verus n8n"), which targets a Hetzner VPS
+# with WireGuard. Five things in the original will not start on a fresh droplet;
+# each change is marked CHANGED below with the reason.
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_DB: n8n_main
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U n8n']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # CHANGED — Redis REMOVED.
+  # The original runs it, but EXECUTIONS_MODE is 'regular' and every
+  # QUEUE_BULL_REDIS_* variable is commented out, so nothing connects to it.
+  # It was dead weight costing RAM. Add it back only if you switch to
+  # EXECUTIONS_MODE=queue, which needs more than one droplet to be worth it.
+
+  n8n:
+    image: n8nio/n8n:2.34.6
+    restart: unless-stopped
+    ports:
+      # CHANGED — was three bindings including '10.8.0.1:5679', a WireGuard
+      # interface address. On a droplet with no wg0 interface Docker cannot bind
+      # it and the container refuses to start. This is the single most likely
+      # reason a copy-paste of the original fails.
+      - '127.0.0.1:5678:5678'
+    env_file: .env
+    environment:
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n_main
+      DB_POSTGRESDB_USER: ${POSTGRES_USER}
+      DB_POSTGRESDB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_POSTGRESDB_SCHEMA: public
+
+      EXECUTIONS_MODE: regular
+
+      # CHANGED — was hardcoded to n8n.wizdom-ai.com. These three decide every
+      # webhook URL n8n generates; wrong values mean webhooks that resolve to
+      # somebody else's host.
+      N8N_HOST: ${N8N_HOST}
+      N8N_PROTOCOL: https
+      N8N_PORT: 5678
+      N8N_PROXY_HOPS: '1'
+      WEBHOOK_URL: https://${N8N_HOST}
+      N8N_EDITOR_BASE_URL: https://${N8N_HOST}
+
+      GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
+
+      # CHANGED — task runners disabled. The original points at
+      # n8n-runners-custom:2.30.5, which its own README admits is a LOCAL image
+      # not present in any registry, so `docker compose up` cannot pull it.
+      # Runners only matter for native Python code nodes. Leave this off unless
+      # you write Python in a workflow.
+      N8N_RUNNERS_MODE: internal
+
+      N8N_BLOCK_ENV_ACCESS_IN_NODE: 'true'   # CHANGED — was false. Stops a
+                                             # workflow reading your .env.
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./files:/files
+      # CHANGED — ./ffmpeg and ./ffprobe bind mounts removed. They are
+      # gitignored binaries that do not exist in a fresh clone; Docker silently
+      # creates DIRECTORIES in their place and anything expecting an executable
+      # then fails confusingly. Add them back only when you actually need media
+      # processing, and put real binaries there first.
+
+volumes:
+  postgres_data:
+  n8n_data:
