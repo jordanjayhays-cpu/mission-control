@@ -225,7 +225,8 @@ daily drill; a Friday check-in (ends Sep 26) emails the weekly habit score. Remi
 Full design + sources: `docs/claude-operating-system.md`. Skills: `.claude/skills/`.
 
 1. **Route.** One lane per session. Wrong lane → hand off, don't mix.
-2. **Brief.** Restate Goal / Material / Done-when in 3 lines before working. Missing 2+ → ask (max 3 Qs).
+2. **Brief.** Restate Goal / Material / Done-when in 3 lines before working. Missing info → **draft anyway**
+   with [UNSURE] gaps, then ask (max 3 Qs). Never reply with questions only (tested 2026-10-12).
 3. **Plan first** for anything non-trivial: approach in 3 bullets, then do.
 4. **Verify with a fresh critic.** High-stakes output (proposals, outreach, client material) gets a
    subagent or fresh-context review as the recipient before Jordan sees it. Writer never grades itself.

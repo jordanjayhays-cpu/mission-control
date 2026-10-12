@@ -16,7 +16,7 @@ description: Turn a Placewell sales or partnership call into a summary, next ste
    - What we promised
    - Next step + date
    - UNSURE: anything not clear from the notes
-2. **Plan:** one line on the email's angle. Wait for Jordan's OK only if the angle is a judgment call.
+2. **Plan:** one line on the email's angle. Drafts first, questions after: never stop to ask before drafting. Fill unknowns with [UNSURE] and list max 3 questions after the draft.
 3. **Draft** the follow-up using Placewell email rules:
    - Greeting on its own line
    - One sentence per paragraph
