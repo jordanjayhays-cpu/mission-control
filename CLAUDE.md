@@ -219,3 +219,19 @@ Binding from now on:
 
 Jordan is running the 30-day ladder (the "1-to-10 Ladder" artifact). The 09:00 brief carries a
 daily drill; a Friday check-in (ends Sep 26) emails the weekly habit score. Remind, don't lecture.
+
+## Session protocol (binding, every session, added 2026-10-12)
+
+Full design + sources: `docs/claude-operating-system.md`. Skills: `.claude/skills/`.
+
+1. **Route.** One lane per session. Wrong lane → hand off, don't mix.
+2. **Brief.** Restate Goal / Material / Done-when in 3 lines before working. Missing 2+ → ask (max 3 Qs).
+3. **Plan first** for anything non-trivial: approach in 3 bullets, then do.
+4. **Verify with a fresh critic.** High-stakes output (proposals, outreach, client material) gets a
+   subagent or fresh-context review as the recipient before Jordan sees it. Writer never grades itself.
+5. **Close the loop.** Jordan-only steps → `agent_tasks`. A correction Jordan made twice → propose
+   it as a one-line rule for this file or the lane's CLAUDE.md, in the same session.
+6. **Two failed corrections → restart** with a better brief, not a third patch.
+
+Repeated workflows are skills, not memory: `call-to-followup` (Placewell), `concierge-booking`
+(Massage Club), `weekly-retro` (all lanes, Fridays: turns the week's corrections into rules).
