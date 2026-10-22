@@ -13,6 +13,15 @@ cron, an alert, or infrastructure, not at the start of every session.
   Madrid time, with the revenue-direct and auto-close rules; the old Routine is disabled, not
   deleted, so its run history stays. Lesson: a Routine's `last_run` says delivered, not completed.
   Check `get_session` status_bucket and `context_usage.used_tokens`, not the run status.
+  Follow-up the same day: the replacement (a Routine waking the pinned session `📌 Jordan's daily
+  decisions`) has the Supabase connector but hit the SAME prompt class on its first SQL
+  (`decision_reason_rule_source: mcpServerPolicy`), even in auto mode. The difference is that a
+  bound session keeps Jordan's approval: he taps Approve once in that session and later wakes run
+  without asking. A fresh-session Routine asks every morning and nobody is there. Rule: anything
+  that must touch the database on a timer runs in a bound session Jordan has approved once, or
+  over HTTP to an edge function. Also learned: `fire_trigger` on a bound Routine spawns a separate
+  fresh session (origin `force_run_trigger`) with no connectors; test bound Routines with
+  `send_message` into the bound session instead.
 - **Jordan does not read the alerts.** His words, 2026-10-22: "I don't even look at those alerts." Every
   notification-only Routine (the email brief, the night shift's morning email, the daily Instagram
   follow prompt) was therefore producing nothing. Replaced by one pinned Claude session,
