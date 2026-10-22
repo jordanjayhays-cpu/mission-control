@@ -18,6 +18,7 @@ description: Turn a Placewell sales or partnership call into a summary, next ste
    - UNSURE: anything not clear from the notes
 2. **Plan:** one line on the email's angle. Drafts first, questions after: never stop to ask before drafting. Fill unknowns with [UNSURE] and list max 3 questions after the draft.
 3. **Draft** the follow-up using Placewell email rules:
+   - Match the voice in `voice-examples.md` (same folder). If it is still the skeleton, say so once and draft in the house format anyway.
    - Greeting on its own line
    - One sentence per paragraph
    - No em dashes
