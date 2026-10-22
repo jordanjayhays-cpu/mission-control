@@ -13,6 +13,11 @@ cron, an alert, or infrastructure, not at the start of every session.
   Madrid time, with the revenue-direct and auto-close rules; the old Routine is disabled, not
   deleted, so its run history stays. Lesson: a Routine's `last_run` says delivered, not completed.
   Check `get_session` status_bucket and `context_usage.used_tokens`, not the run status.
+- **Jordan does not read the alerts.** His words, 2026-10-22: "I don't even look at those alerts." Every
+  notification-only Routine (the email brief, the night shift's morning email, the daily Instagram
+  follow prompt) was therefore producing nothing. Replaced by one pinned Claude session,
+  `📌 Jordan's daily decisions`, that the brief Routine wakes each morning; the night shift and the
+  follow prompt are paused. Rule: the channel is a chat he opens, never a notification.
 - **The hourly WhatsApp watch was 24 of ~37 daily firings**, all into a 123-day-old session. Cut to
   seven business-hour slots (09:43 to 21:43 Madrid, every two hours) rather than killed, per the
   "reduce cadence before killing" rule. Unbinding it to a fresh session with a bookmark is the next

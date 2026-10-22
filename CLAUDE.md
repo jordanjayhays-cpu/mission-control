@@ -77,8 +77,13 @@ architecture and judgement. **Never load more than ~20 rows into context**: dele
 ## The decision queue (the operating model)
 
 The system's throughput limit is Jordan's decisions/day, not agent capacity.
-- The 09:00 brief is a DECISION brief, max 5 items, each YES / NO / KILL (Routine
-  `Jordan 09:00 decision brief`, recreated 2026-10-22 after two silent days; see postmortems).
+- **The only channel that reaches Jordan is a Claude chat he opens.** He does not read email or push
+  (his words, 2026-10-22). Anything he must see goes into the pinned session
+  `📌 Jordan's daily decisions`; a Routine whose only output is a notification produces nothing.
+- The daily brief posts there at 08:52 Madrid: max 5 items, each YES / NO / KILL, item 1 always the
+  revenue-direct task. He answers in shorthand ("1 yes, 2 kill, 3 later") and the board updates.
+  (Routine `Jordan daily decisions → 📌 session`; the old email brief was dead for two days on a
+  permission prompt nobody could answer, see postmortems.)
 - **Revenue-direct first.** A task that is literally a booking, a customer, a deal or a proposal
   (`metadata.revenue_direct = true`, or the title says so) is item 1 every day until done and is
   exempt from the archive rule below.
