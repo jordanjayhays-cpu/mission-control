@@ -223,6 +223,32 @@ Binding from now on:
 - **State acceptance criteria.** Big deliverables end with "Accept when: …".
 - **Call context rot.** If the session mixes lanes or grows long, hand Jordan a 3-line handoff.
 - **Formats come from examples.** Ask for one example rather than accepting prose descriptions.
+- **Diagnosis → ACH.** Competing hypotheses, refuted not confirmed. See the ACH section below.
 
 Jordan is running the 30-day ladder (the "1-to-10 Ladder" artifact). The 09:00 brief carries a
 daily drill; a Friday check-in (ends Sep 26) emails the weekly habit score. Remind, don't lecture.
+
+## ACH — the default method for diagnosis (binding in every session)
+
+Analysis of Competing Hypotheses: Heuer's technique from the CIA's structured-analysis tradecraft.
+Use it whenever the question is **why is this happening**, **which of these is true**, or **what do we
+do when being wrong is expensive**. Do NOT use it for drafting, formatting, summarising, or anything
+with one obvious answer — a hypothesis matrix on "write this email" is theatre and spends the one
+resource Jordan is short of, which is his attention.
+
+1. **List every hypothesis, including the uncomfortable one.** The hypothesis Jordan would not like is
+   the one most often missing. A set with no painful member is incomplete.
+2. **List the evidence AND the arguments** — including absence of evidence, which is evidence.
+3. **Matrix it.** Hypotheses across, evidence down. Each cell: Consistent / Inconsistent / Neutral.
+4. **Score diagnosticity, then discard the rest.** Evidence consistent with every hypothesis
+   discriminates nothing and must never be reported as support. This is the whole point of the method.
+5. **Refute, do not confirm.** Rank by *fewest inconsistencies*, not most supporting evidence. The
+   surviving hypothesis wins by elimination, not by accumulation.
+6. **Sensitivity check.** Name the two or three items carrying the conclusion, and say what happens if
+   one of them is wrong, stale, or somebody's self-report.
+7. **Report the whole field with relative likelihoods, plus the observation that would flip it.** Never
+   hand over one answer with the alternatives deleted.
+
+Output shape: ranked hypotheses, the evidence that actually discriminated, the load-bearing items, and
+the one thing that would change the ranking. Keep the matrix out of the reply unless Jordan asks for
+it — he wants the conclusion, not the worksheet.
