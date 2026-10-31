@@ -45,6 +45,20 @@ cron, an alert, or infrastructure, not at the start of every session.
   Pruned `CLAUDE.md` to ~115 lines; deleted `MAP.md` and `PROJECT-INDEX.md`; registry and stories
   moved here and to `docs/lovable-registry.md`.
 
+## 2026-10-31 — The decisions session itself started bloating
+
+The pinned `📌 Jordan's daily decisions` session (created 2026-10-22) reached 403k tokens of context and
+about $25 of usage in nine days: each morning's wake re-read the whole history, and Jordan's own use of
+the session (taps, a "Decide Today" artifact) grew it faster than the 5-line briefs did. Approvals also
+did not persist per session as assumed: the brief asked for Supabase permission again on the 31st.
+Jordan then set the Supabase connector to always allow at the account level; a fresh session ran a
+query with no prompt (verified 15:00 UTC). Fixes: a new session `📌 Jordan's daily decisions (from 1
+Nov)` with a new Routine binding; the October Routine disabled and the session renamed as an archive;
+rule in CLAUDE.md to reset monthly. Also learned the hard way the same week: two subagents delegated the
+warm-requests triage ran for 7 and 6 hours and produced nothing (one stalled before its first query);
+the list was done directly in four SQL queries. Delegate only with a hard time budget and a first-step
+probe that reports any permission prompt immediately.
+
 ## 2026-09-15 — The Lovable registry exists because of a misfire
 
 A session pushed a neurotech data build into the Agent Command Center because the map listed only two

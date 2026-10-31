@@ -82,8 +82,12 @@ The system's throughput limit is Jordan's decisions/day, not agent capacity.
   `📌 Jordan's daily decisions`; a Routine whose only output is a notification produces nothing.
 - The daily brief posts there at 08:52 Madrid: max 5 items, each YES / NO / KILL, item 1 always the
   revenue-direct task. He answers in shorthand ("1 yes, 2 kill, 3 later") and the board updates.
-  (Routine `Jordan daily decisions → 📌 session`; the old email brief was dead for two days on a
+  (Routine `Jordan daily decisions → 📌 Nov session`; the old email brief was dead for two days on a
   permission prompt nobody could answer, see postmortems.)
+- **Reset the decisions session monthly.** A bound session re-reads its whole history on every wake:
+  the October one hit 400k tokens and ~$25 in 9 days. On the 1st: new session, new Routine binding,
+  old session renamed "(archive …)". Supabase connector approval is account-wide since 2026-10-31,
+  so a fresh session does not prompt.
 - **Revenue-direct first.** A task that is literally a booking, a customer, a deal or a proposal
   (`metadata.revenue_direct = true`, or the title says so) is item 1 every day until done and is
   exempt from the archive rule below.
