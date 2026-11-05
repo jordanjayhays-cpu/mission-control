@@ -45,6 +45,19 @@ cron, an alert, or infrastructure, not at the start of every session.
   Pruned `CLAUDE.md` to ~115 lines; deleted `MAP.md` and `PROJECT-INDEX.md`; registry and stories
   moved here and to `docs/lovable-registry.md`.
 
+## 2026-11-05 — The AI scan never worked
+
+Jordan sent a video on how Andrej Karpathy uses Claude and asked why he never gets things like it.
+The `AI capability scan` Routine (created 2026-09-06, Thursdays) had produced 0 "AI SCAN:" tasks in
+two months. Its fresh session had no repo (so it could not read the files its prompt required) and
+no database connector, and it reported each failure by push notification, which Jordan does not
+read. Replaced by `AI scout → 📌 decisions session`: self-contained prompt (no file reads), research
+in one Sonnet subagent so the decisions session stays small, one item posted where Jordan reads.
+Lessons from the video applied the same day: subagents on Sonnet, main session on Opus 5.5 medium;
+share the data, not the app; fewer rules (CLAUDE.md working rules merged from 14 to 7). Pattern to
+keep: a Routine must depend only on what its own session has, and must fail into the decisions
+session, never into a notification.
+
 ## 2026-10-31 — The decisions session itself started bloating
 
 The pinned `📌 Jordan's daily decisions` session (created 2026-10-22) reached 403k tokens of context and

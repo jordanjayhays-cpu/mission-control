@@ -33,6 +33,8 @@ Max 3 active lanes at a time (rule of 2026-09-06; it was widened the next day an
 130 of 223 Jordan tasks cancelled, 3 of 24 sessions on BD). The current 3 are UNSURE until Jordan
 names them (board, 2026-10-22). Until then: no new lane sessions, no new Routines, and every build
 request gets the question "does this get the next 5 bookings / meetings / deals?" If not, it waits.
+**Share the data, not the app** (Karpathy): before building a page or app, ask whether a table plus a
+prompt does the job. Massage Club has 35 pages and 15 sibling Lovable apps for 1 onboarded studio.
 
 ## Token discipline
 
@@ -47,7 +49,9 @@ measure of a Routine is board movement per firing, not uptime.
 
 Could a cheap model do it with clear instructions? Then it belongs in an edge function on
 gpt-4o-mini (`pisco-writer` is the pattern), not in a Claude session. Claude is for diagnosis,
-architecture and judgement. **Never load more than ~20 rows into context**: delegate to
+architecture and judgement. **Subagents run on Sonnet** (Agent tool `model: "sonnet"`), plain
+fetching on Haiku; the main session runs Opus 5.5 at medium effort. Cheap filter first (SQL, regex),
+model only on what survives (Karpathy's setup, 2026-11-05). **Never load more than ~20 rows into context**: delegate to
 `agent-worker` (`POST https://dprdnrgjkzgfgtcsguuq.supabase.co/functions/v1/agent-worker`, header
 `x-cron-key: $CRON_KEY`, body from a file with `-d @job.json`:
 `{"mode":"ask"|"fill","query":"select ...","instruction":"...","table":...,"target_column":...,"limit":25}`).
@@ -85,8 +89,8 @@ The system's throughput limit is Jordan's decisions/day, not agent capacity.
   (Routine `Jordan daily decisions → 📌 Nov session`; the old email brief was dead for two days on a
   permission prompt nobody could answer, see postmortems.)
 - **Reset the decisions session monthly.** A bound session re-reads its whole history on every wake:
-  the October one hit 400k tokens and ~$25 in 9 days. On the 1st: new session, new Routine binding,
-  old session renamed "(archive …)". Supabase connector approval is account-wide since 2026-10-31,
+  the October one hit 400k tokens and ~$25 in 9 days. On the 1st: new session, rebind BOTH Routines
+  (daily brief, Thursday AI scout), old session renamed "(archive …)". Supabase connector approval is account-wide since 2026-10-31,
   so a fresh session does not prompt.
 - **Revenue-direct first.** A task that is literally a booking, a customer, a deal or a proposal
   (`metadata.revenue_direct = true`, or the title says so) is item 1 every day until done and is
@@ -101,32 +105,25 @@ The system's throughput limit is Jordan's decisions/day, not agent capacity.
 ## Bring Jordan the frontier
 
 A finding you have is a finding you surface, in that session, not when asked. The weekly scan is a
-Routine (`AI capability scan`, Thursdays), never memory. The filter is revenue, not fashion: would it
+Routine (`AI scout → 📌 decisions session`, Thursdays 09:10 Madrid), never memory; it does its reading
+in one Sonnet subagent and posts one item in under 10 lines. (The old scan produced 0 results in two
+months: it ran in a fresh session with no repo and no database, and reported failure by push.) The filter is revenue, not fashion: would it
 change a real number in 30 days? Most weeks the answer is "nothing qualified" (see `EVALS.md`). Never
 sell him anxiety: his bottlenecks are human (studios that do not answer, contracts unsigned, a queue
 he has not cleared). Say that plainly instead of recommending a vector database.
 
-## Operating rules — Jordan × Claude (binding in every session)
+## Working rules — Jordan × Claude (binding; fewer rules on purpose: extra conditions contradict)
 
-- UNSURE beats plausible: never state a fact, name or email you have not verified.
-- Creative work → 3 versions (safe / bold / weird), one-line tradeoff each.
-- Outward-facing work → premortem: top 3 failure modes, fix, then proceed.
-- Formats come from examples: ask for one example rather than accepting a description.
-- Big deliverables end with "Accept when: …".
-- Context rot: if a session mixes lanes or grows long, hand Jordan a 3-line handoff.
-
-## Session protocol (binding, every session; design and sources in docs/claude-operating-system.md)
-
-1. **Route.** One lane per session. Wrong lane → handoff, don't mix.
-2. **Brief.** Open every deliverable with three lines, Goal / Material used / Done-when, with
-   [UNSURE] gaps marked. Missing information → **draft anyway**, then ask at most 3 questions. Never
-   reply with questions only (tested 2026-10-12: questions-only blocked the draft).
-3. **Plan first** for anything non-trivial: approach in 3 bullets, then do.
-4. **Verify with a fresh critic.** Proposals, outreach and client material get a subagent or
-   fresh-context review as the recipient before Jordan sees them. The writer never grades itself.
-5. **Close the loop.** Jordan-only steps → `agent_tasks`. A correction Jordan makes twice → propose
-   it as a one-line rule for this file or the lane file, in the same session.
-6. **Two failed corrections → restart** with a better brief, not a third patch.
+1. **One lane per session.** Wrong lane → 3-line handoff, don't mix.
+2. **Draft first.** Open with Goal / Material used / Done-when, mark gaps [UNSURE], then ask at most
+   3 questions. Never reply with questions only (tested 2026-10-12). Use his example if he gives one.
+3. **Plain and short.** Simple sentences, common words; a diagram beats a long explanation.
+4. **UNSURE beats plausible.** Never state a fact, name or email you have not verified.
+5. **Outward-facing work** (outreach, proposals, money) → fresh-critic review as the recipient, plus
+   the top 3 ways it goes wrong, before Jordan sees it. Creative work → 3 versions (safe/bold/weird).
+6. **A correction Jordan makes twice → a one-line rule** here or in the lane file, same session.
+   Two failed corrections → restart with a better brief. Jordan-only steps → `agent_tasks`.
+7. Big deliverables end with "Accept when: …".
 
 Repeated workflows are skills, not memory: `call-to-followup` (Placewell; voice in its
 `voice-examples.md`), `concierge-booking` (Massage Club), `weekly-retro` (all lanes, Fridays: turns
