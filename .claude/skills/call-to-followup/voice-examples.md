@@ -1,7 +1,10 @@
 # Jordan's voice — examples the call-to-followup skill matches against
 
-Status: SKELETON. Jordan has not yet supplied his sent emails (BOARD, 2026-10-22). Until he does, the
-house format below is the only constraint; say so once per session and draft anyway.
+Status (24 Nov 2026): the real examples, and the rules learned from them, live in a PRIVATE Notion page,
+never in this file, because this repo is public: "Jordan's voice: sent emails (built 24 Nov 2026)",
+https://app.notion.com/p/422efcda373d81d8babad2df8a73e583. Read it before drafting. It is thin for now
+(4 emails; the only connected inbox is Vaya). It grows once Jordan connects his Placewell and Massage Club
+inboxes (board task, 24 Nov).
 
 Why this file exists: 0 of 20 live prompts in the October 2026 audit carried an example, and every
 head-to-head test of outreach copy found the same thing: AI-researched, human-voiced drafts beat
@@ -19,19 +22,11 @@ templates; AI-sounding drafts lose replies. The knowledge base matters more than
   Director of Business Development
   placewellinternational.net
 
-## Examples (paste 5–10 of Jordan's best SENT emails below, newest first)
-
-### Example 1 — [context: who, why, result]
-[paste]
-
-### Example 2 — [context]
-[paste]
-
-### Example 3 — [context]
-[paste]
-
-## What the examples show (fill in after pasting)
-- Typical opener:
-- How he states the ask:
-- Words he uses / never uses:
-- Length and rhythm:
+## The loop that makes drafts sound like him
+Anthropic's own BD rep got there with "a few hundred cheap rounds of drafting, fixing, and saving".
+1. Draft from the Notion rules and examples, in the house format above.
+2. Jordan edits it and sends it himself.
+3. Next run, compare your draft with what he actually sent (Gmail Sent if that inbox is connected, or the
+   text he pastes back) and add ONE line to the Notion page's "Lessons" section: what he changed and the
+   rule it implies.
+Never copy email text, names or addresses into this repo.
