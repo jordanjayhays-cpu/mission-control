@@ -90,7 +90,11 @@ The system's throughput limit is Jordan's decisions/day, not agent capacity.
   permission prompt nobody could answer, see postmortems.)
 - **Reset the decisions session monthly.** A bound session re-reads its whole history on every wake:
   the October one hit 400k tokens and ~$25 in 9 days. On the 1st: new session, rebind BOTH Routines
-  (daily brief, Thursday AI scout), old session renamed "(archive …)". Supabase connector approval is account-wide since 2026-10-31,
+  (daily brief, Thursday AI scout), old session renamed "(archive …)". Same on the 1st for
+  `Massage Club ops` (5 Routines: reply watch, health patrol, outreach nudge, Sunday review, Kelly).
+- **Never bind a Routine to a work chat.** Each run re-sends the whole chat (Claude Code cost docs).
+  "Massage Club studio menus" reached ~$14,100 at list prices that way (625k tokens, ~33 wakes/day,
+  xhigh + Ultracode). Routines live in small ops chats that message Jordan only when he must act. Supabase connector approval is account-wide since 2026-10-31,
   so a fresh session does not prompt.
 - **Revenue-direct first.** A task that is literally a booking, a customer, a deal or a proposal
   (`metadata.revenue_direct = true`, or the title says so) is item 1 every day until done and is
