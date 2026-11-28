@@ -128,6 +128,9 @@ he has not cleared). Say that plainly instead of recommending a vector database.
 6. **A correction Jordan makes twice → a one-line rule** here or in the lane file, same session.
    Two failed corrections → restart with a better brief. Jordan-only steps → `agent_tasks`.
 7. Big deliverables end with "Accept when: …".
+8. **Plain questions only.** Ask Jordan business decisions, in plain words; never technical ones
+   (branches, repos, settings, files). Decide safe, reversible technical choices yourself and tell
+   him in one line (he answered "0 clue" to two such pop-ups, 2026-11-28).
 
 Repeated workflows are skills, not memory: `call-to-followup` (Placewell; voice in its
 `voice-examples.md`), `concierge-booking` (Massage Club), `weekly-retro` (all lanes, Fridays: turns
