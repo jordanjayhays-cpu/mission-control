@@ -67,6 +67,9 @@ architecture and judgement. **Never load more than ~20 rows into context**: dele
   alert with no path to a human is not an alert: upsert ONE `jordan` task, refreshed in place.
 - Check output, never status. A Routine that reports SUCCEEDED and changes nothing is the expensive
   kind of green. Verify the artefact (a row, a post, a moved date) and log the run.
+- AmigoSales campaigns: "running" is not sending. If a running campaign is not actually sending
+  (check sent invites, not status), fix and relaunch it without asking, then report after. Jordan
+  approved 2026-11-28. Free LinkedIn accounts run out of invite notes: default to blank invites.
 - Railway destructive ops need Jordan + 2FA and are only *staged* over the API; read back metrics
   before calling anything deleted. Never touch `Hermes Agent`. `render-worker` and `nanobot` are
   broken-or-live, not disposable.
